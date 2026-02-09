@@ -9,28 +9,34 @@ export default function manifest(): MetadataRoute.Manifest {
     description: SITE_INFO.description,
     icons: [
       {
-        src: "/images/icons/icon-vector.svg", // Replace with your vector icon
-        type: "image/svg+xml",
-        sizes: "any",
+        src: "/favicon-16x16.png",
+        type: "image/png",
+        sizes: "16x16",
         purpose: "any",
       },
       {
-        src: "/images/icons/icon-192x192.png", // Replace with your 192x192 PNG icon
+        src: "/favicon-32x32.png",
+        type: "image/png",
+        sizes: "32x32",
+        purpose: "any",
+      },
+      {
+        src: "/android-chrome-192x192.png",
         type: "image/png",
         sizes: "192x192",
         purpose: "any",
       },
       {
-        src: "/images/icons/icon-512x512.png", // Replace with your 512x512 PNG icon
+        src: "/android-chrome-512x512.png",
         type: "image/png",
         sizes: "512x512",
         purpose: "any",
       },
       {
-        src: "/images/icons/maskable-icon.png", // Replace with your maskable icon (512x512 with safe area)
+        src: "/apple-touch-icon.png",
         type: "image/png",
-        sizes: "512x512",
-        purpose: "maskable",
+        sizes: "180x180",
+        purpose: "any",
       },
     ],
     id: "/?utm_source=pwa",

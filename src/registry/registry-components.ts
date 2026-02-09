@@ -7,7 +7,7 @@ export const components: Registry["items"] = [
     description:
       "A theme switcher component for Next.js apps with next-themes and Tailwind CSS, supporting system, light, and dark modes.",
     title: "Theme Switcher",
-    author: "GK <gk@gk.me>",
+    author: "Gautham Krishna <heyitsgautham@gmail.com>",
     dependencies: ["next-themes", "lucide-react", "motion"],
     registryDependencies: ["@gk/utils"],
     files: [
@@ -16,13 +16,13 @@ export const components: Registry["items"] = [
         type: "registry:component",
       },
     ],
-    docs: "https://gk.me/components/theme-switcher-component",
+    docs: "https://gauthamkrishna.dev/components/theme-switcher-component",
   },
   {
     name: "flip-sentences",
     type: "registry:component",
     title: "Flip Sentences",
-    author: "GK <gk@gk.me>",
+    author: "Gautham Krishna <heyitsgautham@gmail.com>",
     dependencies: ["motion"],
     registryDependencies: ["@gk/utils"],
     files: [
@@ -38,7 +38,7 @@ export const components: Registry["items"] = [
     description:
       "Create a Xin chào and Hello writing effect inspired by Apple using Motion for React.",
     title: "Apple Hello Effect",
-    author: "GK <gk@gk.me>",
+    author: "Gautham Krishna <heyitsgautham@gmail.com>",
     dependencies: ["motion"],
     registryDependencies: ["@gk/utils"],
     files: [
@@ -47,7 +47,7 @@ export const components: Registry["items"] = [
         type: "registry:component",
       },
     ],
-    docs: "https://gk.me/components/writing-effect-inspired-by-apple",
+    docs: "https://gauthamkrishna.dev/components/writing-effect-inspired-by-apple",
   },
   {
     name: "wheel-picker",
@@ -55,7 +55,7 @@ export const components: Registry["items"] = [
     description:
       "iOS-like wheel picker for React with smooth inertia scrolling and infinite loop support.",
     title: "Wheel Picker",
-    author: "GK <gk@gk.me>",
+    author: "Gautham Krishna <heyitsgautham@gmail.com>",
     dependencies: ["@ncdai/react-wheel-picker"],
     registryDependencies: ["@gk/utils"],
     files: [
@@ -64,7 +64,7 @@ export const components: Registry["items"] = [
         type: "registry:component",
       },
     ],
-    docs: "https://gk.me/components/react-wheel-picker",
+    docs: "https://gauthamkrishna.dev/components/react-wheel-picker",
   },
   {
     name: "work-experience",
@@ -72,7 +72,7 @@ export const components: Registry["items"] = [
     description:
       "Displays a list of work experiences with role details and durations.",
     title: "Work Experience",
-    author: "GK <gk@gk.me>",
+    author: "Gautham Krishna <heyitsgautham@gmail.com>",
     dependencies: ["react-markdown", "lucide-react"],
     devDependencies: ["@tailwindcss/typography", "tw-animate-css"],
     registryDependencies: ["@gk/utils", "collapsible", "separator"],
@@ -100,14 +100,14 @@ export const components: Registry["items"] = [
       '@import "tw-animate-css"': {},
       "@plugin @tailwindcss/typography": {},
     },
-    docs: "https://gk.me/components/work-experience-component",
+    docs: "https://gauthamkrishna.dev/components/work-experience-component",
   },
   {
     name: "shimmering-text",
     type: "registry:component",
     description: "Smooth shimmering text animation built with Motion.",
     title: "Shimmering Text",
-    author: "GK <gk@gk.me>",
+    author: "Gautham Krishna <heyitsgautham@gmail.com>",
     dependencies: ["motion"],
     registryDependencies: ["@gk/utils"],
     files: [
@@ -123,7 +123,7 @@ export const components: Registry["items"] = [
     description:
       "A sleek, interactive slider inspired by the classic iPhone OS 'slide to unlock' gesture.",
     title: "Slide to Unlock",
-    author: "GK <gk@gk.me>",
+    author: "Gautham Krishna <heyitsgautham@gmail.com>",
     dependencies: ["motion"],
     registryDependencies: ["@gk/utils", "@gk/shimmering-text"],
     files: [
@@ -132,6 +132,6 @@ export const components: Registry["items"] = [
         type: "registry:component",
       },
     ],
-    docs: "https://gk.me/components/slide-to-unlock",
+    docs: "https://gauthamkrishna.dev/components/slide-to-unlock",
   },
 ];

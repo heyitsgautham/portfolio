@@ -76,3 +76,4 @@ logs/
 .logs/
 *.log
 *.log.*
+.env*.local

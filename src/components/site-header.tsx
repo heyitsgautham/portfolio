@@ -6,7 +6,7 @@ import Link from "next/link";
 import { DesktopNav } from "@/components/desktop-nav";
 import { IndiaTime } from "@/components/india-time";
 import { ToggleTheme } from "@/components/toggle-theme";
-import { COMPACT_NAV, MAIN_NAV } from "@/config/site";
+import { MAIN_NAV } from "@/config/site";
 import { useScroll } from "@/hooks/use-scroll";
 import { cn } from "@/lib/utils";
 
@@ -77,7 +77,7 @@ export function SiteHeader() {
               </BrandContextMenu>
 
               <nav className="hidden md:flex">
-                <DesktopNav items={COMPACT_NAV} />
+                <DesktopNav items={MAIN_NAV} />
               </nav>
             </div>
 

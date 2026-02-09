@@ -1,4 +1,3 @@
-import { SITE_INFO } from "@/config/site";
 import { AWARDS } from "@/features/profile/data/awards";
 import { CERTIFICATIONS } from "@/features/profile/data/certifications";
 import { EXPERIENCES } from "@/features/profile/data/experiences";
@@ -60,9 +59,9 @@ ${CERTIFICATIONS.map((item) => `- [${item.title}](${item.credentialURL})`).join(
 function getContent() {
   return `<SYSTEM>This document contains comprehensive information about ${USER.displayName}'s professional profile and portfolio. It includes personal details, work experience, projects, achievements, and certifications. This data is formatted for consumption by Large Language Models (LLMs) to provide accurate and up-to-date information about ${USER.displayName}'s background, skills, and expertise as a Design Engineer.</SYSTEM>
 
-# gk.me
+# gauthamkrishna.dev
 
-> A minimal portfolio and component registry to showcase my work as a Design Engineer.
+> A minimal portfolio to showcase my work as an AI Engineer.
 
 ${aboutText}
 ${experienceText}

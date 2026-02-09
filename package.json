@@ -1,24 +1,24 @@
 {
-  "name": "gk.me",
+  "name": "heyitsgautham-portfolio",
   "version": "2.0.3",
   "description": "GK's Portfolio - AI Engineer & DevOps enthusiast passionate about intelligent automation and machine learning systems.",
-  "homepage": "https://gk.me",
+  "homepage": "https://gauthamkrishna.dev",
   "license": "MIT",
   "author": {
     "name": "Gautham Krishna",
-    "email": "gk@gk.me",
+    "email": "heyitsgautham@gmail.com",
     "url": "https://github.com/heyitsgautham"
   },
   "contributors": [
     {
       "name": "Gautham Krishna",
-      "email": "gk@gk.me",
+      "email": "heyitsgautham@gmail.com",
       "url": "https://github.com/heyitsgautham"
     }
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/heyitsgautham/gk.git"
+    "url": "git+https://github.com/heyitsgautham/portfolio.git"
   },
   "scripts": {
     "dev": "next dev -p 1408",
@@ -85,6 +85,7 @@
     "eslint": "^9.22.0",
     "eslint-config-next": "15.5.7",
     "eslint-config-prettier": "^10.1.1",
+    "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "gray-matter": "^4.0.3",
     "husky": "^9.1.7",

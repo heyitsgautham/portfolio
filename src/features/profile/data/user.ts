@@ -7,17 +7,18 @@ export const USER: User = {
   username: "heyitsgautham",
   gender: "male",
   pronouns: "he/him",
-  bio: "AI Engineer | SIH '25 Finalist | Dual Degree @ IIT Madras & SEC | PyTorch, GenAI, LLM | Ex-Presidio",
+  bio: "AI Engineer | SIH '25 Finalist | Dual Degree @ IIT Madras & SEC | LLMs, RAG, Deep Learning | Ex-Presidio",
   flipSentences: [
-    "Incoming AI Engineer",
     "SIH '25 Finalist",
-    "Building Scalable Systems",
-    "GenAI & RAG Developer",
+    "Ex-SWE Intern @ Presidio",
+    "BS @ IIT Madras",
+    "Building with LLMs & RAG",
+    "Full-Stack AI Developer",
   ],
   address: "Chennai, Tamil Nadu, India",
   phoneNumber: "", // Add base64 encoded phone if needed
   email: "aGV5aXRzZ2F1dGhhbUBnbWFpbC5jb20=", // base64 encoded heyitsgautham@gmail.com
-  website: "https://heyitsgautham.dev",
+  website: "https://gauthamkrishna.dev",
   jobTitle: "AI Engineer",
   jobs: [
     {
@@ -29,13 +30,11 @@ export const USER: User = {
   about: `
 I don't just study AI; I build with it.
 
-Currently, I am tackling a rigorous dual-degree curriculum—pursuing a BS in Data Science at IIT Madras alongside a B.Tech in AI/ML—which has trained me to master complex concepts while managing tight deadlines.
+As an **SIH'25 Finalist** and **Ex-Software Engineer Intern at Presidio**, I've moved beyond theory to engineer production-grade AI systems. I architected multi-domain RAG systems, built AI-powered resume screening platforms that cut screening time by 98%, and deployed microservices on AWS using Terraform.
 
-But I'm not just an academic. I'm obsessed with shipping code.
+Currently pursuing a dual degree—**BS in Data Science at IIT Madras** alongside a **B.Tech in AI/ML at SEC**—I balance rigorous academics with hands-on development.
 
-Most recently, as a Software Engineer Intern at Presidio, I moved beyond theory to engineer production-grade systems. I architected a multi-domain RAG system for healthcare, built a microservices-based LMS deployed on AWS ECS, and optimized a resume parser using Google Gemini that cut screening time by 98%.
-
-My engineering philosophy is simple: **Models are cool, but scalable systems change the world.**
+My focus: Building intelligent systems with **LLMs, RAG, and Deep Learning** while shipping full-stack applications with cloud-native deployments. Most academic and experimental work lives in private repositories.
   `,
   avatar: "/images/avatar.webp", // Replace with your actual avatar image (400x400px recommended)
   ogImage: "/images/og-image.png", // Replace with your actual OG image (1200x630px)

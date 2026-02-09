@@ -33,6 +33,7 @@ export function ProjectItem({
 }) {
   const { start, end } = project.period;
   const isOngoing = !end;
+  const isGitHub = project.link.includes("github.com");
 
   return (
     <CollapsibleWithContext
@@ -41,7 +42,7 @@ export function ProjectItem({
     >
       <article
         className={cn(
-          "group relative flex h-full flex-col overflow-hidden rounded-lg border border-border/50 bg-card/50 backdrop-blur-sm transition-all hover:border-border hover:bg-card hover:shadow-lg",
+          "group relative flex flex-col overflow-hidden rounded-lg border border-border/50 bg-card/50 backdrop-blur-sm transition-all hover:border-border hover:bg-card hover:shadow-lg",
           className
         )}
       >
@@ -80,11 +81,31 @@ export function ProjectItem({
                 </dl>
               </div>
 
-              <div
-                className="shrink-0 pt-1 text-muted-foreground [&_svg]:size-4"
-                aria-hidden
-              >
-                <CollapsibleChevronsIcon />
+              <div className="flex items-center gap-3 shrink-0 pt-1">
+                <a
+                  href={addQueryParams(project.link, UTM_PARAMS)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group/link flex size-8 items-center justify-center rounded-full border border-border/50 bg-background/50 text-muted-foreground transition-all hover:border-border hover:bg-background hover:text-primary hover:shadow-sm"
+                  onClick={(e) => e.stopPropagation()}
+                  title={isGitHub ? "View on GitHub" : "View Project"}
+                >
+                  {isGitHub ? (
+                    <Icons.github className="size-4" />
+                  ) : (
+                    <ExternalLinkIcon className="size-4" />
+                  )}
+                  <span className="sr-only">
+                    {isGitHub ? "View on GitHub" : "View Project"}
+                  </span>
+                </a>
+
+                <div
+                  className="text-muted-foreground [&_svg]:size-4"
+                  aria-hidden
+                >
+                  <CollapsibleChevronsIcon />
+                </div>
               </div>
             </div>
 

@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
   title: {
     template: `%s – ${SITE_INFO.name}`,
-    default: `${USER.displayName} – ${USER.jobTitle}`,
+    default: USER.displayName,
   },
   description: SITE_INFO.description,
   keywords: SITE_INFO.keywords,
@@ -71,7 +71,6 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    creator: "@gkhq",
     images: [SITE_INFO.ogImage],
   },
 };

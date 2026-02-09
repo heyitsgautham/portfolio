@@ -32,7 +32,6 @@ export function Projects() {
                 <ProjectItem
                   key={project.id}
                   project={project}
-                  defaultOpen
                   className="border-primary/30"
                 />
               ))}

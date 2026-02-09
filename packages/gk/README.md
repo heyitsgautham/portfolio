@@ -1,6 +1,6 @@
 # gk
 
-A simple CLI wrapper for adding components from [gk.me](https://gk.me/components) component registry using [shadcn](https://ui.shadcn.com/docs/cli).
+A simple CLI wrapper for adding components from [gauthamkrishna.dev](https://gauthamkrishna.dev/components) component registry using [shadcn](https://ui.shadcn.com/docs/cli).
 
 ## Usage
 
@@ -20,4 +20,4 @@ Visit https://ui.shadcn.com/docs/cli to view the documentation.
 
 ## License
 
-Licensed under the [MIT license](https://github.com/gked/gk/blob/main/LICENSE).
+Licensed under the [MIT license](https://github.com/heyitsgautham/portfolio/blob/main/LICENSE).

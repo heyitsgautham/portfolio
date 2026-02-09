@@ -28,6 +28,7 @@ export function ProjectListItem({
   const { start, end } = project.period;
   const isOngoing = !end;
   const displaySkills = project.skills.slice(0, 5);
+  const isGitHub = project.link.includes("github.com");
 
   return (
     <CollapsibleWithContext defaultOpen={defaultOpen} asChild>
@@ -89,11 +90,18 @@ export function ProjectListItem({
               href={addQueryParams(project.link, UTM_PARAMS)}
               target="_blank"
               rel="noopener noreferrer"
-              className="shrink-0 text-muted-foreground transition-colors hover:text-primary"
+              className="group/link flex size-8 shrink-0 items-center justify-center rounded-full border border-border/50 bg-background/50 text-muted-foreground transition-all hover:border-border hover:bg-background hover:text-primary hover:shadow-sm"
               onClick={(e) => e.stopPropagation()}
+              title={isGitHub ? "View on GitHub" : "View Project"}
             >
-              <ExternalLinkIcon className="size-4" aria-hidden />
-              <span className="sr-only">View Project</span>
+              {isGitHub ? (
+                <Icons.github className="size-4" />
+              ) : (
+                <ExternalLinkIcon className="size-4" />
+              )}
+              <span className="sr-only">
+                {isGitHub ? "View on GitHub" : "View Project"}
+              </span>
             </a>
 
             <div

@@ -49,7 +49,7 @@ src/
 The application works without any environment variables thanks to sensible fallbacks. However, you can customize behavior by creating a `.env.local` file:
 
 ```env
-# Site configuration (defaults to https://gk.me)
+# Site configuration (defaults to https://gauthamkrishna.dev)
 APP_URL=https://your-custom-domain.com
 
 # DMCA URL (optional - only shown in footer if provided)

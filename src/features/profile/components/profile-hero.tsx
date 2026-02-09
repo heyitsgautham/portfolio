@@ -77,48 +77,48 @@ export function ProfileHero() {
 
         <div className="max-w-3xl text-lg leading-relaxed text-muted-foreground sm:text-xl">
           <p>
-            I build AI agentic automations for business to help reduce the
-            everyday tedious tasks with{" "}
+            I build intelligent systems with{" "}
             <TechPill
-              name="n8n"
-              iconKey="n8n"
-              className="border-[#EA4B71]/20 bg-[#EA4B71]/10 text-[#EA4B71]"
-              url="https://n8n.io"
+              name="LLMs"
+              iconKey="openai"
+              className="text-foreground"
+              url="https://openai.com"
             />
             ,{" "}
             <TechPill
-              name="LangChain"
+              name="RAG"
               iconKey="langchain-color"
               className="text-foreground"
               url="https://www.langchain.com"
-            />{" "}
-            and{" "}
+            />
+            , and{" "}
             <TechPill
               name="Python"
               iconKey="python"
               className="border-[#3776AB]/20 bg-[#3776AB]/10 text-[#3776AB]"
               url="https://www.python.org"
             />
-            . Enthusiastic about RAG and{" "}
+            . SIH&apos;25 Finalist, dual degree at IIT Madras & SEC. Ex-SWE
+            Intern at Presidio building production AI systems with{" "}
             <TechPill
-              name="MCP tools"
-              iconKey="mcp"
-              className="text-foreground"
-              url="https://modelcontextprotocol.io"
+              name="FastAPI"
+              iconKey="fastapi"
+              className="border-[#009688]/20 bg-[#009688]/10 text-[#009688]"
+              url="https://fastapi.tiangolo.com"
             />
-            , currently learning{" "}
+            ,{" "}
             <TechPill
               name="PostgreSQL"
               iconKey="postgresql"
               className="border-[#336791]/20 bg-[#336791]/10 text-[#336791]"
               url="https://www.postgresql.org"
-            />{" "}
-            and{" "}
+            />
+            , and{" "}
             <TechPill
-              name="Redis"
-              iconKey="redis"
-              className="border-[#DC382D]/20 bg-[#DC382D]/10 text-[#DC382D]"
-              url="https://redis.io"
+              name="AWS"
+              iconKey="aws"
+              className="border-[#FF9900]/20 bg-[#FF9900]/10 text-[#FF9900]"
+              url="https://aws.amazon.com"
             />
             .
           </p>

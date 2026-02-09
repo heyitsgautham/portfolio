@@ -27,15 +27,15 @@ import {
   CommandList,
   CommandSeparator,
 } from "@/components/ui/command";
-import type { Post } from "@/types/post";
 import { SOCIAL_LINKS } from "@/features/profile/data/social-links";
 import { useSound } from "@/hooks/use-sound";
 import { cn } from "@/lib/utils";
+import type { Post } from "@/types/post";
 import { copyText } from "@/utils/copy";
 
-import { Icons } from "./icons";
 import { getMarkSVG, GKMark } from "./gk-mark";
 import { getWordmarkSVG } from "./gk-wordmark";
+import { Icons } from "./icons";
 import { Button } from "./ui/button";
 import { Separator } from "./ui/separator";
 
@@ -276,7 +276,7 @@ export function CommandMenu({ posts }: { posts: Post[] }) {
             </CommandItem>
 
             <CommandItem asChild>
-              <a href="https://assets.gk.me/gk-brand.zip" download>
+              <a href="/gk-brand.zip" download>
                 <DownloadIcon />
                 Download Brand Assets
               </a>

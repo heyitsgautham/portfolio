@@ -48,7 +48,7 @@ export function BrandContextMenu({ children }: { children: React.ReactNode }) {
         </ContextMenuItem>
 
         <ContextMenuItem asChild>
-          <a href="https://assets.gk.me/gk-brand.zip" download>
+          <a href="/gk-brand.zip" download>
             <DownloadIcon />
             Download Brand Assets
           </a>

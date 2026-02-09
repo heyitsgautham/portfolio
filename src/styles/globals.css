@@ -36,6 +36,11 @@
   --color-code-highlight: var(--code-highlight);
   --color-selection: var(--selection);
   --color-selection-foreground: var(--selection-foreground);
+  --color-contribution-0: var(--contribution-0);
+  --color-contribution-1: var(--contribution-1);
+  --color-contribution-2: var(--contribution-2);
+  --color-contribution-3: var(--contribution-3);
+  --color-contribution-4: var(--contribution-4);
 
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
@@ -201,6 +206,18 @@
   /* zinc-50 */
   --selection-foreground: oklch(0.985 0 0);
 
+  /* Contribution graph colors - light theme */
+  /* zinc-100 with green hint */
+  --contribution-0: oklch(0.96 0.005 160);
+  /* green-200 */
+  --contribution-1: oklch(0.87 0.12 156);
+  /* green-400 */
+  --contribution-2: oklch(0.75 0.17 152);
+  /* green-500 */
+  --contribution-3: oklch(0.72 0.22 150);
+  /* green-600 */
+  --contribution-4: oklch(0.64 0.22 149);
+
   --shadow-popover: 0 6px 24px rgba(0, 0, 0, 0.25);
 }
 
@@ -289,6 +306,18 @@
 
   /* zinc-950 */
   --selection-foreground: oklch(0.141 0.005 285.823);
+
+  /* Contribution graph colors - dark theme */
+  /* Very dark, subtle and close to background */
+  --contribution-0: oklch(0.18 0.005 285);
+  /* Dark green, subtle */
+  --contribution-1: oklch(0.30 0.08 152);
+  /* Medium-dark green */
+  --contribution-2: oklch(0.48 0.16 152);
+  /* Medium-bright green */
+  --contribution-3: oklch(0.65 0.20 150);
+  /* Bright green */
+  --contribution-4: oklch(0.78 0.19 151);
 
   --shadow-popover: 0 0 24px rgba(0, 0, 0, 0.5);
 }

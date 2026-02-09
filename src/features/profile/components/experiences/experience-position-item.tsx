@@ -78,14 +78,73 @@ export function ExperiencePositionItem({
           <div className="space-y-4 border-t border-border/50 bg-muted/20 p-4">
             {position.description && (
               <Prose>
-                <ul>
-                  {position.description
+                {(() => {
+                  const lines = position.description
                     .split("\n")
-                    .filter((line) => line.trim().startsWith("-"))
-                    .map((line, index) => (
-                      <li key={index}>{line.trim().substring(1).trim()}</li>
-                    ))}
-                </ul>
+                    .filter((line) => line.trim().length > 0);
+
+                  const blocks: Array<
+                    | { type: "heading"; text: string }
+                    | { type: "bullets"; items: string[][] }
+                  > = [];
+
+                  let currentBullets: string[][] = [];
+
+                  for (const line of lines) {
+                    const trimmed = line.trim();
+                    const headingMatch = trimmed.match(/^\*\*(.+?)\*\*$/);
+
+                    if (headingMatch) {
+                      // Flush any accumulated bullets
+                      if (currentBullets.length > 0) {
+                        blocks.push({ type: "bullets", items: currentBullets });
+                        currentBullets = [];
+                      }
+                      blocks.push({ type: "heading", text: headingMatch[1] });
+                    } else if (trimmed.startsWith("- ")) {
+                      // New bullet point
+                      currentBullets.push([trimmed.substring(2).trim()]);
+                    } else {
+                      // Continuation line (Shift+Enter) — append to last bullet
+                      if (currentBullets.length > 0) {
+                        currentBullets[currentBullets.length - 1].push(trimmed);
+                      }
+                    }
+                  }
+
+                  // Flush remaining bullets
+                  if (currentBullets.length > 0) {
+                    blocks.push({ type: "bullets", items: currentBullets });
+                  }
+
+                  return blocks.map((block, i) => {
+                    if (block.type === "heading") {
+                      return (
+                        <p
+                          key={i}
+                          className="!mb-1.5 !mt-3 first:!mt-0 text-sm font-semibold text-foreground"
+                        >
+                          {block.text}
+                        </p>
+                      );
+                    }
+
+                    return (
+                      <ul key={i} className="!mt-1">
+                        {block.items.map((bulletLines, j) => (
+                          <li key={j}>
+                            {bulletLines.map((line, k) => (
+                              <React.Fragment key={k}>
+                                {k > 0 && <br />}
+                                {line}
+                              </React.Fragment>
+                            ))}
+                          </li>
+                        ))}
+                      </ul>
+                    );
+                  });
+                })()}
               </Prose>
             )}
 

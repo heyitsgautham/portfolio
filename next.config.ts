@@ -4,7 +4,7 @@ import path from "path";
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   transpilePackages: ["next-mdx-remote"],
-  allowedDevOrigins: ["red.local"], // Replace with your local development device name
+  allowedDevOrigins: ["localhost"],
   turbopack: {
     root: path.join(__dirname, "."),
   },
@@ -13,7 +13,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "gk.me", // Replace with your assets domain
+        hostname: "gauthamkrishna.dev",
         port: "",
       },
     ],
