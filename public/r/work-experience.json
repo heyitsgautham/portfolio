@@ -3,7 +3,7 @@
   "name": "work-experience",
   "type": "registry:component",
   "title": "Work Experience",
-  "author": "[your-username] <[your-email]>", // Replace with your information
+  "author": "Gautham Krishna <heyitsgautham@gmail.com>",
   "description": "Displays a list of work experiences with role details and durations.",
   "dependencies": [
     "react-markdown",
@@ -43,5 +43,5 @@
     "@import \"tw-animate-css\"": {},
     "@plugin @tailwindcss/typography": {}
   },
-  "docs": "https://[your-domain.com]/components/work-experience-component" // Replace with your domain
+  "docs": "https://gauthamkrishna.dev/components/work-experience-component"
 }

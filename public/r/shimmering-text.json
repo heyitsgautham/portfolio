@@ -3,7 +3,7 @@
   "name": "shimmering-text",
   "type": "registry:component",
   "title": "Shimmering Text",
-  "author": "[your-username] <[your-email]>", // Replace with your information
+  "author": "Gautham Krishna <heyitsgautham@gmail.com>",
   "description": "Smooth shimmering text animation built with Motion.",
   "dependencies": [
     "motion"

@@ -3,7 +3,7 @@
   "name": "theme-switcher",
   "type": "registry:component",
   "title": "Theme Switcher",
-  "author": "[your-username] <[your-email]>", // Replace with your information
+  "author": "Gautham Krishna <heyitsgautham@gmail.com>",
   "description": "A theme switcher component for Next.js apps with next-themes and Tailwind CSS, supporting system, light, and dark modes.",
   "dependencies": [
     "next-themes",
@@ -20,5 +20,5 @@
       "type": "registry:component"
     }
   ],
-  "docs": "https://[your-domain.com]/components/theme-switcher-component" // Replace with your domain
+  "docs": "https://gauthamkrishna.dev/components/theme-switcher-component"
 }

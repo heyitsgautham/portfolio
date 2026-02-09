@@ -1,13 +1,13 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
-  "name": "[your-username]", // Replace with your username
-  "homepage": "https://[your-domain.com]/components", // Replace with your domain
+  "name": "gk",
+  "homepage": "https://gauthamkrishna.dev/components",
   "items": [
     {
       "name": "utils",
       "type": "registry:lib",
       "title": "Utility Functions",
-      "author": "[your-username] <[your-email]>", // Replace with your information
+      "author": "Gautham Krishna <heyitsgautham@gmail.com>",
       "dependencies": [
         "clsx",
         "tailwind-merge"
@@ -50,7 +50,7 @@
       "name": "theme-switcher",
       "type": "registry:component",
       "title": "Theme Switcher",
-      "author": "[your-username] <[your-email]>", // Replace with your information
+      "author": "Gautham Krishna <heyitsgautham@gmail.com>",
       "description": "A theme switcher component for Next.js apps with next-themes and Tailwind CSS, supporting system, light, and dark modes.",
       "dependencies": [
         "next-themes",
@@ -66,13 +66,13 @@
           "type": "registry:component"
         }
       ],
-      "docs": "https://[your-domain.com]/components/theme-switcher-component" // Replace with your domain
+      "docs": "https://gauthamkrishna.dev/components/theme-switcher-component"
     },
     {
       "name": "flip-sentences",
       "type": "registry:component",
       "title": "Flip Sentences",
-      "author": "[your-username] <[your-email]>", // Replace with your information
+      "author": "Gautham Krishna <heyitsgautham@gmail.com>",
       "dependencies": [
         "motion"
       ],
@@ -90,7 +90,7 @@
       "name": "apple-hello-effect",
       "type": "registry:component",
       "title": "Apple Hello Effect",
-      "author": "[your-username] <[your-email]>", // Replace with your information
+      "author": "Gautham Krishna <heyitsgautham@gmail.com>",
       "description": "Create a Xin chào and Hello writing effect inspired by Apple using Motion for React.",
       "dependencies": [
         "motion"
@@ -104,13 +104,13 @@
           "type": "registry:component"
         }
       ],
-      "docs": "https://[your-domain.com]/components/writing-effect-inspired-by-apple" // Replace with your domain
+      "docs": "https://gauthamkrishna.dev/components/writing-effect-inspired-by-apple"
     },
     {
       "name": "wheel-picker",
       "type": "registry:component",
       "title": "Wheel Picker",
-      "author": "[your-username] <[your-email]>", // Replace with your information
+      "author": "Gautham Krishna <heyitsgautham@gmail.com>",
       "description": "iOS-like wheel picker for React with smooth inertia scrolling and infinite loop support.",
       "dependencies": [
         "@ncdai/react-wheel-picker"
@@ -124,13 +124,13 @@
           "type": "registry:component"
         }
       ],
-      "docs": "https://[your-domain.com]/components/react-wheel-picker" // Replace with your domain
+      "docs": "https://gauthamkrishna.dev/components/react-wheel-picker"
     },
     {
       "name": "work-experience",
       "type": "registry:component",
       "title": "Work Experience",
-      "author": "[your-username] <[your-email]>", // Replace with your information
+      "author": "Gautham Krishna <heyitsgautham@gmail.com>",
       "description": "Displays a list of work experiences with role details and durations.",
       "dependencies": [
         "react-markdown",
@@ -169,13 +169,13 @@
         "@import \"tw-animate-css\"": {},
         "@plugin @tailwindcss/typography": {}
       },
-      "docs": "https://[your-domain.com]/components/work-experience-component" // Replace with your domain
+      "docs": "https://gauthamkrishna.dev/components/work-experience-component"
     },
     {
       "name": "shimmering-text",
       "type": "registry:component",
       "title": "Shimmering Text",
-      "author": "[your-username] <[your-email]>", // Replace with your information
+      "author": "Gautham Krishna <heyitsgautham@gmail.com>",
       "description": "Smooth shimmering text animation built with Motion.",
       "dependencies": [
         "motion"
@@ -194,7 +194,7 @@
       "name": "slide-to-unlock",
       "type": "registry:component",
       "title": "Slide to Unlock",
-      "author": "[your-username] <[your-email]>", // Replace with your information
+      "author": "Gautham Krishna <heyitsgautham@gmail.com>",
       "description": "A sleek, interactive slider inspired by the classic iPhone OS 'slide to unlock' gesture.",
       "dependencies": [
         "motion"
@@ -209,7 +209,7 @@
           "type": "registry:component"
         }
       ],
-      "docs": "https://[your-domain.com]/components/slide-to-unlock" // Replace with your domain
+      "docs": "https://gauthamkrishna.dev/components/slide-to-unlock"
     },
     {
       "name": "wheel-picker-block-01",

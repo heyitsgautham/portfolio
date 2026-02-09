@@ -3,7 +3,7 @@
   "name": "slide-to-unlock",
   "type": "registry:component",
   "title": "Slide to Unlock",
-  "author": "[your-username] <[your-email]>", // Replace with your information
+  "author": "Gautham Krishna <heyitsgautham@gmail.com>",
   "description": "A sleek, interactive slider inspired by the classic iPhone OS 'slide to unlock' gesture.",
   "dependencies": [
     "motion"
@@ -19,5 +19,5 @@
       "type": "registry:component"
     }
   ],
-  "docs": "https://[your-domain.com]/components/slide-to-unlock" // Replace with your domain
+  "docs": "https://gauthamkrishna.dev/components/slide-to-unlock"
 }

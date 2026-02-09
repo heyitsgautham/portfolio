@@ -22,7 +22,7 @@
   },
   "scripts": {
     "dev": "next dev -p 1408",
-    "build": "next build",
+    "build": "pnpm registry:build && next build",
     "start": "next start",
     "preview": "next build && next start -p 1408",
     "lint": "eslint .",

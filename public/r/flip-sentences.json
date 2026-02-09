@@ -3,7 +3,7 @@
   "name": "flip-sentences",
   "type": "registry:component",
   "title": "Flip Sentences",
-  "author": "[your-username] <[your-email]>", // Replace with your information
+  "author": "Gautham Krishna <heyitsgautham@gmail.com>",
   "dependencies": [
     "motion"
   ],

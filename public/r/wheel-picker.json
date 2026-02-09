@@ -3,7 +3,7 @@
   "name": "wheel-picker",
   "type": "registry:component",
   "title": "Wheel Picker",
-  "author": "[your-username] <[your-email]>", // Replace with your information
+  "author": "Gautham Krishna <heyitsgautham@gmail.com>",
   "description": "iOS-like wheel picker for React with smooth inertia scrolling and infinite loop support.",
   "dependencies": [
     "@ncdai/react-wheel-picker"
@@ -18,5 +18,5 @@
       "type": "registry:component"
     }
   ],
-  "docs": "https://[your-domain.com]/components/react-wheel-picker" // Replace with your domain
+  "docs": "https://gauthamkrishna.dev/components/react-wheel-picker"
 }
