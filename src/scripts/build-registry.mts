@@ -16,6 +16,9 @@ const PUBLIC_REGISTRY_PATH = path.join(process.cwd(), "public/r");
  * Thanks @shadcn/ui
  */
 export async function buildRegistry(registry: Registry) {
+  // Ensure output directories exist (they may be gitignored)
+  await fs.mkdir(REGISTRY_PATH, { recursive: true });
+  await fs.mkdir(PUBLIC_REGISTRY_PATH, { recursive: true });
   let index = `/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // @ts-nocheck
