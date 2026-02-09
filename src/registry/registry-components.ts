@@ -7,7 +7,7 @@ export const components: Registry["items"] = [
     description:
       "A theme switcher component for Next.js apps with next-themes and Tailwind CSS, supporting system, light, and dark modes.",
     title: "Theme Switcher",
-    author: "Red <red@gk.me>",
+    author: "GK <gk@gk.me>",
     dependencies: ["next-themes", "lucide-react", "motion"],
     registryDependencies: ["@gk/utils"],
     files: [
@@ -22,7 +22,7 @@ export const components: Registry["items"] = [
     name: "flip-sentences",
     type: "registry:component",
     title: "Flip Sentences",
-    author: "Red <red@gk.me>",
+    author: "GK <gk@gk.me>",
     dependencies: ["motion"],
     registryDependencies: ["@gk/utils"],
     files: [
@@ -38,7 +38,7 @@ export const components: Registry["items"] = [
     description:
       "Create a Xin chào and Hello writing effect inspired by Apple using Motion for React.",
     title: "Apple Hello Effect",
-    author: "Red <red@gk.me>",
+    author: "GK <gk@gk.me>",
     dependencies: ["motion"],
     registryDependencies: ["@gk/utils"],
     files: [
@@ -55,7 +55,7 @@ export const components: Registry["items"] = [
     description:
       "iOS-like wheel picker for React with smooth inertia scrolling and infinite loop support.",
     title: "Wheel Picker",
-    author: "Red <red@gk.me>",
+    author: "GK <gk@gk.me>",
     dependencies: ["@ncdai/react-wheel-picker"],
     registryDependencies: ["@gk/utils"],
     files: [
@@ -72,7 +72,7 @@ export const components: Registry["items"] = [
     description:
       "Displays a list of work experiences with role details and durations.",
     title: "Work Experience",
-    author: "Red <red@gk.me>",
+    author: "GK <gk@gk.me>",
     dependencies: ["react-markdown", "lucide-react"],
     devDependencies: ["@tailwindcss/typography", "tw-animate-css"],
     registryDependencies: ["@gk/utils", "collapsible", "separator"],
@@ -107,7 +107,7 @@ export const components: Registry["items"] = [
     type: "registry:component",
     description: "Smooth shimmering text animation built with Motion.",
     title: "Shimmering Text",
-    author: "Red <red@gk.me>",
+    author: "GK <gk@gk.me>",
     dependencies: ["motion"],
     registryDependencies: ["@gk/utils"],
     files: [
@@ -123,7 +123,7 @@ export const components: Registry["items"] = [
     description:
       "A sleek, interactive slider inspired by the classic iPhone OS 'slide to unlock' gesture.",
     title: "Slide to Unlock",
-    author: "Red <red@gk.me>",
+    author: "GK <gk@gk.me>",
     dependencies: ["motion"],
     registryDependencies: ["@gk/utils", "@gk/shimmering-text"],
     files: [

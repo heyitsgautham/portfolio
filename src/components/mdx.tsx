@@ -141,7 +141,7 @@ const components: MDXRemoteProps["components"] = {
       </TabsTrigger>
 
       {/* <TabsTrigger className="px-2.5" value="ncdai-cli">
-        <RedMark className="size-2.5 w-auto translate-y-[0.5px]" />
+        <GKMark className="size-2.5 w-auto translate-y-[0.5px]" />
         <span className="-translate-y-[0.5px]">gk CLI</span>
       </TabsTrigger> */}
     </TabsList>

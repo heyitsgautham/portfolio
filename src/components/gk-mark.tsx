@@ -1,5 +1,5 @@
 // GK's brand mark - "GK" logo with opacity effects
-export function RedMark(props: React.ComponentProps<"svg">) {
+export function GKMark(props: React.ComponentProps<"svg">) {
   return (
     <svg
       width="300"

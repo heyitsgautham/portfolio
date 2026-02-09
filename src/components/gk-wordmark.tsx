@@ -1,4 +1,4 @@
-export function RedWordmark(props: React.ComponentProps<"svg">) {
+export function GKWordmark(props: React.ComponentProps<"svg">) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

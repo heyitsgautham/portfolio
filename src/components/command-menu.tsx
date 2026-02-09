@@ -34,8 +34,8 @@ import { cn } from "@/lib/utils";
 import { copyText } from "@/utils/copy";
 
 import { Icons } from "./icons";
-import { getMarkSVG, RedMark } from "./red-mark";
-import { getWordmarkSVG } from "./red-wordmark";
+import { getMarkSVG, GKMark } from "./gk-mark";
+import { getWordmarkSVG } from "./gk-wordmark";
 import { Button } from "./ui/button";
 import { Separator } from "./ui/separator";
 
@@ -53,7 +53,7 @@ const MENU_LINKS: CommandLinkItem[] = [
   {
     title: "Portfolio", // Replace with your portfolio name
     href: "/",
-    icon: RedMark,
+    icon: GKMark,
   },
   {
     title: "Components",
@@ -259,7 +259,7 @@ export function CommandMenu({ posts }: { posts: Post[] }) {
                 handleCopyText(getMarkSVG(), "Copied Mark as SVG");
               }}
             >
-              <RedMark />
+              <GKMark />
               Copy Mark as SVG
             </CommandItem>
 
@@ -276,7 +276,7 @@ export function CommandMenu({ posts }: { posts: Post[] }) {
             </CommandItem>
 
             <CommandItem asChild>
-              <a href="https://assets.gk.me/red-brand.zip" download>
+              <a href="https://assets.gk.me/gk-brand.zip" download>
                 <DownloadIcon />
                 Download Brand Assets
               </a>
@@ -413,7 +413,7 @@ function CommandMenuFooter() {
       <div className="flex h-10" />
 
       <div className="absolute inset-x-0 bottom-0 flex h-10 items-center justify-between gap-2 border-t bg-zinc-100/30 px-4 text-xs font-medium dark:bg-zinc-800/30">
-        <RedMark className="size-6 text-muted-foreground" aria-hidden />
+        <GKMark className="size-6 text-muted-foreground" aria-hidden />
 
         <div className="flex shrink-0 items-center gap-2">
           <span>{ENTER_ACTION_LABELS[selectedCommandKind]}</span>

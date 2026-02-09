@@ -74,24 +74,6 @@ export const metadata: Metadata = {
     creator: "@gkhq",
     images: [SITE_INFO.ogImage],
   },
-  icons: {
-    icon: [
-      {
-        url: "/favicon.ico",
-        sizes: "any",
-      },
-      {
-        url: "/images/og-image.png",
-        type: "image/png",
-        sizes: "32x32",
-      },
-    ],
-    apple: {
-      url: "/apple-touch-icon.png",
-      type: "image/png",
-      sizes: "180x180",
-    },
-  },
 };
 
 export const viewport: Viewport = {

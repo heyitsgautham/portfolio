@@ -1,5 +1,5 @@
 import { BrandContextMenu } from "@/components/brand-context-menu";
-import { RedMark } from "@/components/red-mark";
+import { GKMark } from "@/components/gk-mark";
 import { cn } from "@/lib/utils";
 
 export function ProfileCover() {
@@ -14,7 +14,7 @@ export function ProfileCover() {
         )}
       >
         <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
-        <RedMark
+        <GKMark
           id="js-cover-mark"
           className="relative z-10 h-28 w-80 text-foreground sm:h-36 sm:w-96 lg:h-40 lg:w-[28rem]"
         />

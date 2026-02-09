@@ -1,18 +1,18 @@
 {
   "name": "gk.me",
   "version": "2.0.3",
-  "description": "Red's Portfolio - AI Engineer & DevOps enthusiast passionate about intelligent automation and machine learning systems.",
+  "description": "GK's Portfolio - AI Engineer & DevOps enthusiast passionate about intelligent automation and machine learning systems.",
   "homepage": "https://gk.me",
   "license": "MIT",
   "author": {
     "name": "Gautham Krishna",
-    "email": "red@gk.me",
+    "email": "gk@gk.me",
     "url": "https://github.com/heyitsgautham"
   },
   "contributors": [
     {
       "name": "Gautham Krishna",
-      "email": "red@gk.me",
+      "email": "gk@gk.me",
       "url": "https://github.com/heyitsgautham"
     }
   ],

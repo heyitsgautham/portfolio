@@ -3,7 +3,7 @@
 import { motion } from "motion/react";
 import { useState } from "react";
 
-import { RedMark } from "@/components/red-mark";
+import { GKMark } from "@/components/gk-mark";
 
 const variants = {
   show: {
@@ -65,7 +65,7 @@ export function LogoResizeAnimation({
         {Math.round(width)}x{Math.round(width / 2)}
       </motion.div>
 
-      <RedMark className="size-full text-black dark:text-white" />
+      <GKMark className="size-full text-black dark:text-white" />
     </motion.div>
   );
 }
