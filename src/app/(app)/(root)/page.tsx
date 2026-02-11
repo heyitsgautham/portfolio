@@ -3,6 +3,7 @@ import type { ProfilePage as PageSchema, WithContext } from "schema-dts";
 
 import { Certifications } from "@/features/profile/components/certifications";
 import { Education } from "@/features/profile/components/education";
+import { Timeline } from "@/features/profile/components/timeline";
 import { Experiences } from "@/features/profile/components/experiences";
 import { GitHubContributions } from "@/features/profile/components/github-contributions";
 import { ProfileCover } from "@/features/profile/components/profile-cover";
@@ -41,6 +42,9 @@ export default function Page() {
         <Separator />
 
         <Education />
+        <Separator />
+
+        <Timeline />
         <Separator />
 
         <Certifications />

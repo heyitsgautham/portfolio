@@ -20,7 +20,7 @@ const FALLBACK_CONTRIBUTIONS: Activity[] = Array.isArray(fallbackContributions)
 export async function getGitHubContributions() {
   try {
     const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 4000);
+    const timeout = setTimeout(() => controller.abort(), 10000);
 
     const res = await fetch(
       `https://github-contributions-api.jogruber.de/v4/${GITHUB_USERNAME}?y=last`,

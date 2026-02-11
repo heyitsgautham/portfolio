@@ -18,6 +18,53 @@ export function CertificationItem({
 }) {
   const [isHovered, setIsHovered] = React.useState(false);
 
+  // If certificate image is provided, show full certificate image
+  if (certification.certificateImageURL) {
+    return (
+      <article
+        className={`group relative flex h-full flex-col overflow-hidden rounded-lg border border-border/50 bg-card/50 backdrop-blur-sm transition-all hover:border-primary/30 hover:bg-card hover:shadow-lg ${className}`}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        <div className="relative aspect-[4/3] w-full overflow-hidden">
+          <Image
+            src={certification.certificateImageURL}
+            alt={certification.title}
+            fill
+            className="object-cover transition-transform group-hover:scale-105"
+            unoptimized
+          />
+        </div>
+
+        <div className="p-4 text-center">
+          <h3 className="font-semibold text-balance line-clamp-2">
+            {certification.title}
+          </h3>
+        </div>
+
+        <div
+          className={`absolute inset-x-0 bottom-0 flex items-center justify-center border-t border-border/50 bg-primary/10 backdrop-blur-sm p-3 transition-all ${
+            isHovered
+              ? "translate-y-0 opacity-100"
+              : "translate-y-full opacity-0"
+          }`}
+        >
+          <a
+            href={certification.credentialURL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-sm font-medium text-primary transition-colors hover:text-primary/80"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <span>View Certificate</span>
+            <ExternalLinkIcon className="size-4" aria-hidden />
+          </a>
+        </div>
+      </article>
+    );
+  }
+
+  // Default view with icon/logo
   return (
     <article
       className={`group relative flex h-full flex-col overflow-hidden rounded-lg border border-border/50 bg-card/50 backdrop-blur-sm transition-all hover:border-primary/30 hover:bg-card hover:shadow-lg ${className}`}

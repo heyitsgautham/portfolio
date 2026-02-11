@@ -21,6 +21,8 @@ export type ExperiencePosition = {
   /** UI icon to represent the role type. */
   icon?: ExperiencePositionIcon;
   skills?: string[];
+  /** Array of image URLs for the carousel gallery. */
+  images?: string[];
   /** Whether the position is expanded by default in the UI. */
   isExpanded?: boolean;
 };
