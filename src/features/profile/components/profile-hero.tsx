@@ -1,6 +1,9 @@
+"use client";
+
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { FileTextIcon, MailIcon } from "lucide-react";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 
 import { getIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
@@ -12,51 +15,147 @@ import { FlipSentences } from "@/registry/flip-sentences";
 
 import { VerifiedIcon } from "./verified-icon";
 
+function TechPill({
+  name,
+  iconKey,
+  className,
+  url,
+}: {
+  name: string;
+  iconKey: string;
+  className?: string;
+  url: string;
+}) {
+  const icon = getIcon(iconKey, 14);
+  return (
+    <a
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={cn(
+        "inline-flex items-center gap-1.5 rounded-md border border-border bg-muted/50 px-2 py-0.5 align-middle text-sm font-medium text-foreground transition-colors hover:bg-muted",
+        className
+      )}
+    >
+      {icon}
+      {name}
+    </a>
+  );
+}
+
 export function ProfileHero() {
-  const TechPill = ({
-    name,
-    iconKey,
-    className,
-    url,
-  }: {
-    name: string;
-    iconKey: string;
-    className?: string;
-    url: string;
-  }) => {
-    const icon = getIcon(iconKey, 14);
-    return (
-      <a
-        href={url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={cn(
-          "inline-flex items-center gap-1.5 rounded-md border border-border bg-muted/50 px-2 py-0.5 align-middle text-sm font-medium text-foreground transition-colors hover:bg-muted",
-          className
-        )}
-      >
-        {icon}
-        {name}
-      </a>
-    );
+  const [isHovered, setIsHovered] = useState(false);
+  
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  
+  const mouseXSpring = useSpring(x);
+  const mouseYSpring = useSpring(y);
+  
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["7.5deg", "-7.5deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-7.5deg", "7.5deg"]);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    const xPct = mouseX / width - 0.5;
+    const yPct = mouseY / height - 0.5;
+    x.set(xPct);
+    y.set(yPct);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+    x.set(0);
+    y.set(0);
   };
 
   return (
     <section className="flex flex-col gap-3 py-2 sm:flex-row">
-      {/* Profile Picture & Status */}
+      {/* Profile Picture & Status - 3D Holographic */}
       <div className="shrink-0">
-        <div className="relative flex justify-center p-1 sm:p-2">
-          <div className="relative size-32 overflow-hidden rounded-full border-4 border-border shadow-xl sm:size-36 md:size-44">
-            <Image
-              src={USER.avatar}
-              alt={USER.displayName}
-              fill
-              className="object-cover object-[center_15%]"
-              priority
+        <motion.div
+          onMouseMove={handleMouseMove}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={handleMouseLeave}
+          style={{
+            rotateY,
+            rotateX,
+            transformStyle: "preserve-3d",
+            perspective: 800,
+          }}
+          className="relative flex justify-center p-1 sm:p-2"
+        >
+          <motion.div
+            style={{
+              transform: "translateZ(50px)",
+              transformStyle: "preserve-3d",
+            }}
+            className="relative size-32 sm:size-36 md:size-44"
+          >
+            <div className="relative size-full overflow-hidden rounded-full border-4 border-border shadow-xl">
+              <Image
+                src={USER.avatar}
+                alt={USER.displayName}
+                fill
+                className="object-cover object-[center_15%]"
+                priority
+              />
+              
+              {/* Holographic overlay - subtle */}
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-br from-info/10 via-transparent to-info/10"
+                animate={{ opacity: isHovered ? 0.3 : 0 }}
+                transition={{ duration: 0.3 }}
+              />
+            </div>
+
+            {/* Status indicator */}
+            <motion.div
+              style={{
+                transform: "translateZ(75px)",
+              }}
+              className="absolute right-3 bottom-3 sm:right-4 sm:bottom-4"
+            >
+              <motion.div
+                className="relative size-6 sm:size-7"
+                animate={{
+                  scale: isHovered ? [1, 1.1, 1] : 1,
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                }}
+              >
+                <div className="absolute inset-0 rounded-full border-4 border-background bg-green-500 shadow-sm" />
+                <motion.div
+                  className="absolute inset-0 rounded-full bg-green-400"
+                  animate={{
+                    scale: [1, 1.4, 1],
+                    opacity: [0.6, 0, 0.6],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                  }}
+                />
+              </motion.div>
+            </motion.div>
+
+            {/* Subtle ambient glow */}
+            <motion.div
+              className="pointer-events-none absolute inset-0 -z-10 rounded-full bg-foreground/5 blur-xl"
+              animate={{
+                scale: isHovered ? 1.2 : 1,
+                opacity: isHovered ? 0.2 : 0.05,
+              }}
+              transition={{ duration: 0.5 }}
             />
-          </div>
-          <div className="absolute right-3 bottom-3 size-6 rounded-full border-4 border-background bg-green-500 shadow-sm sm:right-4 sm:bottom-4 sm:size-7" />
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
 
       {/* Content */}
