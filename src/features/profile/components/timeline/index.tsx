@@ -12,7 +12,7 @@ export function Timeline() {
     <Panel id="timeline">
       <PanelHeader>
         <PanelTitle>
-          GK's Timeline
+          GK&apos;s Timeline
           <sup className="ml-1 font-mono text-sm font-medium text-muted-foreground select-none">
             ({TIMELINE.length})
           </sup>

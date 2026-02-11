@@ -3,13 +3,13 @@ import type { ProfilePage as PageSchema, WithContext } from "schema-dts";
 
 import { Certifications } from "@/features/profile/components/certifications";
 import { Education } from "@/features/profile/components/education";
-import { Timeline } from "@/features/profile/components/timeline";
 import { Experiences } from "@/features/profile/components/experiences";
 import { GitHubContributions } from "@/features/profile/components/github-contributions";
 import { ProfileCover } from "@/features/profile/components/profile-cover";
 import { ProfileHero } from "@/features/profile/components/profile-hero";
 import { Projects } from "@/features/profile/components/projects";
 import { TechStack } from "@/features/profile/components/tech-stack";
+import { Timeline } from "@/features/profile/components/timeline";
 import { USER } from "@/features/profile/data/user";
 import { cn } from "@/lib/utils";
 

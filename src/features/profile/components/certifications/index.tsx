@@ -1,10 +1,12 @@
 "use client";
 
 import { useState } from "react";
+
+import { Button } from "@/components/ui/button";
+
 import { CERTIFICATIONS } from "../../data/certifications";
 import { Panel, PanelContent, PanelHeader, PanelTitle } from "../panel";
 import { CertificationItem } from "./certification-item";
-import { Button } from "@/components/ui/button";
 
 const INITIAL_DISPLAY_COUNT = 3;
 
