@@ -1,10 +1,10 @@
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useRef } from "react";
 
 /**
  * Custom React hook to load and play a sound from a given URL using the Web Audio API.
  *
- * This hook fetches the audio file at the specified URL, decodes it, and prepares it for playback.
- * It returns a `play` function that can be called to play the loaded sound.
+ * This hook lazily fetches and decodes the audio file on first play,
+ * avoiding unnecessary network requests and AudioContext creation on mount.
  *
  * @param url - The URL of the audio file to load and play.
  * @returns A function that, when called, plays the loaded sound.
@@ -24,40 +24,47 @@ import { useCallback, useEffect, useRef } from "react";
 export function useSound(url: string) {
   const audioCtxRef = useRef<AudioContext | null>(null);
   const bufferRef = useRef<AudioBuffer | null>(null);
+  const loadingRef = useRef<Promise<void> | null>(null);
 
-  useEffect(() => {
-    const AudioContextClass =
-      window.AudioContext ||
-      (window as unknown as { webkitAudioContext: typeof AudioContext })
-        .webkitAudioContext;
+  const ensureLoaded = useCallback(() => {
+    if (loadingRef.current) return loadingRef.current;
 
-    if (!AudioContextClass) {
-      console.warn("Web Audio API is not supported in this browser.");
-      return;
-    }
+    loadingRef.current = (async () => {
+      const AudioContextClass =
+        window.AudioContext ||
+        (window as unknown as { webkitAudioContext: typeof AudioContext })
+          .webkitAudioContext;
 
-    const audioCtx = new AudioContextClass();
-    audioCtxRef.current = audioCtx;
+      if (!AudioContextClass) {
+        console.warn("Web Audio API is not supported in this browser.");
+        return;
+      }
 
-    fetch(url)
-      .then((res) => res.arrayBuffer())
-      .then((data) => audioCtx.decodeAudioData(data))
-      .then((decoded) => {
-        bufferRef.current = decoded;
-      })
-      .catch((err) => {
+      const audioCtx = new AudioContextClass();
+      audioCtxRef.current = audioCtx;
+
+      try {
+        const res = await fetch(url);
+        const data = await res.arrayBuffer();
+        bufferRef.current = await audioCtx.decodeAudioData(data);
+      } catch (err) {
         console.log(`Failed to load click sound from ${url}:`, err);
-      });
+      }
+    })();
+
+    return loadingRef.current;
   }, [url]);
 
-  const play = useCallback(() => {
+  const play = useCallback(async () => {
+    await ensureLoaded();
+
     if (audioCtxRef.current && bufferRef.current) {
       const source = audioCtxRef.current.createBufferSource();
       source.buffer = bufferRef.current;
       source.connect(audioCtxRef.current.destination);
       source.start(0);
     }
-  }, []);
+  }, [ensureLoaded]);
 
   return play;
 }

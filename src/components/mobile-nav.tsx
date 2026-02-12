@@ -3,7 +3,6 @@
 import Link from "next/link";
 import * as React from "react";
 
-import { ToggleTheme } from "@/components/toggle-theme";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { MenuToggleIcon } from "@/components/ui/menu-toggle-icon";
 import { cn } from "@/lib/utils";
@@ -74,12 +73,7 @@ export function MobileNav({
               </Link>
             ))}
           </div>
-          <div className="flex flex-col gap-2 border-t pt-4">
-            <div className="flex items-center justify-between px-4">
-              <span className="text-sm text-muted-foreground">Theme</span>
-              <ToggleTheme />
-            </div>
-          </div>
+
         </div>
       </div>
     </>

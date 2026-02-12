@@ -66,6 +66,10 @@ src/__registry__/
 !src/__registry__/README.md
 !src/__registry__/.gitkeep
 
+# stale lock files (project uses pnpm)
+package-lock.json
+yarn.lock
+
 # os clutter
 Thumbs.db
 ehthumbs.db

@@ -1,16 +1,27 @@
 "use client";
 
-import { useMotionValueEvent, useScroll } from "motion/react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export function SiteHeaderWrapper(props: React.ComponentProps<"header">) {
-  const { scrollY } = useScroll();
-
   const [affix, setAffix] = useState(false);
+  const sentinelRef = useRef<HTMLDivElement>(null);
 
-  useMotionValueEvent(scrollY, "change", (latestValue) => {
-    setAffix(latestValue >= 8);
-  });
+  useEffect(() => {
+    const handleScroll = () => {
+      setAffix(window.scrollY >= 8);
+    };
 
-  return <header data-affix={affix} {...props} />;
+    // Check initial scroll position
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <>
+      <div ref={sentinelRef} className="absolute top-0 h-px w-full" />
+      <header data-affix={affix} {...props} />
+    </>
+  );
 }

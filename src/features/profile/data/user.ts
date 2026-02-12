@@ -32,7 +32,7 @@ I don't just study AI; I build with it.
 
 As an **SIH'25 Finalist** and **Ex-Software Engineer Intern at Presidio**, I've moved beyond theory to engineer production-grade AI systems. I architected multi-domain RAG systems, built AI-powered resume screening platforms that cut screening time by 98%, and deployed microservices on AWS using Terraform.
 
-Currently pursuing a dual degree—**BS in Data Science at IIT Madras** alongside a **B.Tech in AI/ML at SEC**—I balance rigorous academics with hands-on development.
+Currently pursuing a dual degree: **BS in Data Science at IIT Madras** alongside a **B.Tech in AI/ML at SEC**. I balance rigorous academics with hands-on development.
 
 My focus: Building intelligent systems with **LLMs, RAG, and Deep Learning** while shipping full-stack applications with cloud-native deployments. Most academic and experimental work lives in private repositories.
   `,

@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { FileTextIcon, MailIcon } from "lucide-react";
+import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 import Image from "next/image";
 import React, { useState } from "react";
 
@@ -101,6 +101,7 @@ export function ProfileHero() {
                 src={USER.avatar}
                 alt={USER.displayName}
                 fill
+                sizes="(max-width: 640px) 128px, (max-width: 768px) 144px, 176px"
                 className="object-cover object-[center_15%]"
                 priority
               />

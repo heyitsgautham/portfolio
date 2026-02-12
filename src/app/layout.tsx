@@ -1,5 +1,7 @@
 import "@/styles/globals.css";
 
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import type { WebSite, WithContext } from "schema-dts";
@@ -40,7 +42,7 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   title: {
-    template: `%s – ${SITE_INFO.name}`,
+    template: `%s | ${SITE_INFO.name}`,
     default: USER.displayName,
   },
   description: SITE_INFO.description,
@@ -113,6 +115,8 @@ export default function RootLayout({
 
       <body className="flex min-h-screen flex-col overflow-x-hidden">
         <Providers>{children}</Providers>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

@@ -11,12 +11,12 @@ export function GKMark(props: React.ComponentProps<"svg">) {
       <defs>
         <style>
           {`
-            .text-base {
+            .gk-mark-base {
               font-family: var(--font-vt323), monospace;
               font-size: 170px;
               fill: rgba(150, 150, 150, 1);
             }
-            .text-highlight {
+            .gk-mark-highlight {
               font-family: var(--font-vt323), monospace;
               font-size: 170px;
               fill: rgba(190, 190, 190, 0.4);
@@ -25,8 +25,8 @@ export function GKMark(props: React.ComponentProps<"svg">) {
         </style>
       </defs>
       <text x="150" y="144" textAnchor="middle">
-        <tspan className="text-base">G</tspan>
-        <tspan className="text-highlight">K</tspan>
+        <tspan className="gk-mark-base">G</tspan>
+        <tspan className="gk-mark-highlight">K</tspan>
       </text>
     </svg>
   );
@@ -37,12 +37,12 @@ export function getMarkSVG() {
   return `<svg width="300" height="200" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
     <style>
       @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
-      .text-base { font-family: 'VT323', monospace; font-size: 170px; fill: rgba(150, 150, 150, 1); }
-       .text-highlight { font-family: 'VT323', monospace; font-size: 170px; fill: rgba(190, 190, 190, 0.4); }
+      .gk-mark-base { font-family: 'VT323', monospace; font-size: 170px; fill: rgba(150, 150, 150, 1); }
+       .gk-mark-highlight { font-family: 'VT323', monospace; font-size: 170px; fill: rgba(190, 190, 190, 0.4); }
     </style>
      <text x="150" y="144" text-anchor="middle">
-       <tspan class="text-base">G</tspan>
-       <tspan class="text-highlight">K</tspan>
+       <tspan class="gk-mark-base">G</tspan>
+       <tspan class="gk-mark-highlight">K</tspan>
      </text>
   </svg>`;
 }

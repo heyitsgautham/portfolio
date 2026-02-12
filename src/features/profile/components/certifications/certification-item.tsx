@@ -16,44 +16,33 @@ export function CertificationItem({
   className?: string;
   certification: Certification;
 }) {
-  const [isHovered, setIsHovered] = React.useState(false);
 
   // If certificate image is provided, show full certificate image
   if (certification.certificateImageURL) {
     return (
       <article
-        className={`group relative flex h-full flex-col overflow-hidden rounded-lg border border-border/50 bg-card/50 backdrop-blur-sm transition-all hover:border-primary/30 hover:bg-card hover:shadow-lg ${className}`}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
+        className={`group relative flex h-full flex-col overflow-hidden rounded-lg border border-border/50 bg-card transition-all hover:border-primary/30 hover:shadow-lg ${className}`}
       >
         <div className="relative aspect-[4/3] w-full overflow-hidden">
           <Image
             src={certification.certificateImageURL}
             alt={certification.title}
             fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             className="object-cover transition-transform group-hover:scale-105"
-            unoptimized
           />
         </div>
 
-        <div className="p-4 text-center">
-          <h3 className="font-semibold text-balance line-clamp-2">
+        <div className="flex flex-1 flex-col items-center justify-between gap-3 border-t border-border/50 bg-card p-4">
+          <h3 className="font-semibold text-balance text-center line-clamp-2">
             {certification.title}
           </h3>
-        </div>
 
-        <div
-          className={`absolute inset-x-0 bottom-0 flex items-center justify-center border-t border-border/50 bg-primary/10 backdrop-blur-sm p-3 transition-all ${
-            isHovered
-              ? "translate-y-0 opacity-100"
-              : "translate-y-full opacity-0"
-          }`}
-        >
           <a
             href={certification.credentialURL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm font-medium text-primary transition-colors hover:text-primary/80"
+            className="inline-flex items-center gap-2 text-sm font-medium text-white transition-colors hover:text-white/80 hover:underline"
             onClick={(e) => e.stopPropagation()}
           >
             <span>View Certificate</span>
@@ -67,11 +56,9 @@ export function CertificationItem({
   // Default view with icon/logo
   return (
     <article
-      className={`group relative flex h-full flex-col overflow-hidden rounded-lg border border-border/50 bg-card/50 backdrop-blur-sm transition-all hover:border-primary/30 hover:bg-card hover:shadow-lg ${className}`}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      className={`group relative flex h-full flex-col overflow-hidden rounded-lg border border-border/50 bg-card transition-all hover:border-primary/30 hover:shadow-lg ${className}`}
     >
-      <div className="flex flex-col items-center gap-4 p-6 text-center">
+      <div className="flex flex-1 flex-col items-center gap-4 p-6 text-center">
         <div className="flex size-20 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 p-4 ring-2 ring-primary/20 transition-all group-hover:scale-105 group-hover:ring-primary/40">
           {certification.issuerLogoURL ? (
             <Image
@@ -81,7 +68,6 @@ export function CertificationItem({
               height={64}
               quality={100}
               className="size-full object-contain select-none"
-              unoptimized
               aria-hidden="true"
             />
           ) : (
@@ -107,18 +93,12 @@ export function CertificationItem({
         </div>
       </div>
 
-      <div
-        className={`absolute inset-x-0 bottom-0 flex items-center justify-center border-t border-border/50 bg-primary/10 p-3 transition-all ${
-          isHovered
-            ? "translate-y-0 opacity-100"
-            : "translate-y-full opacity-0"
-        }`}
-      >
+      <div className="flex items-center justify-center border-t border-border/50 bg-card p-3">
         <a
           href={certification.credentialURL}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-sm font-medium text-primary transition-colors hover:text-primary/80"
+          className="inline-flex items-center gap-2 text-sm font-medium text-white transition-colors hover:text-white/80 hover:underline"
           onClick={(e) => e.stopPropagation()}
         >
           <span>View Certificate</span>

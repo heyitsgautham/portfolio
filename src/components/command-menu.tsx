@@ -345,7 +345,6 @@ function CommandLinkGroup({
                 alt={link.title}
                 width={16}
                 height={16}
-                unoptimized
               />
             ) : (
               <Icon />

@@ -38,7 +38,7 @@ export function ExperiencePositionItem({
               </div>
               <div className="flex flex-col items-center gap-0.5 text-xs text-muted-foreground">
                 <span className="font-mono">{start}</span>
-                <span className="font-mono">—</span>
+                <span className="font-mono">-</span>
                 {isOngoing ? (
                   <>
                     <InfinityIcon
@@ -105,7 +105,7 @@ export function ExperiencePositionItem({
                       // New bullet point
                       currentBullets.push([trimmed.substring(2).trim()]);
                     } else {
-                      // Continuation line (Shift+Enter) — append to last bullet
+                      // Continuation line (Shift+Enter): append to last bullet
                       if (currentBullets.length > 0) {
                         currentBullets[currentBullets.length - 1].push(trimmed);
                       }

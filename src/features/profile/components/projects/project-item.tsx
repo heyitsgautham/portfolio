@@ -65,7 +65,7 @@ export function ProjectItem({
                   <dt className="sr-only">Period</dt>
                   <dd className="flex items-center gap-1 font-mono">
                     <span>{start}</span>
-                    <span>—</span>
+                    <span>-</span>
                     {isOngoing ? (
                       <>
                         <InfinityIcon

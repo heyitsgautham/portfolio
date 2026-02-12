@@ -30,9 +30,13 @@ function useCollapsibleContext() {
 
 function CollapsibleWithContext({
   defaultOpen,
+  open: controlledOpen,
+  onOpenChange: controlledOnOpenChange,
   ...props
 }: React.ComponentProps<typeof Collapsible>) {
-  const [open, setOpen] = useState(defaultOpen ?? false);
+  const [uncontrolledOpen, setUncontrolledOpen] = useState(defaultOpen ?? false);
+  const open = controlledOpen ?? uncontrolledOpen;
+  const setOpen = controlledOnOpenChange ?? setUncontrolledOpen;
   const value = useMemo(() => ({ open }), [open]);
 
   return (

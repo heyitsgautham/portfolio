@@ -51,9 +51,7 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-3">
           <IndiaTime />
-          <div className="hidden sm:flex">
-            <ToggleTheme />
-          </div>
+          <ToggleTheme />
           <MobileNav className="md:hidden" items={MAIN_NAV} />
         </div>
       </div>

@@ -27,7 +27,7 @@ Implemented automated parsing, anonymization, and weighted semantic matching.
 - Designed microservices-based LMS (Node.js, PostgreSQL) deployed on AWS ECS Fargate with Terraform as IaC. Automated infrastructure provisioning with CloudWatch monitoring and alerting.
 **SocialPulse (Analytics Platform):**
 - Engineered high-throughput analytics engine (FastAPI, Redis) with sliding-window trend detection
-(1–1440 min intervals).
+(1-1440 min intervals).
 Implemented recursive comment-graph analysis with multi-layer caching and CI/CD pipeline.`,
         skills: [
           "Google Gemini 2.5",

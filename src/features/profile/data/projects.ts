@@ -160,7 +160,7 @@ export const PROJECTS: Project[] = [
       "On-device AI",
       "Privacy",
     ],
-    description: `A Chrome extension leveraging Chrome's Built-in AI APIs (Gemini Nano) to protect elderly users and those with low technical literacy from phishing, scams, and deceptive online practices—entirely on-device with complete privacy.
+    description: `A Chrome extension leveraging Chrome's Built-in AI APIs (Gemini Nano) to protect elderly users and those with low technical literacy from phishing, scams, and deceptive online practices, entirely on-device with complete privacy.
 
 **Key Features:**
 - Multi-tier phishing detection with 4 Chrome Built-in AI APIs (Prompt, Summarizer, Rewriter, Translator)

@@ -4,11 +4,11 @@ export const TIMELINE: TimelineEvent[] = [
   {
     id: "hack-hustle",
     title: "Hack Hustle 2024",
-    subtitle: "24-Hour ML Hackathon — Saveetha SEC",
-    date: "Nov 8–9, 2024",
+    subtitle: "24-Hour ML Hackathon | Saveetha SEC",
+    date: "Nov 8-9, 2024",
     sortDate: "2024-11-08",
     description:
-      "A 24-hour ML hackathon hosted by the Tech Society at Saveetha Engineering College. Our team built an **AI-driven public transportation scheduler & optimizer** using NetworkX, gradient boosting, and simulation tools. Worked alongside Nijeesh NJ, Gautham Krishna, and Kishore B — powering through the night with relentless problem-solving.",
+      "A 24-hour ML hackathon hosted by the Tech Society at Saveetha Engineering College. Our team built an **AI-driven public transportation scheduler & optimizer** using NetworkX, gradient boosting, and simulation tools. Worked alongside Nijeesh NJ, Gautham Krishna, and Kishore B, powering through the night with relentless problem-solving.",
     githubURL: "https://github.com/heyitsgautham/traffic-men",
     images: [
       "/images/timeline/hackhustle/1731429754836.jpeg",
@@ -20,7 +20,7 @@ export const TIMELINE: TimelineEvent[] = [
   },
   {
     id: "impact-metrics",
-    title: "Impact Metrics — IIT BHU",
+    title: "Impact Metrics | IIT BHU",
     subtitle: "Finalist at Jagriti'25, IIT-BHU Varanasi",
     date: "Jan 25, 2025",
     sortDate: "2025-01-25",
@@ -36,11 +36,11 @@ export const TIMELINE: TimelineEvent[] = [
   {
     id: "presidio",
     title: "Presidio Internship",
-    subtitle: "Software Engineer Intern — Shipped to Prod",
-    date: "Sep 15 – Oct 31, 2025",
+    subtitle: "Software Engineer Intern | Shipped to Prod",
+    date: "Sep 15 - Oct 31, 2025",
     sortDate: "2025-09-15",
     description:
-      "Completed a hands-on internship at **Presidio**, building production-grade AI systems. Shipped SkillSync (AI resume screening), Aura Health (medical RAG system), AcademiaSync (cloud LMS on AWS), and SocialPulse (analytics engine) — all deployed to production.",
+      "Completed a hands-on internship at **Presidio**, building production-grade AI systems. Shipped SkillSync (AI resume screening), Aura Health (medical RAG system), AcademiaSync (cloud LMS on AWS), and SocialPulse (analytics engine) | all deployed to production.",
     images: [
       "/images/timeline/presidio/1763181217524.jpeg",
       "/images/timeline/presidio/1763181217725.jpeg",
@@ -52,11 +52,11 @@ export const TIMELINE: TimelineEvent[] = [
   {
     id: "gen-ai-versity",
     title: "GenAiVersity Hackathon 2025",
-    subtitle: "Top 40 out of 200+ Teams — Hyderabad",
+    subtitle: "Top 40 out of 200+ Teams | Hyderabad",
     date: "Oct 25, 2025",
     sortDate: "2025-10-25",
     description:
-      "Team Zero Vector travelled from Chennai to Hyderabad for the GenAIVersity 24-hour hackathon. Shortlisted in the **Top 40 out of 200+ teams**. Built **M&A Agent** — an AI tool for M&A due-diligence analysis using a RAG pipeline with document parsing, chat-based enquiry, and an evaluation dashboard.",
+      "Team Zero Vector travelled from Chennai to Hyderabad for the GenAIVersity 24-hour hackathon. Shortlisted in the **Top 40 out of 200+ teams**. Built **M&A Agent**, an AI tool for M&A due-diligence analysis using a RAG pipeline with document parsing, chat-based enquiry, and an evaluation dashboard.",
     githubURL: "https://github.com/heyitsgautham/agentic-rag-ma",
     images: [
       "/images/timeline/Gen-aiversity/1764495518469.jpeg",
@@ -69,7 +69,7 @@ export const TIMELINE: TimelineEvent[] = [
   {
     id: "hack-io",
     title: "Hack.io 2025",
-    subtitle: "Top 40 — National Level Hackathon, KSSEM Bangalore",
+    subtitle: "Top 40 | National Level Hackathon, KSSEM Bangalore",
     date: "Nov 5, 2025",
     sortDate: "2025-11-05",
     description:
@@ -83,11 +83,11 @@ export const TIMELINE: TimelineEvent[] = [
   {
     id: "sih",
     title: "SIH 2025 Finals",
-    subtitle: "Smart India Hackathon — National Finals",
+    subtitle: "Smart India Hackathon | National Finals",
     date: "Dec 8, 2025",
     sortDate: "2025-12-08",
     description:
-      "Competed in the **Smart India Hackathon 2025** national finals — a 36-hour product development competition. Built **Chandas-AI**, an intelligent Sanskrit prosody identifier that automatically detects the *chandas* (metrical pattern) of any given shloka, tackling problem statement SIH25158 under Smart Education.",
+      "Competed in the **Smart India Hackathon 2025** national finals, a 36-hour product development competition. Built **Chandas-AI**, an intelligent Sanskrit prosody identifier that automatically detects the *chandas* (metrical pattern) of any given shloka, tackling problem statement SIH25158 under Smart Education.",
     githubURL: "https://github.com/heyitsgautham/meru-coders",
     images: [
       "/images/timeline/SIH/0ae4c12b-f726-4693-a274-2523a6739430.jpeg",

@@ -15,7 +15,7 @@ const CHAKRA_SPOKES = Array.from({ length: 24 }).map((_, i) => {
 });
 
 export function IndiaTime() {
-  const [time, setTime] = useState<string>("");
+  const [time, setTime] = useState<string>("00:00:00");
 
   useEffect(() => {
     const updateTime = () => {
@@ -71,7 +71,7 @@ export function IndiaTime() {
         </g>
       </svg>
       <span className="font-mono whitespace-nowrap tabular-nums">
-        {time || "--:--:--"}
+        {time || "00:00:00"}
       </span>
     </div>
   );

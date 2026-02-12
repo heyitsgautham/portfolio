@@ -1,7 +1,7 @@
 "use client";
 
 import { ExternalLinkIcon } from "lucide-react";
-import { Suspense } from "react";
+import { Suspense, useCallback, useRef, useState } from "react";
 
 import { Icons } from "@/components/icons";
 import { Markdown } from "@/components/markdown";
@@ -62,9 +62,39 @@ function TimelineCard({
   canExpand: boolean;
   align: "left" | "right";
 }) {
+  const [open, setOpen] = useState(false);
+  const enterTimer = useRef<ReturnType<typeof setTimeout>>(null);
+  const leaveTimer = useRef<ReturnType<typeof setTimeout>>(null);
+
+  const handleMouseEnter = useCallback(() => {
+    if (!canExpand) return;
+    if (leaveTimer.current) {
+      clearTimeout(leaveTimer.current);
+      leaveTimer.current = null;
+    }
+    enterTimer.current = setTimeout(() => setOpen(true), 300);
+  }, [canExpand]);
+
+  const handleMouseLeave = useCallback(() => {
+    if (enterTimer.current) {
+      clearTimeout(enterTimer.current);
+      enterTimer.current = null;
+    }
+    leaveTimer.current = setTimeout(() => setOpen(false), 200);
+  }, []);
+
   return (
-    <CollapsibleWithContext disabled={!canExpand} asChild>
-      <article className="group relative overflow-hidden rounded-lg border border-border/50 bg-card/50 backdrop-blur-sm transition-all hover:border-border hover:bg-card hover:shadow-lg">
+    <CollapsibleWithContext
+      open={open}
+      onOpenChange={setOpen}
+      disabled={!canExpand}
+      asChild
+    >
+      <article
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        className="group relative overflow-hidden rounded-lg border border-border/50 bg-card/50 backdrop-blur-sm transition-all hover:border-border hover:bg-card hover:shadow-lg"
+      >
         <CollapsibleTrigger className="block w-full text-left transition-colors select-none">
           <div className="flex flex-col gap-3 p-5">
             <div className="flex items-start justify-between gap-4">

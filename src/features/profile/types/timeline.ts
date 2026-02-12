@@ -3,7 +3,7 @@ export type TimelineEvent = {
   title: string;
   /** Short subtitle or tagline. */
   subtitle: string;
-  /** Date or date range string (e.g., "Nov 8–9, 2024"). */
+  /** Date or date range string (e.g., "Nov 8-9, 2024"). */
   date: string;
   /** Sort key in ISO format for ordering (e.g., "2024-11-08"). */
   sortDate: string;

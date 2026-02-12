@@ -28,6 +28,10 @@ export const MAIN_NAV: NavItem[] = [
     href: "/projects",
   },
   {
+    title: "Certificates",
+    href: "/certificates",
+  },
+  {
     title: "Contact",
     href: "/#overview",
   },

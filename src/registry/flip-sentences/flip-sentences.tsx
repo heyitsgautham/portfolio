@@ -52,32 +52,34 @@ export function FlipSentences({
   }, [sentences]);
 
   return (
-    <AnimatePresence mode="wait" initial={false}>
-      <motion.p
-        key={`current-sentence-${currentSentence}`}
-        className={cn(
-          "font-mono text-sm text-balance text-muted-foreground select-none",
-          className
-        )}
-        initial={{
-          y: 8,
-          opacity: 0,
-        }}
-        animate={{
-          y: 0,
-          opacity: 1,
-        }}
-        exit={{
-          y: -8,
-          opacity: 0,
-        }}
-        transition={{
-          duration: 0.3,
-          ease: "linear",
-        }}
-      >
-        {sentences[currentSentence]}
-      </motion.p>
-    </AnimatePresence>
+    <div className="relative min-h-[1lh]">
+      <AnimatePresence mode="wait" initial={false}>
+        <motion.p
+          key={`current-sentence-${currentSentence}`}
+          className={cn(
+            "font-mono text-sm text-balance text-muted-foreground select-none",
+            className
+          )}
+          initial={{
+            y: 8,
+            opacity: 0,
+          }}
+          animate={{
+            y: 0,
+            opacity: 1,
+          }}
+          exit={{
+            y: -8,
+            opacity: 0,
+          }}
+          transition={{
+            duration: 0.3,
+            ease: "linear",
+          }}
+        >
+          {sentences[currentSentence]}
+        </motion.p>
+      </AnimatePresence>
+    </div>
   );
 }
