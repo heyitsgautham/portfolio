@@ -2,6 +2,11 @@ export type Certification = {
   title: string;
   issuer: string;
   /**
+   * Full certificate image to display. Provide a path under /public (e.g., "/images/certifications/cert.png").
+   * Takes precedence over issuerLogoURL and issuerIconName.
+   */
+  certificateImageURL?: string;
+  /**
    * Issuer logo to display (takes precedence over `issuerIconName`).
    * Provide an absolute URL or a path under /public.
    */

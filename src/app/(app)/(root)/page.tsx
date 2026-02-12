@@ -9,6 +9,7 @@ import { ProfileCover } from "@/features/profile/components/profile-cover";
 import { ProfileHero } from "@/features/profile/components/profile-hero";
 import { Projects } from "@/features/profile/components/projects";
 import { TechStack } from "@/features/profile/components/tech-stack";
+import { Timeline } from "@/features/profile/components/timeline";
 import { USER } from "@/features/profile/data/user";
 import { cn } from "@/lib/utils";
 
@@ -41,6 +42,9 @@ export default function Page() {
         <Separator />
 
         <Education />
+        <Separator />
+
+        <Timeline />
         <Separator />
 
         <Certifications />
