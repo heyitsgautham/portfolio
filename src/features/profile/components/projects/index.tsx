@@ -1,14 +1,13 @@
-import { ArrowRightIcon } from "lucide-react";
 import Link from "next/link";
+
+import { Button } from "@/components/ui/button";
 
 import { PROJECTS } from "../../data/projects";
 import { Panel, PanelContent, PanelHeader, PanelTitle } from "../panel";
 import { ProjectItem } from "./project-item";
-import { ProjectListItem } from "./project-list-item";
 
 export function Projects() {
   const featuredProjects = PROJECTS.slice(0, 3);
-  const moreProjects = PROJECTS.slice(3, 8);
 
   return (
     <Panel id="projects">
@@ -38,23 +37,16 @@ export function Projects() {
             </div>
           </div>
 
-          {moreProjects.length > 0 && (
-            <div className="space-y-2">
-              {moreProjects.map((project) => (
-                <ProjectListItem key={project.id} project={project} />
-              ))}
-            </div>
-          )}
-
-          {PROJECTS.length > 8 && (
+          {PROJECTS.length > featuredProjects.length && (
             <div className="flex justify-center pt-4">
-              <Link
-                href="/projects"
-                className="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-6 py-3 text-sm font-medium transition-all hover:border-primary/50 hover:bg-card/80 hover:shadow-md"
+              <Button
+                variant="outline"
+                size="lg"
+                className="min-w-[200px]"
+                asChild
               >
-                <span>View All {PROJECTS.length} Projects</span>
-                <ArrowRightIcon className="size-4" aria-hidden />
-              </Link>
+                <Link href="/projects">Show More</Link>
+              </Button>
             </div>
           )}
         </div>

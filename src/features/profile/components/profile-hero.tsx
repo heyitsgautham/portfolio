@@ -227,11 +227,7 @@ export function ProfileHero() {
         {/* Actions */}
         <div className="flex flex-wrap gap-4">
           <Button asChild size="lg" className="rounded-full px-8">
-            <a
-              href="https://drive.google.com/uc?export=download&id=1fu2z3JDIhEjAfzFkT7xQw-bDPCz3Dpmf"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href="/resume">
               <FileTextIcon className="mr-2 size-4" />
               Resume / CV
             </a>

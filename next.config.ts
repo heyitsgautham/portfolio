@@ -39,6 +39,11 @@ const nextConfig: NextConfig = {
     ],
     qualities: [75, 100],
   },
+  webpack: (config) => {
+    // Required for react-pdf to work in Next.js
+    config.resolve.alias.canvas = false;
+    return config;
+  },
   // async headers() {
   //   return [
   //     {

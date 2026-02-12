@@ -40,7 +40,7 @@ export function ImageCarousel({ images }: { images: string[] }) {
     if (!hovered && isVisible) {
       intervalRef.current = setInterval(() => {
         setCurrent((c) => (c === images.length - 1 ? 0 : c + 1));
-      }, 4000);
+      }, 1250);
     }
 
     return () => {
@@ -52,19 +52,27 @@ export function ImageCarousel({ images }: { images: string[] }) {
   }, [hovered, isVisible, images.length]);
 
   return (
-    <div ref={containerRef} className="relative w-full overflow-hidden rounded-md">
-      <div
-        className="relative aspect-video w-full"
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-      >
-        <Image
-          src={images[current]}
-          alt={`Image ${current + 1} of ${images.length}`}
-          fill
-          sizes="(max-width: 768px) 100vw, 50vw"
-          className="object-cover"
-        />
+    <div
+      ref={containerRef}
+      className="relative w-full overflow-hidden rounded-md"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <div className="relative aspect-video w-full bg-muted">
+        {images.map((src, i) => (
+          <Image
+            key={src}
+            src={src}
+            alt={`Image ${i + 1} of ${images.length}`}
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className={`object-cover transition-opacity duration-500 ${
+              i === current ? "opacity-100" : "opacity-0"
+            }`}
+            priority={i === 0}
+            loading={i === 0 ? "eager" : "lazy"}
+          />
+        ))}
       </div>
 
       {images.length > 1 && (

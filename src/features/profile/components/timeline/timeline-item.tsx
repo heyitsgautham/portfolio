@@ -1,6 +1,7 @@
 "use client";
 
 import { ExternalLinkIcon } from "lucide-react";
+import Image from "next/image";
 import { Suspense, useCallback, useRef, useState } from "react";
 
 import { Icons } from "@/components/icons";
@@ -136,7 +137,23 @@ function TimelineCard({
         </CollapsibleTrigger>
 
         {canExpand && (
-          <CollapsibleContent className="overflow-hidden duration-300 data-[state=closed]:animate-collapsible-fade-up data-[state=open]:animate-collapsible-fade-down">
+          <>
+            {/* Preload images while collapsed so there's no black flash on expand */}
+            {event.images && event.images.length > 0 && (
+              <div className="absolute size-0 overflow-hidden" aria-hidden>
+                {event.images.map((src) => (
+                  <Image
+                    key={src}
+                    src={src}
+                    alt=""
+                    width={1}
+                    height={1}
+                    loading="lazy"
+                  />
+                ))}
+              </div>
+            )}
+            <CollapsibleContent className="overflow-hidden duration-300 data-[state=closed]:animate-collapsible-fade-up data-[state=open]:animate-collapsible-fade-down">
             <div className="space-y-4 border-t border-border/50 bg-muted/20 p-5">
               {event.images && event.images.length > 0 && (
                 <ImageCarousel images={event.images} />
@@ -164,6 +181,7 @@ function TimelineCard({
               )}
             </div>
           </CollapsibleContent>
+          </>
         )}
       </article>
     </CollapsibleWithContext>
