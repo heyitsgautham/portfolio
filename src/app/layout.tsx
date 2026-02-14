@@ -4,10 +4,12 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
-import type { WebSite, WithContext } from "schema-dts";
+import type { Person, WebSite, WithContext } from "schema-dts";
 
 import { Providers } from "@/components/providers";
 import { META_THEME_COLORS, SITE_INFO } from "@/config/site";
+import { EDUCATION } from "@/features/profile/data/education";
+import { SOCIAL_LINKS } from "@/features/profile/data/social-links";
 import { USER } from "@/features/profile/data/user";
 import { fontMono, fontSans, fontVT323 } from "@/lib/fonts";
 
@@ -18,6 +20,52 @@ function getWebSiteJsonLd(): WithContext<WebSite> {
     name: SITE_INFO.name,
     url: SITE_INFO.url,
     alternateName: [USER.username],
+  };
+}
+
+function getPersonJsonLd(): WithContext<Person> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Gautham Krishna",
+    alternateName: ["Gautham Krishna S", USER.username, "GK"],
+    givenName: USER.firstName,
+    familyName: USER.lastName,
+    jobTitle: USER.jobTitle,
+    description: USER.bio,
+    url: SITE_INFO.url,
+    email: "heyitsgautham@gmail.com",
+    image: `${SITE_INFO.url}${USER.avatar}`,
+    sameAs: SOCIAL_LINKS.map(link => link.href),
+    alumniOf: EDUCATION.map(edu => ({
+      "@type": "EducationalOrganization",
+      name: edu.institution,
+      url: edu.referenceLink,
+    })),
+    knowsAbout: [
+      "Artificial Intelligence",
+      "Machine Learning",
+      "Large Language Models",
+      "Retrieval-Augmented Generation",
+      "Deep Learning",
+      "PyTorch",
+      "TensorFlow",
+      "Natural Language Processing",
+      "Computer Vision",
+      "Cloud Computing",
+      "AWS",
+    ],
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Chennai",
+      addressRegion: "Tamil Nadu",
+      addressCountry: "IN",
+    },
+    worksFor: USER.jobs.map(job => ({
+      "@type": "Organization",
+      name: job.company,
+      url: job.website,
+    })),
   };
 }
 
@@ -43,17 +91,17 @@ export const metadata: Metadata = {
   },
   title: {
     template: `%s | ${SITE_INFO.name}`,
-    default: USER.displayName,
+    default: "Gautham Krishna - AI Engineer | Portfolio",
   },
   description: SITE_INFO.description,
   keywords: SITE_INFO.keywords,
   authors: [
     {
-      name: USER.username, // Uses your username from user data
+      name: "Gautham Krishna",
       url: SITE_INFO.url,
     },
   ],
-  creator: USER.username, // Uses your username from user data
+  creator: "Gautham Krishna",
   openGraph: {
     siteName: SITE_INFO.name,
     url: "/",
@@ -109,6 +157,12 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(getWebSiteJsonLd()).replace(/</g, "\\u003c"),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(getPersonJsonLd()).replace(/</g, "\\u003c"),
           }}
         />
       </head>

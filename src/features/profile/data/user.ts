@@ -40,18 +40,21 @@ My focus: Building intelligent systems with **LLMs, RAG, and Deep Learning** whi
   ogImage: "/images/og-image.png", // Replace with your actual OG image (1200x630px)
   namePronunciationUrl: "", // Optional: Add if you create one
   keywords: [
-    "heyitsgautham",
-    "Gautham Krishna S",
     "Gautham Krishna",
-    "AI Engineer",
-    "SIH Finalist",
-    "IIT Madras",
-    "Presidio",
-    "GenAI Developer",
+    "Gautham Krishna AI Engineer",
+    "Gautham Krishna Chennai",
+    "Gautham Krishna IIT Madras",
+    "Gautham Krishna S",
+    "heyitsgautham",
+    "AI Engineer Chennai",
+    "LLM Engineer India",
     "RAG Developer",
-    "LLM Engineer",
+    "GenAI Developer",
+    "SIH Finalist",
+    "IIT Madras Data Science",
+    "Presidio",
     "PyTorch",
-    "Chennai AI developer",
+    "Machine Learning Engineer Chennai",
   ],
   dateCreated: "2025-12-26", // Date when you started building this portfolio
 };
