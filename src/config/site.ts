@@ -33,7 +33,7 @@ export const MAIN_NAV: NavItem[] = [
   },
   {
     title: "Contact",
-    href: "/#overview",
+    href: "/#contact",
   },
 ];
 
@@ -44,7 +44,7 @@ export const COMPACT_NAV: NavItem[] = [
   },
   {
     title: "Contact",
-    href: "/#overview",
+    href: "/#contact",
   },
 ];
 
