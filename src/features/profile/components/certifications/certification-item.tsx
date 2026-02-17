@@ -33,7 +33,7 @@ export function CertificationItem({
           />
         </div>
 
-        <div className="flex flex-1 flex-col items-center justify-between gap-3 border-t border-border/50 bg-card p-4">
+        <div className="flex flex-col items-center justify-between gap-3 border-t border-border/50 bg-card p-4">
           <h3 className="font-semibold text-balance text-center line-clamp-2">
             {certification.title}
           </h3>

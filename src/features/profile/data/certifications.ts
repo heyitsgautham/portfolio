@@ -35,14 +35,6 @@ export const CERTIFICATIONS: Certification[] = [
     credentialURL: "#",
   },
   {
-    title: "AWS Certified Cloud Practitioner Foundations",
-    issuer: "AWS",
-    certificateImageURL: "/images/certifications/aws_ccp_foundations.png",
-    issueDate: "2024-09-01",
-    credentialID: "",
-    credentialURL: "#",
-  },
-  {
     title: "Foundations of PyTorch",
     issuer: "Packt",
     certificateImageURL: "/images/certifications/foundations-pytorch.png",
@@ -59,7 +51,7 @@ export const CERTIFICATIONS: Certification[] = [
     credentialURL: "#",
   },
   {
-    title: "CS50x: Introduction to Computer Science",
+    title: "CS50x: Intro to CS",
     issuer: "Harvard University",
     certificateImageURL: "/images/certifications/cs50x.png",
     issueDate: "2024-06-01",
@@ -75,7 +67,7 @@ export const CERTIFICATIONS: Certification[] = [
     credentialURL: "#",
   },
   {
-    title: "UiPath Certified Professional Automation Developer Associate",
+    title: "UiPath Certified Professional",
     issuer: "UiPath",
     certificateImageURL: "/images/certifications/uipath.png",
     issueDate: "2025-10-01",
@@ -123,7 +115,7 @@ export const CERTIFICATIONS: Certification[] = [
     credentialURL: "#",
   },
   {
-    title: "Advanced PyTorch Techniques and Applications",
+    title: "Advanced PyTorch",
     issuer: "Packt",
     certificateImageURL: "/images/certifications/adv_pytorch_app.png",
     issueDate: "2025-05-01",
