@@ -2,12 +2,12 @@ import type { Certification } from "../types/certifications";
 
 export const CERTIFICATIONS: Certification[] = [
   {
-    title: "UiPath Certified Professional Automation Developer Associate",
-    issuer: "UiPath",
-    certificateImageURL: "/images/certifications/uipath.png",
-    issueDate: "2025-10-01",
-    credentialID: "164548380",
-    credentialURL: "https://credentials.uipath.com/164548380",
+    title: "AWS Cloud Practitioner Essentials",
+    issuer: "AWS",
+    certificateImageURL: "/images/certifications/aws_cpe.png",
+    issueDate: "2024-11-01",
+    credentialID: "",
+    credentialURL: "#",
   },
   {
     title: "Presidio Certificate",
@@ -23,14 +23,6 @@ export const CERTIFICATIONS: Certification[] = [
     issuer: "Packt",
     certificateImageURL: "/images/certifications/packt_DL.png",
     issueDate: "2024-12-01",
-    credentialID: "",
-    credentialURL: "#",
-  },
-  {
-    title: "AWS Cloud Practitioner Essentials",
-    issuer: "AWS",
-    certificateImageURL: "/images/certifications/aws_cpe.png",
-    issueDate: "2024-11-01",
     credentialID: "",
     credentialURL: "#",
   },
@@ -81,6 +73,14 @@ export const CERTIFICATIONS: Certification[] = [
     issueDate: "2024-05-01",
     credentialID: "",
     credentialURL: "#",
+  },
+  {
+    title: "UiPath Certified Professional Automation Developer Associate",
+    issuer: "UiPath",
+    certificateImageURL: "/images/certifications/uipath.png",
+    issueDate: "2025-10-01",
+    credentialID: "164548380",
+    credentialURL: "https://credentials.uipath.com/164548380",
   },
   {
     title: "NPTEL: Internet of Things",
