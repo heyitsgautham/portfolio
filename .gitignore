@@ -81,3 +81,7 @@ logs/
 *.log
 *.log.*
 .env*.local
+
+# project-specific
+projects-description
+proj-summary-description
