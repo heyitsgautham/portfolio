@@ -22,10 +22,10 @@ export function TechStack() {
     const displayName = tech.displayName || tech.title;
 
     // Icons that are dark and need white background in dark mode
-    const needsWhiteBgInDark = ['flask', 'github'].includes(tech.key);
+    const needsWhiteBgInDark = ['flask'].includes(tech.key);
 
     // Icons that are light and need dark background in light mode
-    const needsBlackBgInLight: string[] = ['ollama', 'lambda', 'v0', 'notebooklm', 'aistudio', 'mcp', 'cursor', 'githubcopilot', 'notion'];
+    const needsBlackBgInLight: string[] = ['ollama', 'lambda', 'notebooklm', 'aistudio', 'mcp', 'notion'];
 
     return (
       <li key={tech.key} className="flex">
