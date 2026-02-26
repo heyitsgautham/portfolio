@@ -4,6 +4,8 @@ export const PROJECTS: Project[] = [
   // Featured Project 1: SkillSync (Expanded)
   {
     id: "skillsync",
+    slug: "skill-sync",
+    image: "/images/projects/skil-sync.png",
     title: "SkillSync - AI Resume Screening Platform",
     period: {
       start: "09.2025",
@@ -19,6 +21,7 @@ export const PROJECTS: Project[] = [
       "Multi-LLM",
       "Embeddings",
     ],
+    summary: "AI-powered bias-free resume screening platform",
     description: `Enterprise RAG-powered resume screening platform that transforms a 40-hour, bias-prone manual process into a 45-minute, fair, and transparent automated solution with anonymized screening and AI-powered candidate ranking.
 
 **Key Features:**
@@ -35,17 +38,37 @@ export const PROJECTS: Project[] = [
 - 67% increase in diverse candidate shortlists through anonymized resume viewing
 - 89% better accuracy compared to manual bias-prone screening processes`,
     isExpanded: false,
+    intro:
+      "An enterprise-grade RAG-powered resume screening platform that transforms a 40-hour, bias-prone manual process into a 45-minute, fair, and transparent automated solution. It uses anonymized screening and AI-powered candidate ranking to eliminate unconscious bias while achieving 89% better accuracy than manual screening.",
+    uniqueFeatures: [
+      "AI-powered semantic matching using Google Gemini 2.5 with weighted scoring",
+      "Anonymized resume screening with real-time PII redaction (names, emails, phones, LinkedIn, GitHub) for EEOC/GDPR compliance",
+      "Enterprise RAG system with multi-LLM backup (10 API keys with automatic rotation) for 99.9% uptime",
+      "Automated email communications: daily digests, bulk campaigns, interview invitations, and AI-generated rejection letters",
+      "One-click export to Excel with evidence-based explanations for candidate rankings",
+      "Screens 500 applicants in 90 seconds with 98% cost reduction vs manual screening",
+    ],
+    techStackDetail: [
+      { label: "Frontend", items: "React 19, Material-UI, Vite" },
+      { label: "Backend", items: "FastAPI, Python 3.11+" },
+      { label: "AI/ML", items: "Google Gemini 2.5, ChromaDB, sentence-transformers, PyMuPDF" },
+      { label: "Database", items: "PostgreSQL, AWS S3" },
+      { label: "Infrastructure", items: "Multi-LLM backup with 10 API keys, Cron jobs" },
+    ],
   },
 
   // Featured Project 2: Sticky-Net (Expanded)
   {
     id: "sticky-net",
+    slug: "sticky-net",
+    image: "/images/projects/honey-pot.png",
     title: "Sticky-Net - AI Honeypot System",
     period: {
       start: "01.2026",
       end: "Present",
     },
     link: "https://github.com/heyitsgautham/sticky-net",
+    liveLink: "https://stickynet-ai.web.app",
     skills: [
       "Python",
       "FastAPI",
@@ -55,6 +78,7 @@ export const PROJECTS: Project[] = [
       "NLP",
       "Regex",
     ],
+    summary: "AI honeypot that traps & extracts intel from scammers",
     description: `AI-powered honeypot system that autonomously detects scam messages, engages scammers through multi-turn conversations, and extracts actionable intelligence (bank accounts, UPI IDs, beneficiary names) for law enforcement.
 
 **Key Features:**
@@ -70,17 +94,35 @@ export const PROJECTS: Project[] = [
 - Supports 50+ UPI provider validation patterns
 - Validates 50+ Indian bank name patterns`,
     isExpanded: false,
+    intro:
+      "An AI-powered honeypot system that autonomously detects scam messages, engages scammers through multi-turn conversations, and extracts actionable intelligence for law enforcement. It uses a hybrid regex + AI pipeline to classify threats in under 150ms and adaptively engages scammers to extract bank accounts, UPI IDs, and beneficiary names.",
+    uniqueFeatures: [
+      "4-stage pipeline: Regex pre-filter (~10ms) \u2192 AI Classifier (Gemini Flash, ~150ms) \u2192 Engagement Policy \u2192 Intelligence Extraction",
+      "Adaptive engagement modes: Cautious (10 turns) vs Aggressive (25 turns) with persona maintenance",
+      "Extracts 10+ intelligence types: bank accounts, UPI IDs, phone numbers, beneficiary names, IFSC codes, phishing URLs, crypto wallets",
+      "Shadow DOM isolation for injected UI components",
+      "Smart exit conditions with stale conversation detection and monotonic confidence scoring",
+      "Supports 50+ UPI provider and 50+ Indian bank name validation patterns",
+    ],
+    techStackDetail: [
+      { label: "Frontend", items: "React 19, Tailwind CSS, shadcn/ui, Framer Motion" },
+      { label: "Backend", items: "FastAPI, Python 3.11+" },
+      { label: "AI/ML", items: "Gemini Flash, Regex-based pre-filter, NLP" },
+      { label: "Infrastructure", items: "Google Cloud Run, Docker, Firestore, CORS middleware" },
+    ],
   },
 
   // Featured Project 3: AcademiaSync (Expanded)
   {
     id: "academiasync",
+    slug: "academia-sync",
+    image: "/images/projects/academia-sync.png",
     title: "AcademiaSync - Cloud Learning Management System",
     period: {
       start: "09.2025",
       end: "11.2025",
     },
-    link: "https://github.com/heyitsgautham/academia-sync",
+    link: "https://github.com/heyitsgautham/AcademiaSync",
     skills: [
       "TypeScript",
       "Next.js",
@@ -90,6 +132,7 @@ export const PROJECTS: Project[] = [
       "Terraform",
       "Docker",
     ],
+    summary: "Cloud-native learning management system on AWS",
     description: `A modern, scalable learning management system with Google OAuth authentication, role-based access control, and real-time analytics for students, teachers, and administrators.
 
 **Key Features:**
@@ -106,11 +149,30 @@ export const PROJECTS: Project[] = [
 - Built role-based dashboards for 3 user types (Student, Teacher, Admin) with personalized analytics
 - Automated CI/CD with GitHub Actions`,
     isExpanded: false,
+    intro:
+      "A modern, scalable learning management system with Google OAuth authentication, role-based access control, and real-time analytics for students, teachers, and administrators. It features a microservices architecture deployed on AWS ECS Fargate with Infrastructure-as-Code via Terraform.",
+    uniqueFeatures: [
+      "Multi-service Docker containerization with health checks and orchestration",
+      "Infrastructure-as-Code deployment using Terraform on AWS ECS Fargate",
+      "Google OAuth 2.0 integration via NextAuth.js with JWT authentication and refresh tokens",
+      "Real-time analytics dashboard with Recharts for performance visualization",
+      "Role-based dashboards for 3 user types (Student, Teacher, Admin) with personalized analytics",
+      "Automated CI/CD with GitHub Actions",
+    ],
+    techStackDetail: [
+      { label: "Frontend", items: "Next.js 14, React, Recharts" },
+      { label: "Backend", items: "Node.js 20, Express, TypeScript" },
+      { label: "Database", items: "PostgreSQL 16" },
+      { label: "Infrastructure", items: "Docker, AWS ECS Fargate, Terraform, GitHub Actions CI/CD" },
+      { label: "Auth", items: "NextAuth.js, Google OAuth 2.0, JWT" },
+    ],
   },
 
   // Project 4: Meru Coders - SIH Grand Finale
   {
     id: "meru-coders",
+    slug: "meru-coders",
+    image: "/images/projects/meru-coders.png",
     title: "Meru Coders - AI Sanskrit Meter Identification",
     period: {
       start: "12.2025",
@@ -127,6 +189,7 @@ export const PROJECTS: Project[] = [
       "Gemini",
       "OCR",
     ],
+    summary: "AI-powered Sanskrit meter identification system",
     description: `AI-powered platform that identifies and analyzes Sanskrit meters (Chandas) with 100% accuracy on authentic texts, combining 2,500-year-old traditional knowledge with modern AI/ML technologies. Built for SIH 2025 Grand Finale.
 
 **Key Features:**
@@ -142,11 +205,30 @@ export const PROJECTS: Project[] = [
 - Built the largest digital collection of 1,920+ meters across all categories
 - Processed 147 verses in comprehensive dataset-level validation with 8/8 core tests passing`,
     isExpanded: false,
+    intro:
+      "An AI-powered platform that identifies and analyzes Sanskrit meters (Chandas) with 100% accuracy on authentic texts, combining 2,500-year-old traditional knowledge with modern AI/ML technologies. Built for SIH 2025 Grand Finale, it features the largest digital collection of 1,920+ meters across all categories.",
+    uniqueFeatures: [
+      "Multi-modal input processing (Text, Image OCR, Audio STT, File upload PDF/DOCX/TXT)",
+      "RAG-powered knowledge base with 2,844 indexed documents for accurate Sanskrit meter identification",
+      "Vedic vs Classical text classifier with Gemini-powered input validation",
+      "Multi-language support with 9+ Indian script OCR (Devanagari, Telugu, Tamil, Kannada, Malayalam, Bengali, Gujarati)",
+      "Real-time WebSocket notifications and Twitter-like community platform",
+      "Gamified learning platform (Chandas-game) with interactive LG Lab",
+    ],
+    techStackDetail: [
+      { label: "Frontend", items: "React, Vite" },
+      { label: "Backend", items: "Flask, FastAPI, Python" },
+      { label: "AI/ML", items: "Google Gemini, ChromaDB (RAG), Google Vision API, Tesseract OCR" },
+      { label: "Database", items: "Supabase (Auth + Database), ChromaDB (Vector DB)" },
+      { label: "Other", items: "WebSocket, JWT, Text-to-Speech, Speech-to-Text" },
+    ],
   },
 
   // Project 5: PhishGuard Vision
   {
     id: "phishguard-vision",
+    slug: "phishguard-vision",
+    image: "/images/projects/phishproof-ext.png",
     title: "PhishGuard Vision - Chrome AI Safety Extension",
     period: {
       start: "11.2025",
@@ -160,6 +242,7 @@ export const PROJECTS: Project[] = [
       "On-device AI",
       "Privacy",
     ],
+    summary: "On-device AI Chrome extension for phishing detection",
     description: `A Chrome extension leveraging Chrome's Built-in AI APIs (Gemini Nano) to protect elderly users and those with low technical literacy from phishing, scams, and deceptive online practices, entirely on-device with complete privacy.
 
 **Key Features:**
@@ -176,11 +259,28 @@ export const PROJECTS: Project[] = [
 - Zero-cost, offline-capable threat detection with no subscription or API fees
 - Trust score system with color-coded indicators (Red: 1-2, Orange: 3, Green: 4-5)`,
     isExpanded: false,
+    intro:
+      "A Chrome extension leveraging Chrome\u2019s Built-in AI APIs (Gemini Nano) to protect elderly users and those with low technical literacy from phishing, scams, and deceptive online practices. It runs entirely on-device with zero external API calls, ensuring complete privacy and offline-capable threat detection.",
+    uniqueFeatures: [
+      "Multi-tier phishing detection with 4 Chrome Built-in AI APIs (Prompt, Summarizer, Rewriter, Translator)",
+      "Multimodal visual analysis detecting spoofed logos, fake security warnings, and deceptive UI elements",
+      "Hidden fee detector that condenses 5,000+ word T&C documents into 200-word plain-language summaries",
+      "AI-learned ad blocker that dynamically identifies and blocks malvertising patterns",
+      "Multi-language support for 10 languages with complete on-device processing",
+      "Trust score system with color-coded indicators (Red: 1-2, Orange: 3, Green: 4-5)",
+    ],
+    techStackDetail: [
+      { label: "Core", items: "TypeScript, Chrome Extension APIs (Manifest V3)" },
+      { label: "AI", items: "Gemini Nano (on-device), Chrome Built-in AI APIs" },
+      { label: "Techniques", items: "Multi-tier phishing detection, Multimodal screenshot analysis, Local caching (24-hour TTL)" },
+    ],
   },
 
   // Project 6: AI Data Analyst
   {
     id: "ai-data-analyst",
+    slug: "ai-data-analyst",
+    image: "/images/projects/data-analyst.png",
     title: "AI Data Analyst - Multi-Source Data Analysis",
     period: {
       start: "10.2025",
@@ -196,6 +296,7 @@ export const PROJECTS: Project[] = [
       "OCR",
       "Docker",
     ],
+    summary: "Automated multi-source data analysis with multi-LLM",
     description: `Intelligent data analysis system combining web scraping, multi-format data extraction, and AI-powered analysis with multi-LLM orchestration to automatically answer complex data questions.
 
 **Key Features:**
@@ -210,11 +311,30 @@ export const PROJECTS: Project[] = [
 - Orchestrates 4 LLM providers (GPT, Claude, Gemini, Grok) with automatic failover
 - Processes multiple concurrent files with comprehensive error handling`,
     isExpanded: false,
+    intro:
+      "An intelligent data analysis system combining web scraping, multi-format data extraction, and AI-powered analysis with multi-LLM orchestration. It automatically answers complex data questions by ingesting 10+ input formats and orchestrating 4 LLM providers with automatic failover.",
+    uniqueFeatures: [
+      "Multi-source data ingestion: web scraping, PDF extraction, image OCR, CSV/JSON/Excel/SQL processing",
+      "Automatic numeric field detection with currency, percentage, and scientific notation handling",
+      "Multi-table relationship detection and DuckDB query generation",
+      "Error recovery with automatic retry across multiple LLM providers",
+      "Archive support (ZIP, TAR, TAR.GZ) with automatic file cleanup",
+      "Orchestrates 4 LLM providers (GPT, Claude, Gemini, Grok) with automatic failover",
+    ],
+    techStackDetail: [
+      { label: "Backend", items: "FastAPI, Python 3.11+, Pandas, NumPy" },
+      { label: "Database", items: "DuckDB (in-memory analytical database)" },
+      { label: "AI/ML", items: "GPT, Claude, Gemini, Grok (multi-LLM orchestration)" },
+      { label: "Scraping", items: "Playwright, Selenium, BeautifulSoup4, httpx" },
+      { label: "Infrastructure", items: "Docker" },
+    ],
   },
 
   // Project 7: Aura Health
   {
     id: "aura-health",
+    slug: "aura-health",
+    image: "/images/projects/aura-health.png",
     title: "Aura Health - Medical RAG System",
     period: {
       start: "09.2025",
@@ -230,6 +350,7 @@ export const PROJECTS: Project[] = [
       "NLP",
       "Embeddings",
     ],
+    summary: "Medical RAG system for multi-specialty hospitals",
     description: `Advanced Retrieval-Augmented Generation (RAG) system for multi-specialty hospitals implementing 7 sophisticated retrieval techniques with domain-specific knowledge retrieval, safety guardrails, and patient-facing query restrictions.
 
 **Key Features:**
@@ -244,11 +365,29 @@ export const PROJECTS: Project[] = [
 - Covered 8+ medical specialty domains with domain-specific knowledge retrieval
 - Achieved ~40% token reduction for simple queries with adaptive k-values`,
     isExpanded: false,
+    intro:
+      "An advanced Retrieval-Augmented Generation (RAG) system for multi-specialty hospitals implementing 7 sophisticated retrieval techniques. It features domain-specific knowledge retrieval across 8+ medical specialties with safety guardrails and patient-facing query restrictions.",
+    uniqueFeatures: [
+      "7 advanced retrieval strategies: Query Decomposition, Contextual Compression, Self-Query Retrieval, Ensemble Retrieval, RAG-Fusion with RRF, FLARE, Adaptive Retrieval",
+      "Multi-domain medical knowledge bases (Cardiology, Pediatrics, Neurology, Dermatology, Endocrinology, etc.)",
+      "Automatic domain detection from query keywords without manual specification",
+      "Safety guardrails blocking harmful/threatening queries with patient mode restrictions",
+      "Dynamic retrieval tuning based on query complexity (k=2 to k=6)",
+      "~40% token reduction for simple queries with adaptive k-values",
+    ],
+    techStackDetail: [
+      { label: "Backend", items: "FastAPI, Python 3.10+, LangChain" },
+      { label: "AI/ML", items: "Ollama Mistral (local LLM), HuggingFace sentence-transformers (all-MiniLM-L6-v2)" },
+      { label: "Vector Store", items: "ChromaDB" },
+      { label: "Techniques", items: "RAG-Fusion, FLARE, Query Decomposition, Contextual Compression" },
+    ],
   },
 
   // Project 8: SocialPulse
   {
     id: "socialpulse",
+    slug: "social-pulse",
+    image: "/images/projects/social-pulse.png",
     title: "SocialPulse - Real-time Analytics Engine",
     period: {
       start: "09.2025",
@@ -263,6 +402,7 @@ export const PROJECTS: Project[] = [
       "SQLAlchemy",
       "Real-time",
     ],
+    summary: "Real-time social media analytics and trend detection",
     description: `Real-time social media analytics platform that processes engagement data, detects trending hashtags with sliding window counters, and provides viral chain detection through recursive comment analysis.
 
 **Key Features:**
@@ -278,17 +418,36 @@ export const PROJECTS: Project[] = [
 - Sub-60ms Redis cache response time for trending data
 - Comprehensive test coverage with pytest`,
     isExpanded: false,
+    intro:
+      "A real-time social media analytics platform that processes engagement data, detects trending hashtags with sliding window counters, and provides viral chain detection through recursive comment analysis. It achieves 70-95% faster query performance through composite database indexing with sub-60ms Redis cache response times.",
+    uniqueFeatures: [
+      "Trending hashtag detection with sliding window algorithm and Redis caching",
+      "Viral comment chain detection using recursive SQL CTEs",
+      "Complex SQL aggregations for engagement reports and user analytics",
+      "Database indexing achieving 70-95% query performance improvement",
+      "Dual interface: REST API + CLI for administration",
+      "Deterministic seeding (Faker with fixed seed) for reproducible demos",
+    ],
+    techStackDetail: [
+      { label: "Backend", items: "FastAPI, Python 3.11+, SQLAlchemy, Alembic, Typer CLI" },
+      { label: "Database", items: "PostgreSQL" },
+      { label: "Caching", items: "Redis (with TTL)" },
+      { label: "Testing", items: "pytest" },
+    ],
   },
 
   // Project 9: SmartTasker
   {
     id: "smart-tasker",
+    slug: "smart-tasker",
+    image: "/images/projects/smart-tasker.png",
     title: "SmartTasker - AI Task Management",
     period: {
       start: "08.2025",
       end: "09.2025",
     },
     link: "https://github.com/heyitsgautham/smart-tasker",
+    liveLink: "https://smart-tasker-eight.vercel.app",
     skills: [
       "TypeScript",
       "Next.js",
@@ -297,6 +456,7 @@ export const PROJECTS: Project[] = [
       "Google Calendar API",
       "Gemini AI",
     ],
+    summary: "AI task manager with smart prioritization",
     description: `AI-powered task management app that uses Google Gemini for intelligent task prioritization, natural language date parsing, and seamless Google Calendar integration.
 
 **Key Features:**
@@ -311,11 +471,29 @@ export const PROJECTS: Project[] = [
 - Real-time sync across devices with sub-second latency
 - Integrated Google Gemini AI for task summarization and priority suggestions`,
     isExpanded: false,
+    intro:
+      "An AI-powered task management app that uses Google Gemini for intelligent task prioritization, natural language date parsing, and seamless Google Calendar integration. It features real-time cross-device synchronization using Firestore with sub-second latency.",
+    uniqueFeatures: [
+      "AI-powered automatic task prioritization using natural language analysis",
+      "Bidirectional Google Calendar sync with OAuth 2.0",
+      "Real-time cross-device synchronization using Firestore",
+      "Smart date parsing from natural language inputs",
+      "Browser notification system for reminders",
+    ],
+    techStackDetail: [
+      { label: "Frontend", items: "Next.js 15, React, TypeScript, Tailwind CSS" },
+      { label: "Backend", items: "Firebase (Firestore, Auth)" },
+      { label: "AI", items: "Google Gemini AI" },
+      { label: "APIs", items: "Google Calendar API, OAuth 2.0" },
+      { label: "Deployment", items: "Vercel" },
+    ],
   },
 
   // Project 10: SecureWipe (Erase-Sure)
   {
     id: "securewipe",
+    slug: "secure-wipe",
+    image: "/images/projects/secure-wipe.png",
     title: "SecureWipe - NIST Data Sanitization Platform",
     period: {
       start: "07.2024",
@@ -331,6 +509,7 @@ export const PROJECTS: Project[] = [
       "FastAPI",
       "Cryptography",
     ],
+    summary: "NIST-compliant secure data sanitization platform",
     description: `NIST SP 800-88 Rev.1 compliant data sanitization platform with cryptographically signed certificates, cross-platform desktop UI, and web-based verification portal for secure e-waste management. Built for SIH 2024.
 
 **Key Features:**
@@ -345,11 +524,30 @@ export const PROJECTS: Project[] = [
 - Implements 3 NIST-compliant sanitization levels (PURGE, CLEAR, DESTROY) with verification sampling
 - Built end-to-end audit trail with certificate chaining for compliance documentation`,
     isExpanded: false,
+    intro:
+      "A NIST SP 800-88 Rev.1 compliant data sanitization platform with cryptographically signed certificates, cross-platform desktop UI, and web-based verification portal for secure e-waste management. Built for SIH 2024, it addresses the challenge of hoarded IT assets in India due to data breach fears.",
+    uniqueFeatures: [
+      "NIST-compliant sanitization methods: NVMe Sanitize, ATA Secure Erase, HPA/DCO clearing",
+      "Tamper-proof certificate system with Ed25519 signatures and QR-based verification",
+      "Intelligent encrypted backup with AES-256-CTR and SHA-256 manifest integrity",
+      "Cross-platform desktop UI with device discovery, risk classification, and real-time progress",
+      "REST API verification portal for programmatic certificate validation",
+      "End-to-end audit trail with certificate chaining for compliance documentation",
+    ],
+    techStackDetail: [
+      { label: "Desktop", items: "Tauri 1.6, Rust 1.70+" },
+      { label: "Frontend", items: "React 18, TypeScript" },
+      { label: "Backend", items: "FastAPI, Python 3.11+" },
+      { label: "Crypto", items: "Ed25519 signatures, AES-256-CTR, SHA-256" },
+      { label: "Tools", items: "nvme-cli, hdparm, smartmontools, Docker" },
+    ],
   },
 
   // Project 11: Swades Connect
   {
     id: "swades-connect",
+    slug: "swades-connect",
+    image: "/images/projects/odoo-crm.png",
     title: "Swades Connect - Odoo CRM Extractor",
     period: {
       start: "06.2025",
@@ -363,6 +561,7 @@ export const PROJECTS: Project[] = [
       "Manifest V3",
       "Tailwind CSS",
     ],
+    summary: "Chrome extension to extract Odoo CRM data",
     description: `Chrome Extension (Manifest V3) that extracts Contacts, Opportunities, and Activities from Odoo CRM via RPC interception, with React-powered dashboard for data management and export. Built in a 5-hour hackathon.
 
 **Key Features:**
@@ -378,12 +577,29 @@ export const PROJECTS: Project[] = [
 - Supports 3 data types: Contacts, Opportunities, Activities
 - Data persistence across browser sessions with chrome.storage.local`,
     isExpanded: false,
+    intro:
+      "A Chrome Extension (Manifest V3) that extracts Contacts, Opportunities, and Activities from Odoo CRM via RPC interception, with a React-powered dashboard for data management and export. Built in a 5-hour hackathon, it features automatic view detection and Shadow DOM isolation.",
+    uniqueFeatures: [
+      "Automatic detection of Odoo list and kanban views",
+      "RPC interception to capture Odoo\u2019s internal API calls",
+      "Pagination handling for multi-page data extraction",
+      "Export to CSV and JSON formats",
+      "Shadow DOM isolation preventing CSS conflicts with host page",
+      "Chrome Manifest V3 compliance with service workers",
+    ],
+    techStackDetail: [
+      { label: "Frontend", items: "React 18, Tailwind CSS, Vite with CRXJS plugin" },
+      { label: "Language", items: "TypeScript 5" },
+      { label: "Platform", items: "Chrome Extension APIs (Manifest V3), chrome.storage.local, Service Workers" },
+    ],
   },
 
   // Project 12: Multi-Label Emotion Classification
   {
     id: "emotion-classification",
-    title: "Multi-Label Emotion Classification",
+    slug: "emotion-classification",
+    image: "/images/projects/emotion-classification.png",
+    title: "Emotion Classification",
     period: {
       start: "03.2025",
       end: "05.2025",
@@ -397,6 +613,7 @@ export const PROJECTS: Project[] = [
       "RoBERTa",
       "Knowledge Distillation",
     ],
+    summary: "Multi-label classifier with transformer ensembles",
     description: `End-to-end multi-label emotion classification system that predicts five emotions (Anger, Fear, Joy, Sadness, Surprise) from short English text using ensemble transformer models with knowledge distillation for efficient deployment. IIT Madras course project.
 
 **Key Features:**
@@ -411,12 +628,30 @@ export const PROJECTS: Project[] = [
 - Deployed distilled student model to Hugging Face Hub: heyitsgautham/emotion-ensemble-distilled
 - Built progression from rule-based baseline → transformers → knowledge distillation`,
     isExpanded: false,
+    intro:
+      "An end-to-end multi-label emotion classification system that predicts five emotions (Anger, Fear, Joy, Sadness, Surprise) from short English text using ensemble transformer models with knowledge distillation for efficient deployment. Built as an IIT Madras course project with a production-ready model deployed to Hugging Face Hub.",
+    uniqueFeatures: [
+      "10-model transformer ensemble (2 architectures \u00d7 5 folds) with weighted logits averaging",
+      "Knowledge distillation pipeline compressing large ensemble into deployable DeBERTa-v3-base student model",
+      "Hybrid CNN + BiGRU + Self-Attention architecture combining local n-gram patterns with long-range sequence context",
+      "Full experiment tracking with Weights & Biases integration",
+      "Production-ready model deployed to Hugging Face Hub",
+      "Progression from rule-based baseline \u2192 classical ML \u2192 neural networks \u2192 transformers \u2192 knowledge distillation",
+    ],
+    techStackDetail: [
+      { label: "Language", items: "Python" },
+      { label: "ML/DL", items: "PyTorch, Hugging Face Transformers, scikit-learn" },
+      { label: "Models", items: "DeBERTa-v3-large, RoBERTa-large, CNN + BiGRU + Self-Attention" },
+      { label: "Tools", items: "Weights & Biases, Hugging Face Hub, GPU with mixed precision (AMP)" },
+    ],
   },
 
   // Project 13: Predictive Maintenance
   {
     id: "predictive-maintenance",
-    title: "Predictive Maintenance with PySpark",
+    slug: "predictive-maintenance",
+    image: "/images/projects/predictive-maintenance.png",
+    title: "Predictive Maintenance",
     period: {
       start: "01.2025",
       end: "03.2025",
@@ -429,6 +664,7 @@ export const PROJECTS: Project[] = [
       "Random Forest",
       "Feature Engineering",
     ],
+    summary: "Distributed ML pipeline for equipment failure prediction",
     description: `End-to-end distributed machine learning pipeline using PySpark that predicts equipment failures 7 days in advance, processing 2M+ records across 1,900 machines for proactive maintenance scheduling.
 
 **Key Features:**
@@ -443,12 +679,30 @@ export const PROJECTS: Project[] = [
 - Achieved 7-day advance warning capability enabling proactive resource planning
 - Utilized full 32-core CPU with 448 GB RAM for distributed processing`,
     isExpanded: false,
+    intro:
+      "An end-to-end distributed machine learning pipeline using PySpark that predicts equipment failures 7 days in advance, processing 2M+ records across 1,900 machines. It engineered 1,150 rolling statistics features and used stratified down-sampling to handle extreme class imbalance for proactive maintenance scheduling.",
+    uniqueFeatures: [
+      "Engineered 1,150 rolling statistics features (5 windows \u00d7 46 features \u00d7 5 statistics) for time-series analysis",
+      "Implemented over-labeling technique for 7-day advance failure prediction window",
+      "Random Forest classifier (100 trees) with Grid search and 3-fold cross-validation",
+      "PCA dimensionality reduction (172 \u2192 50 components)",
+      "Stratified down-sampling to handle extreme class imbalance (98.5% vs 1.5%)",
+      "Processed 1.3 GB / 2M+ records across 1,900 machines over 4 years of data",
+    ],
+    techStackDetail: [
+      { label: "Language", items: "Python" },
+      { label: "Big Data", items: "PySpark 2.0.2, Spark MLlib" },
+      { label: "ML", items: "Random Forest, PCA, scikit-learn" },
+      { label: "Infrastructure", items: "32-core Linux DSVM (448 GB RAM), Azure Blob Storage, Parquet" },
+    ],
   },
 
   // Project 14: Earthquake Report
   {
     id: "earthquake-report",
-    title: "Earthquake Analysis & Prediction Platform",
+    slug: "earthquake-report",
+    image: "/images/projects/earthquake-analysis.png",
+    title: "Earthquake Analysis",
     period: {
       start: "11.2024",
       end: "01.2025",
@@ -462,6 +716,7 @@ export const PROJECTS: Project[] = [
       "GeoPandas",
       "Folium",
     ],
+    summary: "ML-based Earthquake monitoring and prediction",
     description: `Data analytics platform for earthquake monitoring, historical analysis, and ML-based impact prediction to aid disaster management and response planning.
 
 **Key Features:**
@@ -476,17 +731,36 @@ export const PROJECTS: Project[] = [
 - Built ML models for risk assessment covering magnitude, depth, and regional impact factors
 - Deployed interactive dashboard with real-time global seismic activity monitoring`,
     isExpanded: false,
+    intro:
+      "A data analytics platform for earthquake monitoring, historical analysis, and ML-based impact prediction to aid disaster management and response planning. It integrates 3 authoritative data sources (USGS, IRIS GSN, EM-DAT) and provides interactive visualizations including heatmaps and 3D wave propagation simulations.",
+    uniqueFeatures: [
+      "Real-time earthquake monitoring with live data feeds from USGS",
+      "Historical trend analysis for predictive insights on seismic activity",
+      "Impact prediction models forecasting potential damage and affected areas",
+      "Interactive visualizations: heatmaps, geospatial charts, and 3D wave propagation simulations",
+      "Region classification based on seismic vulnerability using clustering",
+    ],
+    techStackDetail: [
+      { label: "Language", items: "Python" },
+      { label: "Frontend", items: "Streamlit" },
+      { label: "ML", items: "Scikit-learn, XGBoost, ARIMA, Random Forest, Gradient Boosting" },
+      { label: "Geospatial", items: "GeoPandas, Folium" },
+      { label: "Data Sources", items: "USGS, IRIS GSN, EM-DAT" },
+    ],
   },
 
   // Project 15: Traffic Men
   {
     id: "traffic-men",
+    slug: "traffic-men",
+    image: "/images/projects/traffic-men.png",
     title: "Traffic Men - Transit Optimization Platform",
     period: {
       start: "08.2024",
       end: "11.2024",
     },
     link: "https://github.com/heyitsgautham/traffic-men",
+    liveLink: "https://heyitsgautham.github.io/traffic-men.github.io",
     skills: [
       "Python",
       "Java",
@@ -495,6 +769,7 @@ export const PROJECTS: Project[] = [
       "NetworkX",
       "Android",
     ],
+    summary: "ML-powered public transit optimization platform",
     description: `Traffic management platform that uses ML-based demand forecasting and adaptive routing algorithms to optimize public transit scheduling and reduce commuter wait times for MTC Chennai.
 
 **Key Features:**
@@ -510,5 +785,26 @@ export const PROJECTS: Project[] = [
 - Companion Android app deployed for public access
 - Team project with 4 contributors`,
     isExpanded: false,
+    intro:
+      "A traffic management platform that uses ML-based demand forecasting and adaptive routing algorithms to optimize public transit scheduling and reduce commuter wait times for MTC Chennai. It was trained on real MTC and OpenCity datasets with a companion Android app for end-user access.",
+    uniqueFeatures: [
+      "Real-time traffic data integration with commuter density and event information",
+      "Predictive analytics using 9 ML models (Random Forest, XGBoost, AdaBoost, Gradient Boosting, Extra Trees) for demand forecasting",
+      "Adaptive scheduling and routing with AI-driven vehicle deployment",
+      "Graph-based route visualization with multiple NetworkX layouts",
+      "Companion Android app for end-user access",
+    ],
+    techStackDetail: [
+      { label: "Languages", items: "Python, Java, JavaScript, MATLAB" },
+      { label: "ML", items: "scikit-learn, Random Forest, XGBoost, AdaBoost, Gradient Boosting, Extra Trees" },
+      { label: "Visualization", items: "NetworkX, Bootstrap" },
+      { label: "Mobile", items: "Android SDK, Android Studio" },
+      { label: "Infrastructure", items: "Google Cloud Platform" },
+    ],
   },
 ];
+
+/** Look up a project by its URL slug. */
+export function getProjectBySlug(slug: string): Project | undefined {
+  return PROJECTS.find((p) => p.slug === slug);
+}
