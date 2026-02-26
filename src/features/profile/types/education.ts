@@ -19,4 +19,6 @@ export type Education = {
   description?: string;
   /** Optional URL to institution, transcript, or reference material. */
   referenceLink?: string;
+  /** Path to the institution logo image in /public/images/education/ */
+  logo?: string;
 };
