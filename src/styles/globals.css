@@ -322,6 +322,14 @@
   --shadow-popover: 0 0 24px rgba(0, 0, 0, 0.5);
 }
 
+/* ── Project accent heading colours (light / dark) ─────────────── */
+.project-accent-heading {
+  color: var(--project-accent);
+}
+.dark .project-accent-heading {
+  color: var(--project-accent-dark, var(--project-accent));
+}
+
 @layer base {
   *,
   ::after,
