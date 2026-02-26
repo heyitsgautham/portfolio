@@ -11,19 +11,36 @@ export const metadata = {
     description: "A comprehensive list of technologies I use and love.",
 };
 
+const CATEGORY_META: Record<string, { subtitle: string }> = {
+    "Languages": {
+        subtitle: "The foundation everything is built on.",
+    },
+    "AI & Data": {
+        subtitle: "Machine learning, computer vision, and agentic frameworks.",
+    },
+    "App Development": {
+        subtitle: "Frontend, mobile, and desktop - from pixel to product.",
+    },
+    "Backend & Infrastructure": {
+        subtitle: "Cloud, DevOps, databases, and the services that keep things running.",
+    },
+};
+
+const CATEGORY_ORDER = ["Languages", "AI & Data", "App Development", "Backend & Infrastructure"];
+
+// Icons that need special background treatment
+const NEEDS_WHITE_BG_IN_DARK = new Set(["flask"]);
+const NEEDS_BLACK_BG_IN_LIGHT = new Set(["ollama", "lambda", "notebooklm", "aistudio", "mcp", "notion"]);
+
 export default function TechStackPage() {
-    // Group by category
     const groupedStack = TECH_STACK.reduce((acc, tech) => {
         const category = tech.categories[0] || "Other";
-        if (!acc[category]) {
-            acc[category] = [];
-        }
+        if (!acc[category]) acc[category] = [];
         acc[category].push(tech);
         return acc;
     }, {} as Record<string, typeof TECH_STACK>);
 
-    // Sort categories alphabetically or by a custom order if needed
-    const categories = Object.keys(groupedStack).sort();
+    const categories = CATEGORY_ORDER.filter((c) => groupedStack[c]);
 
     return (
         <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
@@ -34,41 +51,54 @@ export default function TechStackPage() {
                 </p>
             </div>
 
-            <div className="space-y-12">
-                {categories.map((category) => (
-                    <div key={category}>
-                        <h2 className="mb-6 text-2xl font-semibold tracking-tight">{category}</h2>
-                        <ul className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-                            {groupedStack[category].map((tech) => {
-                                const icon = getIcon(tech.key, 32);
-                                const displayName = tech.displayName || tech.title;
+            <div className="space-y-16">
+                {categories.map((category) => {
+                    const meta = CATEGORY_META[category];
+                    return (
+                        <div key={category}>
+                            <div className="mb-6">
+                                <h2 className="text-2xl font-semibold tracking-tight">{category}</h2>
+                                {meta?.subtitle && (
+                                    <p className="mt-1 text-sm text-muted-foreground">{meta.subtitle}</p>
+                                )}
+                            </div>
+                            <ul className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+                                {groupedStack[category].map((tech) => {
+                                    const icon = getIcon(tech.key, 32);
+                                    const displayName = tech.displayName || tech.title;
 
-                                return (
-                                    <li key={tech.key}>
-                                        <SimpleTooltip content={displayName}>
-                                            <a
-                                                href={tech.href}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className={cn(
-                                                    "group flex flex-col items-center justify-center gap-3 rounded-2xl bg-card p-6 border border-border/50 shadow-sm transition-all hover:scale-105 hover:border-primary/50 hover:shadow-md",
-                                                    "dark:bg-zinc-900/50 dark:backdrop-blur-sm"
-                                                )}
-                                            >
-                                                <div className={cn("transition-colors group-hover:text-primary", !icon && "text-muted-foreground")}>
-                                                    {icon || <FaTerminal className="h-8 w-8" />}
-                                                </div>
-                                                <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground">
-                                                    {displayName}
-                                                </span>
-                                            </a>
-                                        </SimpleTooltip>
-                                    </li>
-                                );
-                            })}
-                        </ul>
-                    </div>
-                ))}
+                                    return (
+                                        <li key={tech.key}>
+                                            <SimpleTooltip content={displayName}>
+                                                <a
+                                                    href={tech.href}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className={cn(
+                                                        "group flex flex-col items-center justify-center gap-3 rounded-2xl bg-card p-6 border border-border/50 shadow-sm transition-all hover:scale-105 hover:border-primary/50 hover:shadow-md",
+                                                        "dark:bg-zinc-900/50 dark:backdrop-blur-sm"
+                                                    )}
+                                                >
+                                                    <div className={cn(
+                                                        "transition-colors group-hover:text-primary flex items-center justify-center",
+                                                        !icon && "text-muted-foreground",
+                                                        NEEDS_WHITE_BG_IN_DARK.has(tech.key) && "dark:bg-white rounded-lg p-1",
+                                                        NEEDS_BLACK_BG_IN_LIGHT.has(tech.key) && "bg-zinc-900 dark:bg-transparent rounded-lg p-1",
+                                                    )}>
+                                                        {icon || <FaTerminal className="h-8 w-8" />}
+                                                    </div>
+                                                    <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground">
+                                                        {displayName}
+                                                    </span>
+                                                </a>
+                                            </SimpleTooltip>
+                                        </li>
+                                    );
+                                })}
+                            </ul>
+                        </div>
+                    );
+                })}
             </div>
         </div>
     );

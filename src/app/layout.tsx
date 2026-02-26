@@ -167,7 +167,20 @@ export default function RootLayout({
         />
       </head>
 
-      <body className="flex min-h-screen flex-col overflow-x-hidden">
+      <body className="flex min-h-screen flex-col overflow-x-hidden bg-background text-foreground antialiased selection:bg-selection selection:text-selection-foreground">
+        <noscript>
+          <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-background p-6 text-center">
+            <div className="max-w-md space-y-4">
+              <h1 className="text-2xl font-bold tracking-tight">
+                JavaScript Required
+              </h1>
+              <p className="text-muted-foreground">
+                This portfolio works best with JavaScript enabled. Please enable
+                it to view the full experience.
+              </p>
+            </div>
+          </div>
+        </noscript>
         <Providers>{children}</Providers>
         <Analytics />
         <SpeedInsights />

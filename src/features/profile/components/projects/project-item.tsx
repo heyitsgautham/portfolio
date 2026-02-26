@@ -12,6 +12,7 @@ import {
   CollapsibleTrigger,
   CollapsibleWithContext,
 } from "@/components/ui/collapsible";
+import { Skeleton } from "@/components/ui/skeleton";
 import { Tag } from "@/components/ui/tag";
 import { SimpleTooltip } from "@/components/ui/tooltip";
 import { Prose } from "@/components/ui/typography";
@@ -82,6 +83,19 @@ export function ProjectItem({
               </div>
 
               <div className="flex items-center gap-3 shrink-0 pt-1">
+                {project.liveLink && (
+                  <a
+                    href={addQueryParams(project.liveLink, UTM_PARAMS)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group/link flex size-8 items-center justify-center rounded-full border border-border/50 bg-background/50 text-muted-foreground transition-all hover:border-border hover:bg-background hover:text-primary hover:shadow-sm"
+                    onClick={(e) => e.stopPropagation()}
+                    title="View Live Demo"
+                  >
+                    <ExternalLinkIcon className="size-4" />
+                    <span className="sr-only">View Live Demo</span>
+                  </a>
+                )}
                 <a
                   href={addQueryParams(project.link, UTM_PARAMS)}
                   target="_blank"
@@ -162,7 +176,15 @@ export function ProjectItem({
           <div className="space-y-4 border-t border-border/50 bg-muted/20 p-4">
             {project.description && (
               <Prose>
-                <Suspense fallback={<div>Loading...</div>}>
+                <Suspense
+                  fallback={
+                    <div className="space-y-2">
+                      <Skeleton className="h-4 w-full" />
+                      <Skeleton className="h-4 w-[90%]" />
+                      <Skeleton className="h-4 w-[95%]" />
+                    </div>
+                  }
+                >
                   <Markdown>{project.description}</Markdown>
                 </Suspense>
               </Prose>
@@ -209,15 +231,32 @@ export function ProjectItem({
               </ul>
             )}
 
-            <a
-              className="inline-flex items-center gap-2 text-sm text-primary transition-colors hover:text-primary/80 hover:underline"
-              href={addQueryParams(project.link, UTM_PARAMS)}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span>View Project</span>
-              <ExternalLinkIcon className="size-4" aria-hidden />
-            </a>
+            <div className="flex flex-wrap gap-4">
+              {project.liveLink && (
+                <a
+                  className="inline-flex items-center gap-2 text-sm text-primary transition-colors hover:text-primary/80 hover:underline"
+                  href={addQueryParams(project.liveLink, UTM_PARAMS)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span>View Live Demo</span>
+                  <ExternalLinkIcon className="size-4" aria-hidden />
+                </a>
+              )}
+              <a
+                className="inline-flex items-center gap-2 text-sm text-primary transition-colors hover:text-primary/80 hover:underline"
+                href={addQueryParams(project.link, UTM_PARAMS)}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>{isGitHub ? "View Source" : "View Project"}</span>
+                {isGitHub ? (
+                  <Icons.github className="size-4" />
+                ) : (
+                  <ExternalLinkIcon className="size-4" aria-hidden />
+                )}
+              </a>
+            </div>
           </div>
         </CollapsibleContent>
       </article>
