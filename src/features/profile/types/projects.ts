@@ -36,4 +36,8 @@ export type Project = {
   uniqueFeatures: string[];
   /** Structured tech stack breakdown by category. */
   techStackDetail: { label: string; items: string }[];
+  /** Optional accent color (hex format, e.g., "#FF5733"). */
+  accentColor?: string;
+  /** Optional dark mode accent color (hex format). Defaults to accentColor if not provided. */
+  accentColorDark?: string;
 };
