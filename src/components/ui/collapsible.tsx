@@ -7,8 +7,19 @@ import { createContext, useContext, useMemo, useState } from "react";
 import { cn } from "@/lib/utils";
 
 const Collapsible = CollapsiblePrimitive.Root;
-const CollapsibleTrigger = CollapsiblePrimitive.CollapsibleTrigger;
 const CollapsibleContent = CollapsiblePrimitive.CollapsibleContent;
+
+function CollapsibleTrigger({
+  suppressHydrationWarning = true,
+  ...props
+}: React.ComponentProps<typeof CollapsiblePrimitive.CollapsibleTrigger>) {
+  return (
+    <CollapsiblePrimitive.CollapsibleTrigger
+      suppressHydrationWarning={suppressHydrationWarning}
+      {...props}
+    />
+  );
+}
 
 type CollapsibleContextType = {
   open: boolean;

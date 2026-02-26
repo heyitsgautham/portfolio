@@ -17,15 +17,18 @@ export const EXPERIENCES: Experience[] = [
         employmentType: "Internship",
         icon: "code",
         description:
-          `**SkillSync (AI Screening Platform):**
+
+`
+**Projects done during the internship:**
+**SkillSync (AI Screening Platform)**
 - Built AI-powered resume screening using Google Gemini 2.5 reducing screening time by 98%
 (40h → <1h per role).
 Implemented automated parsing, anonymization, and weighted semantic matching.
-**Aura Health (Medical RAG System):**
+**Aura Health (Medical RAG System)**
 - Architected multi-domain RAG system using Ollama (Mistral 7B) & ChromaDB across 8 medical specialties. Implemented 7 advanced retrieval strategies (RAG-Fusion, FLARE, Adaptive) with safety guardrails.
-**AcademiaSync (Cloud LMS):**
+**AcademiaSync (Cloud LMS)**
 - Designed microservices-based LMS (Node.js, PostgreSQL) deployed on AWS ECS Fargate with Terraform as IaC. Automated infrastructure provisioning with CloudWatch monitoring and alerting.
-**SocialPulse (Analytics Platform):**
+**SocialPulse (Analytics Platform)**
 - Engineered high-throughput analytics engine (FastAPI, Redis) with sliding-window trend detection
 (1-1440 min intervals).
 Implemented recursive comment-graph analysis with multi-layer caching and CI/CD pipeline.`,

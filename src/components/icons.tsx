@@ -12,6 +12,7 @@ import {
   SiOpenai,
   SiReact,
   SiShadcnui,
+  SiTerraform,
   SiVercel,
   SiX,
 } from "react-icons/si";
@@ -99,8 +100,11 @@ export const Icons = {
   ),
   accenture: (props: IconProps) => <SiAccenture {...props} />,
   coursera: (props: IconProps) => <SiCoursera {...props} />,
+  terraform: (props: IconProps) => <SiTerraform {...props} />,
   openai: (props: IconProps) => <SiOpenai {...props} />,
+  codex: (props: IconProps) => <SiOpenai {...props} />,
   claude: (props: IconProps) => <SiAnthropic {...props} />,
+  claudecode: (props: IconProps) => <SiAnthropic {...props} />,
   markdown: (props: IconProps) => <SiMarkdown {...props} />,
   x: (props: IconProps) => <SiX {...props} />,
   linkedin: (props: IconProps) => <SiLinkedin {...props} />,
@@ -157,8 +161,12 @@ export const Icons = {
   award: (props: IconProps) => (
     <svg viewBox="0 0 256 256" {...props}>
       <path
-        d="M216,96A88,88,0,1,0,72,163.83V240a8,8,0,0,0,11.58,7.16L128,225l44.43,22.21A8.07,8.07,0,0,0,176,248a8,8,0,0,0,8-8V163.83A87.85,87.85,0,0,0,216,96ZM56,96a72,72,0,1,1,72,72A72.08,72.08,0,0,1,56,96Zm16,0a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z"
-        fill="currentColor"
+        d="M72,163.83V240a8,8,0,0,0,11.58,7.16L128,225l44.43,22.21A8.07,8.07,0,0,0,176,248a8,8,0,0,0,8-8V163.83"
+        fill="#EF4444"
+      />
+      <path
+        d="M216,96A88,88,0,1,0,72,163.83A87.85,87.85,0,0,0,184,163.83A87.85,87.85,0,0,0,216,96ZM56,96a72,72,0,1,1,72,72A72.08,72.08,0,0,1,56,96Zm16,0a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z"
+        fill="#FFD700"
       />
     </svg>
   ),
@@ -315,13 +323,15 @@ export function getIcon(name: string | undefined, size: number = 16) {
   // Check PNG first
   const pngFilename = pngIconMap[name];
   if (pngFilename) {
+    const sizeClass = size === 48 ? "w-12 h-12" : size === 32 ? "w-8 h-8" : "w-4 h-4";
     return (
       <Image
         src={`/images/icons/${pngFilename}.png`}
         alt={name}
         width={size}
         height={size}
-        className="inline-block"
+        loading="lazy"
+        className={`inline-block object-contain ${sizeClass}`}
       />
     );
   }
@@ -329,7 +339,7 @@ export function getIcon(name: string | undefined, size: number = 16) {
   // Fallback to Icons
   if (name in Icons) {
     const Icon = Icons[name as keyof typeof Icons];
-    const sizeClass = size === 32 ? "w-8 h-8" : "w-4 h-4";
+    const sizeClass = size === 48 ? "w-12 h-12" : size === 32 ? "w-8 h-8" : "w-4 h-4";
     return <Icon className={sizeClass} />;
   }
 

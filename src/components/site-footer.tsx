@@ -6,7 +6,7 @@ export function SiteFooter() {
       <div className="mx-auto border-x border-edge md:max-w-3xl">
         <div
           className={cn(
-            "flex w-full",
+            "screen-line-before flex w-full before:z-1",
             "bg-[repeating-linear-gradient(315deg,var(--pattern-foreground)_0,var(--pattern-foreground)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] [--pattern-foreground:var(--color-edge)]/56"
           )}
         >

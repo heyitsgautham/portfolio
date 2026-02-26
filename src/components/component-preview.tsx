@@ -4,6 +4,7 @@ import { CodeXmlIcon, EyeIcon, RepeatIcon } from "lucide-react";
 import React, { useMemo, useState } from "react";
 
 import { Index } from "@/__registry__/index";
+import { Skeleton } from "@/components/ui/skeleton";
 import { cn } from "@/lib/utils";
 
 import { CodeCollapsibleWrapper } from "./code-collapsible-wrapper";
@@ -88,8 +89,9 @@ export function ComponentPreview({
             >
               <React.Suspense
                 fallback={
-                  <div className="flex items-center justify-center text-sm text-muted-foreground">
-                    Loading...
+                  <div className="flex flex-col items-center gap-2">
+                    <Skeleton className="size-10 rounded-full" />
+                    <Skeleton className="h-4 w-20" />
                   </div>
                 }
               >
