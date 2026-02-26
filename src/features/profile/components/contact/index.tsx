@@ -87,7 +87,7 @@ export function Contact() {
   const decodedEmail = decodeEmail(USER.email);
 
   return (
-    <Panel id="contact">
+    <Panel id="contact" className="after:hidden">
       <PanelHeader>
         <PanelTitle>Let&apos;s Work Together</PanelTitle>
       </PanelHeader>
@@ -164,6 +164,7 @@ export function Contact() {
                             "focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20",
                             "transition-colors"
                           )}
+                          suppressHydrationWarning
                           {...field}
                         />
                       </FormControl>
@@ -187,6 +188,7 @@ export function Contact() {
                             "focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20",
                             "transition-colors"
                           )}
+                          suppressHydrationWarning
                           {...field}
                         />
                       </FormControl>
@@ -210,6 +212,7 @@ export function Contact() {
                           "focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20",
                           "transition-colors"
                         )}
+                        suppressHydrationWarning
                         {...field}
                       />
                     </FormControl>
@@ -246,6 +249,7 @@ export function Contact() {
                 size="lg"
                 disabled={isSubmitting}
                 className="gap-2"
+                suppressHydrationWarning
               >
                 <SendIcon className="size-4" />
                 {isSubmitting ? "Sending..." : "Send Message"}

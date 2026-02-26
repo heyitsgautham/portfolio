@@ -12,6 +12,7 @@ import {
   CollapsibleTrigger,
   CollapsibleWithContext,
 } from "@/components/ui/collapsible";
+import { Skeleton } from "@/components/ui/skeleton";
 import { Prose } from "@/components/ui/typography";
 
 import type { TimelineEvent } from "../../types/timeline";
@@ -161,7 +162,14 @@ function TimelineCard({
 
               {event.description && (
                 <Prose className="text-sm">
-                  <Suspense fallback={<div>Loading...</div>}>
+                  <Suspense
+                    fallback={
+                      <div className="space-y-1.5">
+                        <Skeleton className="h-3.5 w-full" />
+                        <Skeleton className="h-3.5 w-[90%]" />
+                      </div>
+                    }
+                  >
                     <Markdown>{event.description}</Markdown>
                   </Suspense>
                 </Prose>
