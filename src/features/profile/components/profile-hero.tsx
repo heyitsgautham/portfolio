@@ -45,15 +45,23 @@ function TechPill({
 
 export function ProfileHero() {
   const [isHovered, setIsHovered] = useState(false);
-  
+
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-  
+
   const mouseXSpring = useSpring(x);
   const mouseYSpring = useSpring(y);
-  
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["7.5deg", "-7.5deg"]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-7.5deg", "7.5deg"]);
+
+  const rotateX = useTransform(
+    mouseYSpring,
+    [-0.5, 0.5],
+    ["7.5deg", "-7.5deg"]
+  );
+  const rotateY = useTransform(
+    mouseXSpring,
+    [-0.5, 0.5],
+    ["-7.5deg", "7.5deg"]
+  );
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -105,7 +113,7 @@ export function ProfileHero() {
                 className="object-cover object-[center_15%]"
                 priority
               />
-              
+
               {/* Holographic overlay - subtle */}
               <motion.div
                 className="absolute inset-0 bg-gradient-to-br from-info/10 via-transparent to-info/10"
@@ -177,48 +185,48 @@ export function ProfileHero() {
 
         <div className="max-w-3xl text-lg leading-relaxed text-muted-foreground sm:text-xl">
           <p>
-            I build intelligent systems with{" "}
+            I build AI agentic automations for business to help reduce the
+            everyday tedious tasks with{" "}
             <TechPill
-              name="LLMs"
-              iconKey="openai"
-              className="text-foreground"
-              url="https://openai.com"
+              name="n8n"
+              iconKey="n8n"
+              className="border-[#EA4B71]/20 bg-[#EA4B71]/10 text-[#EA4B71]"
+              url="https://n8n.io"
             />
             ,{" "}
             <TechPill
-              name="RAG"
+              name="LangChain"
               iconKey="langchain-color"
               className="text-foreground"
               url="https://www.langchain.com"
-            />
-            , and{" "}
+            />{" "}
+            and{" "}
             <TechPill
               name="Python"
               iconKey="python"
               className="border-[#3776AB]/20 bg-[#3776AB]/10 text-[#3776AB]"
               url="https://www.python.org"
             />
-            . SIH&apos;25 Finalist, dual degree at IIT Madras & SEC. Ex-SWE
-            Intern at Presidio building production AI systems with{" "}
+            . Enthusiastic about RAG and{" "}
             <TechPill
-              name="FastAPI"
-              iconKey="fastapi"
-              className="border-[#009688]/20 bg-[#009688]/10 text-[#009688]"
-              url="https://fastapi.tiangolo.com"
+              name="MCP tools"
+              iconKey="mcp"
+              className="text-foreground"
+              url="https://modelcontextprotocol.io"
             />
-            ,{" "}
+            , currently learning{" "}
             <TechPill
               name="PostgreSQL"
               iconKey="postgresql"
               className="border-[#336791]/20 bg-[#336791]/10 text-[#336791]"
               url="https://www.postgresql.org"
-            />
-            , and{" "}
+            />{" "}
+            and{" "}
             <TechPill
-              name="AWS"
-              iconKey="aws"
-              className="border-[#FF9900]/20 bg-[#FF9900]/10 text-[#FF9900]"
-              url="https://aws.amazon.com"
+              name="Redis"
+              iconKey="redis"
+              className="border-[#DC382D]/20 bg-[#DC382D]/10 text-[#DC382D]"
+              url="https://redis.io"
             />
             .
           </p>
@@ -227,7 +235,11 @@ export function ProfileHero() {
         {/* Actions */}
         <div className="flex flex-wrap gap-4">
           <Button asChild size="lg" className="rounded-full px-8">
-            <a href="/resume">
+            <a
+              href="https://drive.google.com/uc?export=download&id=1fu2z3JDIhEjAfzFkT7xQw-bDPCz3Dpmf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FileTextIcon className="mr-2 size-4" />
               Resume / CV
             </a>
