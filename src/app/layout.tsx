@@ -36,8 +36,8 @@ function getPersonJsonLd(): WithContext<Person> {
     url: SITE_INFO.url,
     email: "heyitsgautham@gmail.com",
     image: `${SITE_INFO.url}${USER.avatar}`,
-    sameAs: SOCIAL_LINKS.map(link => link.href),
-    alumniOf: EDUCATION.map(edu => ({
+    sameAs: SOCIAL_LINKS.map((link) => link.href),
+    alumniOf: EDUCATION.map((edu) => ({
       "@type": "EducationalOrganization",
       name: edu.institution,
       url: edu.referenceLink,
@@ -61,7 +61,7 @@ function getPersonJsonLd(): WithContext<Person> {
       addressRegion: "Tamil Nadu",
       addressCountry: "IN",
     },
-    worksFor: USER.jobs.map(job => ({
+    worksFor: USER.jobs.map((job) => ({
       "@type": "Organization",
       name: job.company,
       url: job.website,

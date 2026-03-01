@@ -1,8 +1,4 @@
-import {
-  RiGithubLine,
-  RiLinkedinBoxLine,
-  RiMailLine,
-} from "react-icons/ri";
+import { RiGithubLine, RiLinkedinBoxLine, RiMailLine } from "react-icons/ri";
 
 import type { SocialLink } from "../types/social-links";
 

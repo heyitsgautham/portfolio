@@ -16,7 +16,6 @@ export function CertificationItem({
   className?: string;
   certification: Certification;
 }) {
-
   // If certificate image is provided, show full certificate image
   if (certification.certificateImageURL) {
     return (
@@ -34,7 +33,7 @@ export function CertificationItem({
         </div>
 
         <div className="flex flex-col items-center justify-between gap-3 border-t border-border/50 bg-card p-4">
-          <h3 className="font-semibold text-balance text-center line-clamp-2">
+          <h3 className="line-clamp-2 text-center font-semibold text-balance">
             {certification.title}
           </h3>
 
@@ -78,11 +77,13 @@ export function CertificationItem({
         </div>
 
         <div className="space-y-2">
-          <h3 className="leading-tight font-semibold text-balance line-clamp-2">
+          <h3 className="line-clamp-2 leading-tight font-semibold text-balance">
             {certification.title}
           </h3>
 
-          <p className="text-sm text-muted-foreground">{certification.issuer}</p>
+          <p className="text-sm text-muted-foreground">
+            {certification.issuer}
+          </p>
         </div>
 
         <div className="inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1.5 text-xs font-medium">
@@ -107,8 +108,8 @@ export function CertificationItem({
       </div>
 
       {certification.credentialID && (
-        <div className="absolute right-2 top-2 opacity-0 transition-opacity group-hover:opacity-100">
-          <div className="rounded-md bg-background/95 px-2 py-1 text-xs font-mono text-muted-foreground shadow-sm">
+        <div className="absolute top-2 right-2 opacity-0 transition-opacity group-hover:opacity-100">
+          <div className="rounded-md bg-background/95 px-2 py-1 font-mono text-xs text-muted-foreground shadow-sm">
             ID: {certification.credentialID.substring(0, 8)}...
           </div>
         </div>

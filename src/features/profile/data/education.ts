@@ -11,11 +11,12 @@ export const EDUCATION: Education[] = [
     description:
       "Rigorous program covering statistics, machine learning, deep learning, and data engineering. Completed coursework in Python programming, data structures, algorithms, and advanced AI/ML techniques. Multiple Top Course Grade badges for outstanding academic performance.",
     referenceLink: "https://onlinedegree.iitm.ac.in/",
-    logo: "/images/education/iitm_logo.png",
+    logo: "/images/education/iitm_logo.webp",
   },
   {
     id: "sec-btech-aiml-2023",
-    degree: "Bachelor of Technology - BTech, Artificial Intelligence and Machine Learning",
+    degree:
+      "Bachelor of Technology - BTech, Artificial Intelligence and Machine Learning",
     institution: "Saveetha Engineering College",
     period: "2023 to 2027",
     location: "Chennai, India",
@@ -23,6 +24,6 @@ export const EDUCATION: Education[] = [
     description:
       "Comprehensive B.Tech program specializing in AI and Machine Learning. Core coursework includes neural networks, natural language processing, computer vision, and intelligent systems design. Hands-on projects in deep learning, reinforcement learning, and production ML systems.",
     referenceLink: "https://www.saveetha.ac.in/",
-    logo: "/images/education/sec_logo.png",
+    logo: "/images/education/sec_logo.webp",
   },
 ];

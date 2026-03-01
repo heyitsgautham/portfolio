@@ -12,6 +12,18 @@ import { getPostsByCategory } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Components",
   description: "A collection of reusable components.",
+  alternates: { canonical: "/components" },
+  openGraph: {
+    title: "Components",
+    description: "A collection of reusable components.",
+    url: "/components",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Components",
+    description: "A collection of reusable components.",
+  },
 };
 
 export default async function Page() {

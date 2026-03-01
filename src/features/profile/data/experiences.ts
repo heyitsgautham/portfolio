@@ -16,9 +16,7 @@ export const EXPERIENCES: Experience[] = [
         },
         employmentType: "Internship",
         icon: "code",
-        description:
-
-`
+        description: `
 **Projects done during the internship:**
 **SkillSync (AI Screening Platform)**
 - Built AI-powered resume screening using Google Gemini 2.5 reducing screening time by 98%

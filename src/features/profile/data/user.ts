@@ -37,7 +37,7 @@ Currently pursuing a dual degree: **BS in Data Science at IIT Madras** alongside
 My focus: Building intelligent systems with **LLMs, RAG, and Deep Learning** while shipping full-stack applications with cloud-native deployments. Most academic and experimental work lives in private repositories.
   `,
   avatar: "/images/avatar.webp", // Replace with your actual avatar image (400x400px recommended)
-  ogImage: "/images/og-image.png", // Replace with your actual OG image (1200x630px)
+  ogImage: "/images/og-image.webp", // Replace with your actual OG image (1200x630px)
   namePronunciationUrl: "", // Optional: Add if you create one
   keywords: [
     "Gautham Krishna",

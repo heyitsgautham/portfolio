@@ -5,7 +5,7 @@ export const PROJECTS: Project[] = [
   {
     id: "skillsync",
     slug: "skill-sync",
-    image: "/images/projects/skil-sync.png",
+    image: "/images/projects/skil-sync.webp",
     title: "SkillSync - AI Resume Screening Platform",
     period: {
       start: "09.2025",
@@ -51,9 +51,15 @@ export const PROJECTS: Project[] = [
     techStackDetail: [
       { label: "Frontend", items: "React 19, Material-UI, Vite" },
       { label: "Backend", items: "FastAPI, Python 3.11+" },
-      { label: "AI/ML", items: "Google Gemini 2.5, ChromaDB, sentence-transformers, PyMuPDF" },
+      {
+        label: "AI/ML",
+        items: "Google Gemini 2.5, ChromaDB, sentence-transformers, PyMuPDF",
+      },
       { label: "Database", items: "PostgreSQL, AWS S3" },
-      { label: "Infrastructure", items: "Multi-LLM backup with 10 API keys, Cron jobs" },
+      {
+        label: "Infrastructure",
+        items: "Multi-LLM backup with 10 API keys, Cron jobs",
+      },
     ],
   },
 
@@ -61,7 +67,7 @@ export const PROJECTS: Project[] = [
   {
     id: "sticky-net",
     slug: "sticky-net",
-    image: "/images/projects/honey-pot.png",
+    image: "/images/projects/honey-pot.webp",
     title: "Sticky-Net - AI Honeypot System",
     period: {
       start: "01.2026",
@@ -105,10 +111,16 @@ export const PROJECTS: Project[] = [
       "Supports 50+ UPI provider and 50+ Indian bank name validation patterns",
     ],
     techStackDetail: [
-      { label: "Frontend", items: "React 19, Tailwind CSS, shadcn/ui, Framer Motion" },
+      {
+        label: "Frontend",
+        items: "React 19, Tailwind CSS, shadcn/ui, Framer Motion",
+      },
       { label: "Backend", items: "FastAPI, Python 3.11+" },
       { label: "AI/ML", items: "Gemini Flash, Regex-based pre-filter, NLP" },
-      { label: "Infrastructure", items: "Google Cloud Run, Docker, Firestore, CORS middleware" },
+      {
+        label: "Infrastructure",
+        items: "Google Cloud Run, Docker, Firestore, CORS middleware",
+      },
     ],
   },
 
@@ -116,7 +128,7 @@ export const PROJECTS: Project[] = [
   {
     id: "academiasync",
     slug: "academia-sync",
-    image: "/images/projects/academia-sync.png",
+    image: "/images/projects/academia-sync.webp",
     title: "AcademiaSync - Cloud Learning Management System",
     period: {
       start: "09.2025",
@@ -163,7 +175,10 @@ export const PROJECTS: Project[] = [
       { label: "Frontend", items: "Next.js 14, React, Recharts" },
       { label: "Backend", items: "Node.js 20, Express, TypeScript" },
       { label: "Database", items: "PostgreSQL 16" },
-      { label: "Infrastructure", items: "Docker, AWS ECS Fargate, Terraform, GitHub Actions CI/CD" },
+      {
+        label: "Infrastructure",
+        items: "Docker, AWS ECS Fargate, Terraform, GitHub Actions CI/CD",
+      },
       { label: "Auth", items: "NextAuth.js, Google OAuth 2.0, JWT" },
     ],
   },
@@ -172,7 +187,7 @@ export const PROJECTS: Project[] = [
   {
     id: "meru-coders",
     slug: "meru-coders",
-    image: "/images/projects/meru-coders.png",
+    image: "/images/projects/meru-coders.webp",
     title: "Meru Coders - AI Sanskrit Meter Identification",
     period: {
       start: "12.2025",
@@ -218,9 +233,19 @@ export const PROJECTS: Project[] = [
     techStackDetail: [
       { label: "Frontend", items: "React, Vite" },
       { label: "Backend", items: "Flask, FastAPI, Python" },
-      { label: "AI/ML", items: "Google Gemini, ChromaDB (RAG), Google Vision API, Tesseract OCR" },
-      { label: "Database", items: "Supabase (Auth + Database), ChromaDB (Vector DB)" },
-      { label: "Other", items: "WebSocket, JWT, Text-to-Speech, Speech-to-Text" },
+      {
+        label: "AI/ML",
+        items:
+          "Google Gemini, ChromaDB (RAG), Google Vision API, Tesseract OCR",
+      },
+      {
+        label: "Database",
+        items: "Supabase (Auth + Database), ChromaDB (Vector DB)",
+      },
+      {
+        label: "Other",
+        items: "WebSocket, JWT, Text-to-Speech, Speech-to-Text",
+      },
     ],
   },
 
@@ -228,7 +253,7 @@ export const PROJECTS: Project[] = [
   {
     id: "phishguard-vision",
     slug: "phishguard-vision",
-    image: "/images/projects/phishproof-ext.png",
+    image: "/images/projects/phishproof-ext.webp",
     title: "PhishGuard Vision - Chrome AI Safety Extension",
     period: {
       start: "11.2025",
@@ -270,9 +295,19 @@ export const PROJECTS: Project[] = [
       "Trust score system with color-coded indicators (Red: 1-2, Orange: 3, Green: 4-5)",
     ],
     techStackDetail: [
-      { label: "Core", items: "TypeScript, Chrome Extension APIs (Manifest V3)" },
-      { label: "AI", items: "Gemini Nano (on-device), Chrome Built-in AI APIs" },
-      { label: "Techniques", items: "Multi-tier phishing detection, Multimodal screenshot analysis, Local caching (24-hour TTL)" },
+      {
+        label: "Core",
+        items: "TypeScript, Chrome Extension APIs (Manifest V3)",
+      },
+      {
+        label: "AI",
+        items: "Gemini Nano (on-device), Chrome Built-in AI APIs",
+      },
+      {
+        label: "Techniques",
+        items:
+          "Multi-tier phishing detection, Multimodal screenshot analysis, Local caching (24-hour TTL)",
+      },
     ],
   },
 
@@ -280,7 +315,7 @@ export const PROJECTS: Project[] = [
   {
     id: "ai-data-analyst",
     slug: "ai-data-analyst",
-    image: "/images/projects/data-analyst.png",
+    image: "/images/projects/data-analyst.webp",
     title: "AI Data Analyst - Multi-Source Data Analysis",
     period: {
       start: "10.2025",
@@ -324,8 +359,14 @@ export const PROJECTS: Project[] = [
     techStackDetail: [
       { label: "Backend", items: "FastAPI, Python 3.11+, Pandas, NumPy" },
       { label: "Database", items: "DuckDB (in-memory analytical database)" },
-      { label: "AI/ML", items: "GPT, Claude, Gemini, Grok (multi-LLM orchestration)" },
-      { label: "Scraping", items: "Playwright, Selenium, BeautifulSoup4, httpx" },
+      {
+        label: "AI/ML",
+        items: "GPT, Claude, Gemini, Grok (multi-LLM orchestration)",
+      },
+      {
+        label: "Scraping",
+        items: "Playwright, Selenium, BeautifulSoup4, httpx",
+      },
       { label: "Infrastructure", items: "Docker" },
     ],
   },
@@ -334,7 +375,7 @@ export const PROJECTS: Project[] = [
   {
     id: "aura-health",
     slug: "aura-health",
-    image: "/images/projects/aura-health.png",
+    image: "/images/projects/aura-health.webp",
     title: "Aura Health - Medical RAG System",
     period: {
       start: "09.2025",
@@ -377,9 +418,16 @@ export const PROJECTS: Project[] = [
     ],
     techStackDetail: [
       { label: "Backend", items: "FastAPI, Python 3.10+, LangChain" },
-      { label: "AI/ML", items: "Ollama Mistral (local LLM), HuggingFace sentence-transformers (all-MiniLM-L6-v2)" },
+      {
+        label: "AI/ML",
+        items:
+          "Ollama Mistral (local LLM), HuggingFace sentence-transformers (all-MiniLM-L6-v2)",
+      },
       { label: "Vector Store", items: "ChromaDB" },
-      { label: "Techniques", items: "RAG-Fusion, FLARE, Query Decomposition, Contextual Compression" },
+      {
+        label: "Techniques",
+        items: "RAG-Fusion, FLARE, Query Decomposition, Contextual Compression",
+      },
     ],
   },
 
@@ -387,7 +435,7 @@ export const PROJECTS: Project[] = [
   {
     id: "socialpulse",
     slug: "social-pulse",
-    image: "/images/projects/social-pulse.png",
+    image: "/images/projects/social-pulse.webp",
     title: "SocialPulse - Real-time Analytics Engine",
     period: {
       start: "09.2025",
@@ -429,7 +477,10 @@ export const PROJECTS: Project[] = [
       "Deterministic seeding (Faker with fixed seed) for reproducible demos",
     ],
     techStackDetail: [
-      { label: "Backend", items: "FastAPI, Python 3.11+, SQLAlchemy, Alembic, Typer CLI" },
+      {
+        label: "Backend",
+        items: "FastAPI, Python 3.11+, SQLAlchemy, Alembic, Typer CLI",
+      },
       { label: "Database", items: "PostgreSQL" },
       { label: "Caching", items: "Redis (with TTL)" },
       { label: "Testing", items: "pytest" },
@@ -440,7 +491,7 @@ export const PROJECTS: Project[] = [
   {
     id: "smart-tasker",
     slug: "smart-tasker",
-    image: "/images/projects/smart-tasker.png",
+    image: "/images/projects/smart-tasker.webp",
     title: "SmartTasker - AI Task Management",
     period: {
       start: "08.2025",
@@ -481,7 +532,10 @@ export const PROJECTS: Project[] = [
       "Browser notification system for reminders",
     ],
     techStackDetail: [
-      { label: "Frontend", items: "Next.js 15, React, TypeScript, Tailwind CSS" },
+      {
+        label: "Frontend",
+        items: "Next.js 15, React, TypeScript, Tailwind CSS",
+      },
       { label: "Backend", items: "Firebase (Firestore, Auth)" },
       { label: "AI", items: "Google Gemini AI" },
       { label: "APIs", items: "Google Calendar API, OAuth 2.0" },
@@ -493,7 +547,7 @@ export const PROJECTS: Project[] = [
   {
     id: "securewipe",
     slug: "secure-wipe",
-    image: "/images/projects/secure-wipe.png",
+    image: "/images/projects/secure-wipe.webp",
     title: "SecureWipe - NIST Data Sanitization Platform",
     period: {
       start: "07.2024",
@@ -547,7 +601,7 @@ export const PROJECTS: Project[] = [
   {
     id: "swades-connect",
     slug: "swades-connect",
-    image: "/images/projects/odoo-crm.png",
+    image: "/images/projects/odoo-crm.webp",
     title: "Swades Connect - Odoo CRM Extractor",
     period: {
       start: "06.2025",
@@ -588,9 +642,16 @@ export const PROJECTS: Project[] = [
       "Chrome Manifest V3 compliance with service workers",
     ],
     techStackDetail: [
-      { label: "Frontend", items: "React 18, Tailwind CSS, Vite with CRXJS plugin" },
+      {
+        label: "Frontend",
+        items: "React 18, Tailwind CSS, Vite with CRXJS plugin",
+      },
       { label: "Language", items: "TypeScript 5" },
-      { label: "Platform", items: "Chrome Extension APIs (Manifest V3), chrome.storage.local, Service Workers" },
+      {
+        label: "Platform",
+        items:
+          "Chrome Extension APIs (Manifest V3), chrome.storage.local, Service Workers",
+      },
     ],
   },
 
@@ -598,7 +659,7 @@ export const PROJECTS: Project[] = [
   {
     id: "emotion-classification",
     slug: "emotion-classification",
-    image: "/images/projects/emotion-classification.png",
+    image: "/images/projects/emotion-classification.webp",
     title: "Emotion Classification",
     period: {
       start: "03.2025",
@@ -640,9 +701,19 @@ export const PROJECTS: Project[] = [
     ],
     techStackDetail: [
       { label: "Language", items: "Python" },
-      { label: "ML/DL", items: "PyTorch, Hugging Face Transformers, scikit-learn" },
-      { label: "Models", items: "DeBERTa-v3-large, RoBERTa-large, CNN + BiGRU + Self-Attention" },
-      { label: "Tools", items: "Weights & Biases, Hugging Face Hub, GPU with mixed precision (AMP)" },
+      {
+        label: "ML/DL",
+        items: "PyTorch, Hugging Face Transformers, scikit-learn",
+      },
+      {
+        label: "Models",
+        items: "DeBERTa-v3-large, RoBERTa-large, CNN + BiGRU + Self-Attention",
+      },
+      {
+        label: "Tools",
+        items:
+          "Weights & Biases, Hugging Face Hub, GPU with mixed precision (AMP)",
+      },
     ],
   },
 
@@ -650,7 +721,7 @@ export const PROJECTS: Project[] = [
   {
     id: "predictive-maintenance",
     slug: "predictive-maintenance",
-    image: "/images/projects/predictive-maintenance.png",
+    image: "/images/projects/predictive-maintenance.webp",
     title: "Predictive Maintenance",
     period: {
       start: "01.2025",
@@ -693,7 +764,10 @@ export const PROJECTS: Project[] = [
       { label: "Language", items: "Python" },
       { label: "Big Data", items: "PySpark 2.0.2, Spark MLlib" },
       { label: "ML", items: "Random Forest, PCA, scikit-learn" },
-      { label: "Infrastructure", items: "32-core Linux DSVM (448 GB RAM), Azure Blob Storage, Parquet" },
+      {
+        label: "Infrastructure",
+        items: "32-core Linux DSVM (448 GB RAM), Azure Blob Storage, Parquet",
+      },
     ],
   },
 
@@ -701,7 +775,7 @@ export const PROJECTS: Project[] = [
   {
     id: "earthquake-report",
     slug: "earthquake-report",
-    image: "/images/projects/earthquake-analysis.png",
+    image: "/images/projects/earthquake-analysis.webp",
     title: "Earthquake Analysis",
     period: {
       start: "11.2024",
@@ -743,7 +817,10 @@ export const PROJECTS: Project[] = [
     techStackDetail: [
       { label: "Language", items: "Python" },
       { label: "Frontend", items: "Streamlit" },
-      { label: "ML", items: "Scikit-learn, XGBoost, ARIMA, Random Forest, Gradient Boosting" },
+      {
+        label: "ML",
+        items: "Scikit-learn, XGBoost, ARIMA, Random Forest, Gradient Boosting",
+      },
       { label: "Geospatial", items: "GeoPandas, Folium" },
       { label: "Data Sources", items: "USGS, IRIS GSN, EM-DAT" },
     ],
@@ -753,7 +830,7 @@ export const PROJECTS: Project[] = [
   {
     id: "traffic-men",
     slug: "traffic-men",
-    image: "/images/projects/traffic-men.png",
+    image: "/images/projects/traffic-men.webp",
     title: "Traffic Men - Transit Optimization Platform",
     period: {
       start: "08.2024",
@@ -796,7 +873,11 @@ export const PROJECTS: Project[] = [
     ],
     techStackDetail: [
       { label: "Languages", items: "Python, Java, JavaScript, MATLAB" },
-      { label: "ML", items: "scikit-learn, Random Forest, XGBoost, AdaBoost, Gradient Boosting, Extra Trees" },
+      {
+        label: "ML",
+        items:
+          "scikit-learn, Random Forest, XGBoost, AdaBoost, Gradient Boosting, Extra Trees",
+      },
       { label: "Visualization", items: "NetworkX, Bootstrap" },
       { label: "Mobile", items: "Android SDK, Android Studio" },
       { label: "Infrastructure", items: "Google Cloud Platform" },

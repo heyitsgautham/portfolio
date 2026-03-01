@@ -17,7 +17,7 @@ export function NotFound({ className }: { className?: string }) {
       </div>
 
       <div className="relative z-10 flex flex-col items-center text-center">
-        <h1 className="text-[10rem] font-bold leading-none tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-foreground to-foreground/20 sm:text-[12rem]">
+        <h1 className="bg-gradient-to-b from-foreground to-foreground/20 bg-clip-text text-[10rem] leading-none font-bold tracking-tighter text-transparent sm:text-[12rem]">
           404
         </h1>
         <h2 className="mt-4 text-2xl font-semibold tracking-tight sm:text-3xl">
@@ -28,7 +28,12 @@ export function NotFound({ className }: { className?: string }) {
           Let&apos;s get you back on track.
         </p>
 
-        <Button variant="default" size="lg" asChild className="mt-8 rounded-full px-8">
+        <Button
+          variant="default"
+          size="lg"
+          asChild
+          className="mt-8 rounded-full px-8"
+        >
           <Link href="/">
             Return Home
             <ArrowRightIcon className="ml-2 size-4" />

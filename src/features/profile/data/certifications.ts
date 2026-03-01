@@ -4,7 +4,7 @@ export const CERTIFICATIONS: Certification[] = [
   {
     title: "AWS Cloud Practitioner Essentials",
     issuer: "AWS",
-    certificateImageURL: "/images/certifications/aws_cpe.png",
+    certificateImageURL: "/images/certifications/aws_cpe.webp",
     issueDate: "2024-11-01",
     credentialID: "",
     credentialURL: "#",
@@ -12,16 +12,16 @@ export const CERTIFICATIONS: Certification[] = [
   {
     title: "Presidio Certificate",
     issuer: "Presidio",
-    certificateImageURL: "/images/certifications/presidio.png",
+    certificateImageURL: "/images/certifications/presidio.webp",
     issueDate: "2024-01-01",
     credentialID: "",
     credentialURL: "#",
   },
-  
+
   {
     title: "Deep Learning with PyTorch",
     issuer: "Packt",
-    certificateImageURL: "/images/certifications/packt_DL.png",
+    certificateImageURL: "/images/certifications/packt_DL.webp",
     issueDate: "2024-12-01",
     credentialID: "",
     credentialURL: "#",
@@ -29,7 +29,7 @@ export const CERTIFICATIONS: Certification[] = [
   {
     title: "AWS Cloud Technical Essentials",
     issuer: "AWS",
-    certificateImageURL: "/images/certifications/aws_ct_essentials.png",
+    certificateImageURL: "/images/certifications/aws_ct_essentials.webp",
     issueDate: "2024-10-01",
     credentialID: "",
     credentialURL: "#",
@@ -37,7 +37,7 @@ export const CERTIFICATIONS: Certification[] = [
   {
     title: "Foundations of PyTorch",
     issuer: "Packt",
-    certificateImageURL: "/images/certifications/foundations-pytorch.png",
+    certificateImageURL: "/images/certifications/foundations-pytorch.webp",
     issueDate: "2024-08-01",
     credentialID: "",
     credentialURL: "#",
@@ -45,7 +45,7 @@ export const CERTIFICATIONS: Certification[] = [
   {
     title: "Building Neural Networks with PyTorch",
     issuer: "Packt",
-    certificateImageURL: "/images/certifications/building_nn_packt.png",
+    certificateImageURL: "/images/certifications/building_nn_packt.webp",
     issueDate: "2024-07-01",
     credentialID: "",
     credentialURL: "#",
@@ -53,7 +53,7 @@ export const CERTIFICATIONS: Certification[] = [
   {
     title: "CS50x: Intro to CS",
     issuer: "Harvard University",
-    certificateImageURL: "/images/certifications/cs50x.png",
+    certificateImageURL: "/images/certifications/cs50x.webp",
     issueDate: "2024-06-01",
     credentialID: "",
     credentialURL: "#",
@@ -61,7 +61,7 @@ export const CERTIFICATIONS: Certification[] = [
   {
     title: "Database Management Systems",
     issuer: "University of Colorado",
-    certificateImageURL: "/images/certifications/dbms_colorado.png",
+    certificateImageURL: "/images/certifications/dbms_colorado.webp",
     issueDate: "2024-05-01",
     credentialID: "",
     credentialURL: "#",
@@ -69,7 +69,7 @@ export const CERTIFICATIONS: Certification[] = [
   {
     title: "UiPath Certified Professional",
     issuer: "UiPath",
-    certificateImageURL: "/images/certifications/uipath.png",
+    certificateImageURL: "/images/certifications/uipath.webp",
     issueDate: "2025-10-01",
     credentialID: "164548380",
     credentialURL: "https://credentials.uipath.com/164548380",
@@ -77,7 +77,7 @@ export const CERTIFICATIONS: Certification[] = [
   {
     title: "NPTEL: Internet of Things",
     issuer: "NPTEL",
-    certificateImageURL: "/images/certifications/nptel_iot.png",
+    certificateImageURL: "/images/certifications/nptel_iot.webp",
     issueDate: "2024-04-01",
     credentialID: "",
     credentialURL: "#",
@@ -85,7 +85,7 @@ export const CERTIFICATIONS: Certification[] = [
   {
     title: "IITM BS Data Science Foundations",
     issuer: "LinkedIn Learning",
-    certificateImageURL: "/images/certifications/BS_foundation.png",
+    certificateImageURL: "/images/certifications/BS_foundation.webp",
     issueDate: "2024-03-01",
     credentialID: "",
     credentialURL: "#",
@@ -93,7 +93,7 @@ export const CERTIFICATIONS: Certification[] = [
   {
     title: "Python (Basic)",
     issuer: "HackerRank",
-    certificateImageURL: "/images/certifications/python_HR.png",
+    certificateImageURL: "/images/certifications/python_HR.webp",
     issueDate: "2024-02-01",
     credentialID: "",
     credentialURL: "#",
@@ -101,7 +101,7 @@ export const CERTIFICATIONS: Certification[] = [
   {
     title: "SQL (Basic)",
     issuer: "HackerRank",
-    certificateImageURL: "/images/certifications/sql_hr_basic.png",
+    certificateImageURL: "/images/certifications/sql_hr_basic.webp",
     issueDate: "2024-01-15",
     credentialID: "",
     credentialURL: "#",
@@ -109,7 +109,7 @@ export const CERTIFICATIONS: Certification[] = [
   {
     title: "SQL (Intermediate)",
     issuer: "HackerRank",
-    certificateImageURL: "/images/certifications/sql_intermediate.png",
+    certificateImageURL: "/images/certifications/sql_intermediate.webp",
     issueDate: "2024-01-10",
     credentialID: "",
     credentialURL: "#",
@@ -117,10 +117,9 @@ export const CERTIFICATIONS: Certification[] = [
   {
     title: "Advanced PyTorch",
     issuer: "Packt",
-    certificateImageURL: "/images/certifications/adv_pytorch_app.png",
+    certificateImageURL: "/images/certifications/adv_pytorch_app.webp",
     issueDate: "2025-05-01",
     credentialID: "6V2D7UNVR9L7",
     credentialURL: "https://www.packt.com/certificate/6V2D7UNVR9L7",
-  }
-  
+  },
 ];

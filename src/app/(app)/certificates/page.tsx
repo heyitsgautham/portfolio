@@ -1,11 +1,24 @@
+import type { Metadata } from "next";
 import React from "react";
 
 import { CertificationItem } from "@/features/profile/components/certifications/certification-item";
 import { CERTIFICATIONS } from "@/features/profile/data/certifications";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Certificates",
   description: "All my certifications and credentials.",
+  alternates: { canonical: "/certificates" },
+  openGraph: {
+    title: "Certificates",
+    description: "All my certifications and credentials.",
+    url: "/certificates",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Certificates",
+    description: "All my certifications and credentials.",
+  },
 };
 
 export default function CertificatesPage() {

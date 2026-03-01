@@ -25,9 +25,6 @@ const nextConfig: NextConfig = {
         pathname: "/images/**",
       },
       {
-        pathname: "/avatar.webp",
-      },
-      {
         pathname: "/audio/**",
       },
       {
@@ -37,6 +34,7 @@ const nextConfig: NextConfig = {
         pathname: "/apple-touch-icon.png",
       },
     ],
+    formats: ["image/avif", "image/webp"],
     qualities: [75, 100],
   },
   webpack: (config) => {

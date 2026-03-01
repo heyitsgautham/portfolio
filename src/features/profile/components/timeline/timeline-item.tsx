@@ -27,7 +27,10 @@ export function TimelineItem({
   event: TimelineEvent;
   position: "left" | "right";
 }) {
-  const canExpand = !!(event.description || (event.images && event.images.length > 0));
+  const canExpand = !!(
+    event.description ||
+    (event.images && event.images.length > 0)
+  );
   const isLeft = position === "left";
 
   return (
@@ -50,7 +53,7 @@ export function TimelineItem({
         </>
       )}
 
-      <div className="absolute left-1/2 top-6 hidden size-4 -translate-x-1/2 rounded-full border-4 border-background bg-primary shadow-lg ring-2 ring-primary/20 md:block" />
+      <div className="absolute top-6 left-1/2 hidden size-4 -translate-x-1/2 rounded-full border-4 border-background bg-primary shadow-lg ring-2 ring-primary/20 md:block" />
     </div>
   );
 }
@@ -107,7 +110,9 @@ function TimelineCard({
                 <Icons.award className="size-6" />
               </div>
 
-              <div className={`flex-1 ${align === "right" ? "text-right" : ""}`}>
+              <div
+                className={`flex-1 ${align === "right" ? "text-right" : ""}`}
+              >
                 <h3 className="mb-2 leading-tight font-semibold text-balance">
                   {event.title}
                 </h3>
@@ -155,40 +160,40 @@ function TimelineCard({
               </div>
             )}
             <CollapsibleContent className="overflow-hidden duration-300 data-[state=closed]:animate-collapsible-fade-up data-[state=open]:animate-collapsible-fade-down">
-            <div className="space-y-4 border-t border-border/50 bg-muted/20 p-5">
-              {event.images && event.images.length > 0 && (
-                <ImageCarousel images={event.images} />
-              )}
+              <div className="space-y-4 border-t border-border/50 bg-muted/20 p-5">
+                {event.images && event.images.length > 0 && (
+                  <ImageCarousel images={event.images} />
+                )}
 
-              {event.description && (
-                <Prose className="text-sm">
-                  <Suspense
-                    fallback={
-                      <div className="space-y-1.5">
-                        <Skeleton className="h-3.5 w-full" />
-                        <Skeleton className="h-3.5 w-[90%]" />
-                      </div>
-                    }
+                {event.description && (
+                  <Prose className="text-sm">
+                    <Suspense
+                      fallback={
+                        <div className="space-y-1.5">
+                          <Skeleton className="h-3.5 w-full" />
+                          <Skeleton className="h-3.5 w-[90%]" />
+                        </div>
+                      }
+                    >
+                      <Markdown>{event.description}</Markdown>
+                    </Suspense>
+                  </Prose>
+                )}
+
+                {event.githubURL && (
+                  <a
+                    className="inline-flex items-center gap-2 text-sm text-primary transition-colors hover:text-primary/80 hover:underline"
+                    href={event.githubURL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
                   >
-                    <Markdown>{event.description}</Markdown>
-                  </Suspense>
-                </Prose>
-              )}
-
-              {event.githubURL && (
-                <a
-                  className="inline-flex items-center gap-2 text-sm text-primary transition-colors hover:text-primary/80 hover:underline"
-                  href={event.githubURL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <span>View on GitHub</span>
-                  <ExternalLinkIcon className="size-4" aria-hidden />
-                </a>
-              )}
-            </div>
-          </CollapsibleContent>
+                    <span>View on GitHub</span>
+                    <ExternalLinkIcon className="size-4" aria-hidden />
+                  </a>
+                )}
+              </div>
+            </CollapsibleContent>
           </>
         )}
       </article>

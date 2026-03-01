@@ -54,7 +54,7 @@ export function ExperiencePositionItem({
             </div>
 
             <div className="flex-1 space-y-1 pt-1">
-              <h4 className="font-semibold text-balance leading-tight">
+              <h4 className="leading-tight font-semibold text-balance">
                 {position.title}
               </h4>
 
@@ -122,7 +122,7 @@ export function ExperiencePositionItem({
                       return (
                         <p
                           key={i}
-                          className="!mb-1.5 !mt-3 first:!mt-0 text-sm font-semibold text-foreground"
+                          className="!mt-3 !mb-1.5 text-sm font-semibold text-foreground first:!mt-0"
                         >
                           {block.text}
                         </p>

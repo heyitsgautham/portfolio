@@ -35,7 +35,7 @@ export function EducationItem({
             </div>
           )}
 
-          <div className="flex-1 min-w-0">
+          <div className="min-w-0 flex-1">
             <h3 className="mb-1 leading-tight font-semibold text-balance">
               {education.degree}
             </h3>
@@ -52,7 +52,7 @@ export function EducationItem({
           </div>
         </div>
 
-        <div className="flex flex-col gap-2 text-sm items-start">
+        <div className="flex flex-col items-start gap-2 text-sm">
           <div className="inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1 font-mono text-xs">
             {education.period}
           </div>

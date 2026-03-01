@@ -36,7 +36,7 @@ export function LazySection({
           observer.disconnect();
         }
       },
-      { rootMargin },
+      { rootMargin }
     );
 
     observer.observe(el);

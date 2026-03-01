@@ -128,7 +128,7 @@ export function ResumePage() {
           >
             <ZoomOutIcon className="size-3.5" />
           </Button>
-          <span className="min-w-[2.5rem] text-center text-xs tabular-nums text-white/50">
+          <span className="min-w-[2.5rem] text-center text-xs text-white/50 tabular-nums">
             {Math.round(scale * 100)}%
           </span>
           <Button

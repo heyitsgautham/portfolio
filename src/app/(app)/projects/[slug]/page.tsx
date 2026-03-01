@@ -3,15 +3,13 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import type { CreativeWork, WithContext } from "schema-dts";
 
 import { getIcon } from "@/components/icons";
 import { Tag } from "@/components/ui/tag";
 import { SimpleTooltip } from "@/components/ui/tooltip";
 import { SITE_INFO } from "@/config/site";
-import {
-    getProjectBySlug,
-    PROJECTS,
-} from "@/features/profile/data/projects";
+import { getProjectBySlug, PROJECTS } from "@/features/profile/data/projects";
 import { TECH_STACK } from "@/features/profile/data/tech-stack";
 import { cn } from "@/lib/utils";
 
@@ -32,11 +30,18 @@ export async function generateMetadata({
     return {
         title,
         description: project.intro,
+        alternates: { canonical: `/projects/${slug}` },
         openGraph: {
             title,
             description: project.intro,
             url: `/projects/${slug}`,
             siteName: SITE_INFO.name,
+            type: "article",
+        },
+        twitter: {
+            card: "summary_large_image",
+            title,
+            description: project.intro,
         },
     };
 }
@@ -55,19 +60,42 @@ export default async function ProjectDetailPage({
         ? project.title.split(" - ").slice(1).join(" - ")
         : null;
 
+    const jsonLd: WithContext<CreativeWork> = {
+        "@context": "https://schema.org",
+        "@type": "CreativeWork",
+        name: project.title,
+        description: project.intro,
+        url: `${SITE_INFO.url}/projects/${slug}`,
+        ...(project.image && {
+            image: `${SITE_INFO.url}${project.image}`,
+        }),
+        keywords: project.skills.join(", "),
+        creator: {
+            "@type": "Person",
+            name: SITE_INFO.name,
+            url: SITE_INFO.url,
+        },
+    };
+
     return (
         <div
             className="mx-auto max-w-4xl px-4 py-10 sm:px-6 lg:px-8"
             style={
                 project.accentColor
                     ? ({
-                          "--project-accent": project.accentColor,
-                          "--project-accent-dark":
-                              project.accentColorDark ?? project.accentColor,
-                      } as React.CSSProperties)
+                        "--project-accent": project.accentColor,
+                        "--project-accent-dark":
+                            project.accentColorDark ?? project.accentColor,
+                    } as React.CSSProperties)
                     : undefined
             }
         >
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+                }}
+            />
             {/* Cover image with back link overlaid */}
             {project.image ? (
                 <div className="relative mb-8 h-[400px] w-full overflow-hidden rounded-xl border border-border/50">
@@ -79,13 +107,13 @@ export default async function ProjectDetailPage({
                         priority
                     />
                     {/* Back link overlaid on cover */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-transparent rounded-xl" />
+                    <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-black/40 via-transparent to-transparent" />
                     <Link
                         href="/projects"
-                        className="group/back absolute left-4 top-4 inline-flex items-center rounded-full border border-white/20 bg-black/30 py-1.5 pl-2.5 pr-2.5 font-mono text-sm text-white/90 backdrop-blur-sm transition-all duration-300 hover:bg-black/50 hover:pr-3 hover:text-white"
+                        className="group/back absolute top-4 left-4 inline-flex items-center rounded-full border border-white/20 bg-black/30 py-1.5 pr-2.5 pl-2.5 font-mono text-sm text-white/90 backdrop-blur-sm transition-all duration-300 hover:bg-black/50 hover:pr-3 hover:text-white"
                     >
                         <ArrowLeft className="size-3.5 shrink-0 transition-transform group-hover/back:-translate-x-0.5" />
-                        <span className="max-w-0 overflow-hidden whitespace-nowrap opacity-0 transition-all duration-300 group-hover/back:max-w-xs group-hover/back:ml-1.5 group-hover/back:opacity-100">
+                        <span className="max-w-0 overflow-hidden whitespace-nowrap opacity-0 transition-all duration-300 group-hover/back:ml-1.5 group-hover/back:max-w-xs group-hover/back:opacity-100">
                             Back to Projects
                         </span>
                     </Link>
@@ -97,7 +125,7 @@ export default async function ProjectDetailPage({
                     className="group/back mb-10 inline-flex items-center font-mono text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
                     <ArrowLeft className="size-3.5 shrink-0 transition-transform group-hover/back:-translate-x-0.5" />
-                    <span className="max-w-0 overflow-hidden whitespace-nowrap opacity-0 transition-all duration-300 group-hover/back:max-w-xs group-hover/back:ml-1.5 group-hover/back:opacity-100">
+                    <span className="max-w-0 overflow-hidden whitespace-nowrap opacity-0 transition-all duration-300 group-hover/back:ml-1.5 group-hover/back:max-w-xs group-hover/back:opacity-100">
                         Back to Projects
                     </span>
                 </Link>
@@ -183,7 +211,7 @@ export default async function ProjectDetailPage({
             <section className="mb-8">
                 <h2
                     className={cn(
-                        "mb-4 font-mono text-base font-semibold uppercase tracking-wider text-foreground/80",
+                        "mb-4 font-mono text-base font-semibold tracking-wider text-foreground/80 uppercase",
                         project.accentColor && "project-accent-heading"
                     )}
                 >
@@ -211,7 +239,7 @@ export default async function ProjectDetailPage({
             <section>
                 <h2
                     className={cn(
-                        "mb-4 font-mono text-base font-semibold uppercase tracking-wider text-foreground/80",
+                        "mb-4 font-mono text-base font-semibold tracking-wider text-foreground/80 uppercase",
                         project.accentColor && "project-accent-heading"
                     )}
                 >

@@ -150,7 +150,7 @@ export function ProjectGalleryCard({
           <h3 className="truncate font-mono text-base font-semibold">
             {project.title.split(" - ")[0]}
           </h3>
-          <time className="shrink-0 whitespace-nowrap font-mono text-sm text-muted-foreground">
+          <time className="shrink-0 font-mono text-sm whitespace-nowrap text-muted-foreground">
             {formattedDate}
           </time>
         </div>
@@ -192,9 +192,7 @@ export function ProjectGalleryCard({
                   )}
                 >
                   {icon && techItem?.href ? (
-                    <SimpleTooltip
-                      content={`Visit ${displayName} website`}
-                    >
+                    <SimpleTooltip content={`Visit ${displayName} website`}>
                       <a
                         href={techItem.href}
                         target="_blank"

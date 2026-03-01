@@ -1,7 +1,6 @@
 import dayjs from "dayjs";
 import type { ProfilePage as PageSchema, WithContext } from "schema-dts";
 
-import { LazySection } from "@/components/lazy-section";
 import { Certifications } from "@/features/profile/components/certifications";
 import { Contact } from "@/features/profile/components/contact";
 import { Education } from "@/features/profile/components/education";
@@ -28,7 +27,6 @@ export default function Page() {
       <ProfileCover />
 
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        {/* Above-fold: render eagerly */}
         <ProfileHero />
         <Separator />
 
@@ -38,35 +36,25 @@ export default function Page() {
         <TechStack />
         <Separator />
 
-        {/* Below-fold: defer until near viewport */}
-        <LazySection height="h-64">
-          <Experiences />
-        </LazySection>
+        <Experiences />
         <Separator />
 
-        <LazySection height="h-64">
-          <Projects />
-        </LazySection>
+        <Projects />
         <Separator />
 
-        <LazySection height="h-48">
-          <Education />
-        </LazySection>
+        <Education />
         <Separator />
 
-        <LazySection height="h-64">
-          <Timeline />
-        </LazySection>
+        <Timeline />
         <Separator />
 
-        <LazySection height="h-48">
-          <Certifications />
-        </LazySection>
+        <Education />
         <Separator />
 
-        <LazySection height="h-64">
-          <Contact />
-        </LazySection>
+        <Certifications />
+        <Separator />
+
+        <Contact />
       </div>
     </>
   );

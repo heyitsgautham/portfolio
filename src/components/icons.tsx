@@ -283,6 +283,50 @@ const pngIconMap: Record<string, string> = {
   html5: "HTML5",
 };
 
+// Icons that have been converted to WebP (smaller than PNG source)
+const webpIcons = new Set([
+  "aistudio",
+  "bedrock-color",
+  "css",
+  "cuda",
+  "cursor",
+  "express",
+  "figma",
+  "framer",
+  "githubcopilot",
+  "go",
+  "graphql",
+  "HTML5",
+  "lambda",
+  "langchain-color",
+  "langgraph-color",
+  "langsmith-color",
+  "Linux",
+  "MATLAB",
+  "mcp",
+  "mongodb",
+  "n8n-color",
+  "next",
+  "node",
+  "notebooklm",
+  "notion",
+  "nvidia-color",
+  "ollama",
+  "perplexity",
+  "Python",
+  "react",
+  "reactnative",
+  "reactquery",
+  "RESTFULAPI",
+  "sora-color",
+  "stripe",
+  "tailwind",
+  "tauri",
+  "tensorflow",
+  "ts",
+  "v0",
+]);
+
 export function getIconForLanguageExtension(language: string) {
   switch (language) {
     case "json":
@@ -320,13 +364,15 @@ export function getIconForPackageManager(manager: string) {
 export function getIcon(name: string | undefined, size: number = 16) {
   if (!name) return null;
 
-  // Check PNG first
+  // Check PNG/WebP icon map first
   const pngFilename = pngIconMap[name];
   if (pngFilename) {
-    const sizeClass = size === 48 ? "w-12 h-12" : size === 32 ? "w-8 h-8" : "w-4 h-4";
+    const ext = webpIcons.has(pngFilename) ? "webp" : "png";
+    const sizeClass =
+      size === 48 ? "w-12 h-12" : size === 32 ? "w-8 h-8" : "w-4 h-4";
     return (
       <Image
-        src={`/images/icons/${pngFilename}.png`}
+        src={`/images/icons/${pngFilename}.${ext}`}
         alt={name}
         width={size}
         height={size}
@@ -339,7 +385,8 @@ export function getIcon(name: string | undefined, size: number = 16) {
   // Fallback to Icons
   if (name in Icons) {
     const Icon = Icons[name as keyof typeof Icons];
-    const sizeClass = size === 48 ? "w-12 h-12" : size === 32 ? "w-8 h-8" : "w-4 h-4";
+    const sizeClass =
+      size === 48 ? "w-12 h-12" : size === 32 ? "w-8 h-8" : "w-4 h-4";
     return <Icon className={sizeClass} />;
   }
 

@@ -13,10 +13,8 @@ export function ImageCarousel({ images }: { images: string[] }) {
 
   if (images.length === 0) return null;
 
-  const prev = () =>
-    setCurrent((c) => (c === 0 ? images.length - 1 : c - 1));
-  const next = () =>
-    setCurrent((c) => (c === images.length - 1 ? 0 : c + 1));
+  const prev = () => setCurrent((c) => (c === 0 ? images.length - 1 : c - 1));
+  const next = () => setCurrent((c) => (c === images.length - 1 ? 0 : c + 1));
 
   // Pause auto-slide when off-screen
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -82,7 +80,7 @@ export function ImageCarousel({ images }: { images: string[] }) {
               e.stopPropagation();
               prev();
             }}
-            className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-background/80 p-1.5 text-foreground shadow-md backdrop-blur-sm transition-colors hover:bg-background"
+            className="absolute top-1/2 left-2 -translate-y-1/2 rounded-full bg-background/80 p-1.5 text-foreground shadow-md backdrop-blur-sm transition-colors hover:bg-background"
             aria-label="Previous image"
           >
             <ChevronLeftIcon className="size-4" />
@@ -93,7 +91,7 @@ export function ImageCarousel({ images }: { images: string[] }) {
               e.stopPropagation();
               next();
             }}
-            className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-background/80 p-1.5 text-foreground shadow-md backdrop-blur-sm transition-colors hover:bg-background"
+            className="absolute top-1/2 right-2 -translate-y-1/2 rounded-full bg-background/80 p-1.5 text-foreground shadow-md backdrop-blur-sm transition-colors hover:bg-background"
             aria-label="Next image"
           >
             <ChevronRightIcon className="size-4" />
@@ -109,7 +107,7 @@ export function ImageCarousel({ images }: { images: string[] }) {
                 }}
                 className={`size-2 rounded-full transition-all ${
                   i === current
-                    ? "bg-white scale-110 shadow-sm"
+                    ? "scale-110 bg-white shadow-sm"
                     : "bg-white/50 hover:bg-white/80"
                 }`}
                 aria-label={`Go to image ${i + 1}`}

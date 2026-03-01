@@ -21,7 +21,7 @@ export function Timeline() {
 
       <PanelContent>
         <div className="relative">
-          <div className="absolute left-1/2 top-0 hidden h-full w-0.5 -translate-x-1/2 bg-gradient-to-b from-border via-border to-transparent md:block" />
+          <div className="absolute top-0 left-1/2 hidden h-full w-0.5 -translate-x-1/2 bg-gradient-to-b from-border via-border to-transparent md:block" />
 
           <div className="space-y-12">
             {SORTED_TIMELINE.map((event, index) => (

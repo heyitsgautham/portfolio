@@ -50,7 +50,8 @@ export const COMPACT_NAV: NavItem[] = [
 
 export const GITHUB_USERNAME = "heyitsgautham";
 export const SOURCE_CODE_GITHUB_REPO = "heyitsgautham/portfolio";
-export const SOURCE_CODE_GITHUB_URL = "https://github.com/heyitsgautham/portfolio";
+export const SOURCE_CODE_GITHUB_URL =
+  "https://github.com/heyitsgautham/portfolio";
 
 export const UTM_PARAMS = {
   utm_source: "gauthamkrishna.dev",

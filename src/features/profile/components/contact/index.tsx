@@ -1,12 +1,7 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import {
-  MailIcon,
-  MapPinIcon,
-  PhoneIcon,
-  SendIcon,
-} from "lucide-react";
+import { MailIcon, MapPinIcon, PhoneIcon, SendIcon } from "lucide-react";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
@@ -77,7 +72,9 @@ export function Contact() {
         toast.success("Message sent successfully! I'll get back to you soon.");
         form.reset();
       } else {
-        toast.error(result.message || "Something went wrong. Please try again.");
+        toast.error(
+          result.message || "Something went wrong. Please try again."
+        );
       }
     } catch {
       toast.error("Failed to send message. Please try again later.");
@@ -145,10 +142,7 @@ export function Contact() {
 
           {/* Right side - Contact Form */}
           <Form {...form}>
-            <form
-              onSubmit={form.handleSubmit(onSubmit)}
-              className="space-y-4"
-            >
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <FormField
                   control={form.control}
@@ -161,7 +155,7 @@ export function Contact() {
                           className={cn(
                             "h-12 w-full rounded-xl border border-border bg-background px-4 text-sm",
                             "placeholder:text-muted-foreground",
-                            "focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20",
+                            "focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none",
                             "transition-colors"
                           )}
                           suppressHydrationWarning
@@ -185,7 +179,7 @@ export function Contact() {
                           className={cn(
                             "h-12 w-full rounded-xl border border-border bg-background px-4 text-sm",
                             "placeholder:text-muted-foreground",
-                            "focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20",
+                            "focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none",
                             "transition-colors"
                           )}
                           suppressHydrationWarning
@@ -209,7 +203,7 @@ export function Contact() {
                         className={cn(
                           "h-12 w-full rounded-xl border border-border bg-background px-4 text-sm",
                           "placeholder:text-muted-foreground",
-                          "focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20",
+                          "focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none",
                           "transition-colors"
                         )}
                         suppressHydrationWarning
@@ -233,7 +227,7 @@ export function Contact() {
                         className={cn(
                           "w-full resize-none rounded-xl border border-border bg-background px-4 py-3 text-sm",
                           "placeholder:text-muted-foreground",
-                          "focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20",
+                          "focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none",
                           "transition-colors"
                         )}
                         {...field}

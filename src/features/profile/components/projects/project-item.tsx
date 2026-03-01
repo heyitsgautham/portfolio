@@ -82,7 +82,7 @@ export function ProjectItem({
                 </dl>
               </div>
 
-              <div className="flex items-center gap-3 shrink-0 pt-1">
+              <div className="flex shrink-0 items-center gap-3 pt-1">
                 {project.liveLink && (
                   <a
                     href={addQueryParams(project.liveLink, UTM_PARAMS)}
