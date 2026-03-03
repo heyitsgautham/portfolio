@@ -48,9 +48,6 @@ export default function Page() {
         <Timeline />
         <Separator />
 
-        <Education />
-        <Separator />
-
         <Certifications />
         <Separator />
 
