@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 import { PROJECTS } from "../../data/projects";
 import { Panel, PanelContent, PanelHeader, PanelTitle } from "../panel";
-import { ProjectItem } from "./project-item";
+import { FeaturedProjectsGrid } from "./featured-projects-grid";
 
 export function Projects() {
   const featuredProjects = PROJECTS.slice(0, 3);
@@ -20,35 +20,29 @@ export function Projects() {
         </PanelTitle>
       </PanelHeader>
 
-      <PanelContent>
-        <div className="space-y-8">
-          <div>
-            <h3 className="mb-4 text-sm font-medium text-muted-foreground">
-              Featured Projects
-            </h3>
-            <div className="space-y-3">
-              {featuredProjects.map((project) => (
-                <ProjectItem
-                  key={project.id}
-                  project={project}
-                  className="border-primary/30"
-                />
-              ))}
+      <PanelContent className="px-0">
+        <div className="relative left-1/2 w-screen -translate-x-1/2 px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl space-y-8">
+            <div>
+              <h3 className="mb-4 text-sm font-medium text-muted-foreground">
+                
+              </h3>
+              <FeaturedProjectsGrid projects={featuredProjects} />
             </div>
-          </div>
 
-          {PROJECTS.length > featuredProjects.length && (
-            <div className="flex justify-center pt-4">
-              <Button
-                variant="outline"
-                size="lg"
-                className="min-w-[200px]"
-                asChild
-              >
-                <Link href="/projects">Show More</Link>
-              </Button>
-            </div>
-          )}
+            {PROJECTS.length > featuredProjects.length && (
+              <div className="flex justify-center pt-4">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="min-w-[200px]"
+                  asChild
+                >
+                  <Link href="/projects">Show More</Link>
+                </Button>
+              </div>
+            )}
+          </div>
         </div>
       </PanelContent>
     </Panel>

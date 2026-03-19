@@ -47,7 +47,7 @@ export function ProjectGalleryCard({
 
   const containerRef = useRef<HTMLDivElement>(null);
   const [visibleCount, setVisibleCount] = useState(project.skills.length);
-  const [measured, setMeasured] = useState(false);
+  const [measured, setMeasured] = useState(true);
 
   const computeVisible = useCallback(() => {
     const container = containerRef.current;
