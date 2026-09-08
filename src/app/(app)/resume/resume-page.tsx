@@ -20,7 +20,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   import.meta.url
 ).toString();
 
-const RESUME_PDF_URL = "/resume.pdf";
+const RESUME_PDF_URL = "/Gautham_Krishna_Resume.pdf";
 
 export function ResumePage() {
   const [numPages, setNumPages] = useState<number>(0);

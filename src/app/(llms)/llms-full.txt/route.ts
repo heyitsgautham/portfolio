@@ -57,7 +57,7 @@ const certificationsText = `## Certifications
 ${CERTIFICATIONS.map((item) => `- [${item.title}](${item.credentialURL})`).join("\n")}`;
 
 function getContent() {
-  return `<SYSTEM>This document contains comprehensive information about ${USER.displayName}'s professional profile and portfolio. It includes personal details, work experience, projects, achievements, and certifications. This data is formatted for consumption by Large Language Models (LLMs) to provide accurate and up-to-date information about ${USER.displayName}'s background, skills, and expertise as a Design Engineer.</SYSTEM>
+  return `<SYSTEM>This document contains comprehensive information about ${USER.displayName}'s professional profile and portfolio. It includes personal details, work experience, projects, achievements, and certifications. This data is formatted for consumption by Large Language Models (LLMs) to provide accurate and up-to-date information about ${USER.displayName}'s background, skills, and expertise as an AI Engineer.</SYSTEM>
 
 # gauthamkrishna.dev
 

@@ -1,3 +1,6 @@
+import { readFile } from "node:fs/promises";
+import path from "node:path";
+
 import { NextResponse } from "next/server";
 import sharp from "sharp";
 import VCard from "vcard-creator";
@@ -17,7 +20,9 @@ export async function GET() {
     .addEmail(decodeEmail(USER.email))
     .addURL(USER.website);
 
-  const photo = await getVCardPhoto(USER.avatar);
+  const photo = await getVCardPhoto(
+    path.join(process.cwd(), "public", USER.avatar.replace(/^\/+/, ""))
+  );
   if (photo) {
     card.addPhoto(photo.image, photo.mine);
   }
@@ -36,21 +41,10 @@ export async function GET() {
   });
 }
 
-async function getVCardPhoto(url: string) {
+async function getVCardPhoto(filePath: string) {
   try {
-    const res = await fetch(url);
-
-    if (!res.ok) {
-      return null;
-    }
-
-    const buffer = Buffer.from(await res.arrayBuffer());
+    const buffer = await readFile(filePath);
     if (buffer.length === 0) {
-      return null;
-    }
-
-    const contentType = res.headers.get("Content-Type") || "";
-    if (!contentType.startsWith("image/")) {
       return null;
     }
 
