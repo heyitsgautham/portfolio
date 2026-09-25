@@ -1,13 +1,18 @@
 import { FlatCompat } from "@eslint/eslintrc";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
+import { createRequire } from "module";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+const resolveFromConfig = createRequire(import.meta.url);
 
 const compat = new FlatCompat({
   baseDirectory: __dirname,
+  resolvePluginsRelativeTo: dirname(
+    resolveFromConfig.resolve("eslint-config-next/package.json")
+  ),
 });
 
 /**
