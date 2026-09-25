@@ -90,7 +90,10 @@ export function ProfileHero() {
   };
 
   return (
-    <section className="flex flex-col gap-3 py-2 sm:flex-row">
+    <section
+      aria-labelledby="profile-name"
+      className="flex flex-col gap-6 py-6 sm:flex-row sm:items-center"
+    >
       {/* Profile Picture & Status - 3D Holographic */}
       <div className="shrink-0">
         <motion.div
@@ -176,13 +179,16 @@ export function ProfileHero() {
       </div>
 
       {/* Content */}
-      <div className="flex flex-1 flex-col justify-center gap-3 p-1 sm:p-2">
+      <div className="flex min-w-0 flex-1 flex-col justify-center gap-4 p-1 sm:p-2">
         <div>
-          <h1 className="flex items-center text-4xl font-bold md:text-5xl">
+          <h1
+            id="profile-name"
+            className="text-3xl font-bold tracking-tight text-balance sm:text-4xl md:text-5xl"
+          >
             {USER.displayName}
             &nbsp;
             <SimpleTooltip content="Verified">
-              <VerifiedIcon className="size-[0.5em] text-info select-none" />
+              <VerifiedIcon className="inline-block size-[0.5em] align-middle text-info select-none" />
             </SimpleTooltip>
           </h1>
 
@@ -243,11 +249,7 @@ export function ProfileHero() {
         {/* Actions */}
         <div className="flex flex-wrap gap-4">
           <Button asChild size="lg" className="rounded-full px-8">
-            <a
-              href="https://drive.google.com/uc?export=download&id=1fu2z3JDIhEjAfzFkT7xQw-bDPCz3Dpmf"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href="/resume">
               <FileTextIcon className="mr-2 size-4" />
               Resume / CV
             </a>

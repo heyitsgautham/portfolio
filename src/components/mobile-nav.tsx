@@ -16,25 +16,35 @@ export function MobileNav({
   className?: string;
 }) {
   const [open, setOpen] = React.useState(false);
+  const triggerRef = React.useRef<HTMLButtonElement>(null);
+  const menuId = React.useId();
 
   React.useEffect(() => {
-    if (open) {
-      // Disable scroll
-      document.body.style.overflow = "hidden";
-    } else {
-      // Re-enable scroll
-      document.body.style.overflow = "";
-    }
+    if (!open) return;
 
-    // Cleanup when component unmounts
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      event.preventDefault();
+      setOpen(false);
+      triggerRef.current?.focus();
+    };
+    document.addEventListener("keydown", handleKeyDown);
+
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", handleKeyDown);
     };
   }, [open]);
 
   return (
     <>
       <Button
+        ref={triggerRef}
+        aria-expanded={open}
+        aria-controls={menuId}
         size="icon"
         variant="ghost"
         onClick={() => setOpen(!open)}
@@ -45,6 +55,9 @@ export function MobileNav({
       </Button>
 
       <div
+        id={menuId}
+        role="navigation"
+        aria-label="Mobile navigation"
         className={cn(
           "fixed top-12 right-0 bottom-0 left-0 z-40 flex flex-col overflow-hidden border-t bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/90 sm:top-14",
           open ? "block" : "hidden"

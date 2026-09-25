@@ -1,6 +1,7 @@
 import dayjs from "dayjs";
 import type { ProfilePage as PageSchema, WithContext } from "schema-dts";
 
+import { About } from "@/features/profile/components/about";
 import { Certifications } from "@/features/profile/components/certifications";
 import { Contact } from "@/features/profile/components/contact";
 import { Education } from "@/features/profile/components/education";
@@ -28,6 +29,9 @@ export default function Page() {
 
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <ProfileHero />
+        <Separator />
+
+        <About />
         <Separator />
 
         <GitHubContributions />

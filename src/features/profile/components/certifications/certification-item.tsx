@@ -28,12 +28,12 @@ export function CertificationItem({
             alt={certification.title}
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            className="object-cover transition-transform group-hover:scale-105"
+            className="object-contain transition-transform group-hover:scale-[1.02]"
           />
         </div>
 
         <div className="flex flex-col items-center justify-between gap-3 border-t border-border/50 bg-card p-4">
-          <h3 className="line-clamp-2 text-center font-semibold text-balance">
+          <h3 className="text-center font-semibold text-balance">
             {certification.title}
           </h3>
 
@@ -41,7 +41,7 @@ export function CertificationItem({
             href={certification.credentialURL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm font-medium text-white transition-colors hover:text-white/80 hover:underline"
+            className="inline-flex items-center gap-2 text-sm font-medium text-foreground transition-colors hover:text-foreground/80 hover:underline"
             onClick={(e) => e.stopPropagation()}
           >
             <span>View Certificate</span>
@@ -99,7 +99,7 @@ export function CertificationItem({
           href={certification.credentialURL}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-sm font-medium text-white transition-colors hover:text-white/80 hover:underline"
+          className="inline-flex items-center gap-2 text-sm font-medium text-foreground transition-colors hover:text-foreground/80 hover:underline"
           onClick={(e) => e.stopPropagation()}
         >
           <span>View Certificate</span>

@@ -171,6 +171,7 @@ export function ExperiencePositionItem({
                           >
                             <a
                               href={techItem.href}
+                              aria-label={`Visit ${displayName} website`}
                               target="_blank"
                               rel="noopener noreferrer"
                               className="inline-block"

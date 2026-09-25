@@ -11,10 +11,20 @@ const ScrollTop = dynamic(() =>
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex min-h-screen flex-col">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-md focus:bg-background focus:px-4 focus:py-2 focus:text-foreground focus:ring-2 focus:ring-ring"
+      >
+        Skip to content
+      </a>
       <SiteHeader />
-      <div className="flex-1 pt-14 sm:pt-16 md:pt-20">
+      <main
+        id="main-content"
+        tabIndex={-1}
+        className="flex-1 pt-14 outline-none sm:pt-16 md:pt-20"
+      >
         <PageTransition>{children}</PageTransition>
-      </div>
+      </main>
       <SiteFooter />
       <ScrollTop />
     </div>

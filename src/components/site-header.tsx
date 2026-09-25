@@ -5,6 +5,7 @@ import Link from "next/link";
 
 import { DesktopNav } from "@/components/desktop-nav";
 import { IndiaTime } from "@/components/india-time";
+import { MobileNav } from "@/components/mobile-nav";
 import { ToggleTheme } from "@/components/toggle-theme";
 import { MAIN_NAV } from "@/config/site";
 import { useScroll } from "@/hooks/use-scroll";
@@ -15,10 +16,6 @@ import { SiteHeaderWrapper } from "./site-header-wrapper";
 
 const BrandContextMenu = dynamic(() =>
   import("@/components/brand-context-menu").then((mod) => mod.BrandContextMenu)
-);
-
-const MobileNav = dynamic(() =>
-  import("@/components/mobile-nav").then((mod) => mod.MobileNav)
 );
 
 export function SiteHeader() {
@@ -40,7 +37,7 @@ export function SiteHeader() {
             <Link
               href="/"
               aria-label="Home"
-              className="flex items-center transition-transform duration-200 hover:scale-105 [&_svg]:h-6 sm:[&_svg]:h-7"
+              className="flex shrink-0 items-center transition-transform duration-200 hover:scale-105 [&_svg]:h-6 [&_svg]:w-auto sm:[&_svg]:h-7"
             >
               <SiteHeaderMark />
             </Link>
@@ -52,7 +49,7 @@ export function SiteHeader() {
         <div className="flex items-center gap-3">
           <IndiaTime />
           <ToggleTheme />
-          <MobileNav className="md:hidden" items={MAIN_NAV} />
+          <MobileNav className="size-10 md:hidden" items={MAIN_NAV} />
         </div>
       </div>
     </SiteHeaderWrapper>

@@ -195,6 +195,7 @@ export function ProjectGalleryCard({
                     <SimpleTooltip content={`Visit ${displayName} website`}>
                       <a
                         href={techItem.href}
+                        aria-label={`Visit ${displayName} website`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-block"

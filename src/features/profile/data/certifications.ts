@@ -7,7 +7,7 @@ export const CERTIFICATIONS: Certification[] = [
     certificateImageURL: "/images/certifications/aws_cpe.webp",
     issueDate: "2024-11-01",
     credentialID: "",
-    credentialURL: "#",
+    credentialURL: "/images/certifications/aws_cpe.webp",
   },
   {
     title: "Presidio Certificate",
@@ -15,7 +15,7 @@ export const CERTIFICATIONS: Certification[] = [
     certificateImageURL: "/images/certifications/presidio.webp",
     issueDate: "2024-01-01",
     credentialID: "",
-    credentialURL: "#",
+    credentialURL: "/images/certifications/presidio.webp",
   },
 
   {
@@ -24,7 +24,7 @@ export const CERTIFICATIONS: Certification[] = [
     certificateImageURL: "/images/certifications/packt_DL.webp",
     issueDate: "2024-12-01",
     credentialID: "",
-    credentialURL: "#",
+    credentialURL: "/images/certifications/packt_DL.webp",
   },
   {
     title: "AWS Cloud Technical Essentials",
@@ -32,7 +32,7 @@ export const CERTIFICATIONS: Certification[] = [
     certificateImageURL: "/images/certifications/aws_ct_essentials.webp",
     issueDate: "2024-10-01",
     credentialID: "",
-    credentialURL: "#",
+    credentialURL: "/images/certifications/aws_ct_essentials.webp",
   },
   {
     title: "Foundations of PyTorch",
@@ -40,7 +40,7 @@ export const CERTIFICATIONS: Certification[] = [
     certificateImageURL: "/images/certifications/foundations-pytorch.webp",
     issueDate: "2024-08-01",
     credentialID: "",
-    credentialURL: "#",
+    credentialURL: "/images/certifications/foundations-pytorch.webp",
   },
   {
     title: "Building Neural Networks with PyTorch",
@@ -48,7 +48,7 @@ export const CERTIFICATIONS: Certification[] = [
     certificateImageURL: "/images/certifications/building_nn_packt.webp",
     issueDate: "2024-07-01",
     credentialID: "",
-    credentialURL: "#",
+    credentialURL: "/images/certifications/building_nn_packt.webp",
   },
   {
     title: "CS50x: Intro to CS",
@@ -56,7 +56,7 @@ export const CERTIFICATIONS: Certification[] = [
     certificateImageURL: "/images/certifications/cs50x.webp",
     issueDate: "2024-06-01",
     credentialID: "",
-    credentialURL: "#",
+    credentialURL: "/images/certifications/cs50x.webp",
   },
   {
     title: "Database Management Systems",
@@ -64,7 +64,7 @@ export const CERTIFICATIONS: Certification[] = [
     certificateImageURL: "/images/certifications/dbms_colorado.webp",
     issueDate: "2024-05-01",
     credentialID: "",
-    credentialURL: "#",
+    credentialURL: "/images/certifications/dbms_colorado.webp",
   },
   {
     title: "UiPath Certified Professional",
@@ -80,7 +80,7 @@ export const CERTIFICATIONS: Certification[] = [
     certificateImageURL: "/images/certifications/nptel_iot.webp",
     issueDate: "2024-04-01",
     credentialID: "",
-    credentialURL: "#",
+    credentialURL: "/images/certifications/nptel_iot.webp",
   },
   {
     title: "IITM BS Data Science Foundations",
@@ -88,7 +88,7 @@ export const CERTIFICATIONS: Certification[] = [
     certificateImageURL: "/images/certifications/BS_foundation.webp",
     issueDate: "2024-03-01",
     credentialID: "",
-    credentialURL: "#",
+    credentialURL: "/images/certifications/BS_foundation.webp",
   },
   {
     title: "Python (Basic)",
@@ -96,7 +96,7 @@ export const CERTIFICATIONS: Certification[] = [
     certificateImageURL: "/images/certifications/python_HR.webp",
     issueDate: "2024-02-01",
     credentialID: "",
-    credentialURL: "#",
+    credentialURL: "/images/certifications/python_HR.webp",
   },
   {
     title: "SQL (Basic)",
@@ -104,7 +104,7 @@ export const CERTIFICATIONS: Certification[] = [
     certificateImageURL: "/images/certifications/sql_hr_basic.webp",
     issueDate: "2024-01-15",
     credentialID: "",
-    credentialURL: "#",
+    credentialURL: "/images/certifications/sql_hr_basic.webp",
   },
   {
     title: "SQL (Intermediate)",
@@ -112,7 +112,7 @@ export const CERTIFICATIONS: Certification[] = [
     certificateImageURL: "/images/certifications/sql_intermediate.webp",
     issueDate: "2024-01-10",
     credentialID: "",
-    credentialURL: "#",
+    credentialURL: "/images/certifications/sql_intermediate.webp",
   },
   {
     title: "Advanced PyTorch",
@@ -120,6 +120,6 @@ export const CERTIFICATIONS: Certification[] = [
     certificateImageURL: "/images/certifications/adv_pytorch_app.webp",
     issueDate: "2025-05-01",
     credentialID: "6V2D7UNVR9L7",
-    credentialURL: "https://www.packt.com/certificate/6V2D7UNVR9L7",
+    credentialURL: "https://coursera.org/verify/6V2D7UNVR9L7",
   },
 ];

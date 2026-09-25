@@ -7,7 +7,7 @@ export function ProfileCover() {
     <BrandContextMenu>
       <div
         className={cn(
-          "relative aspect-4/1 select-none sm:aspect-5/1 lg:aspect-6/1",
+          "relative h-24 select-none sm:h-36 lg:h-40",
           "flex items-center justify-center overflow-hidden",
           "bg-gradient-to-br from-primary/5 via-background to-muted/20",
           "screen-line-after after:-bottom-px"
@@ -16,7 +16,7 @@ export function ProfileCover() {
         <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
         <GKMark
           id="js-cover-mark"
-          className="relative z-10 h-28 w-80 text-foreground sm:h-36 sm:w-96 lg:h-40 lg:w-[28rem]"
+          className="relative z-10 h-20 w-56 text-foreground sm:h-28 sm:w-80 lg:h-32 lg:w-96"
         />
       </div>
     </BrandContextMenu>

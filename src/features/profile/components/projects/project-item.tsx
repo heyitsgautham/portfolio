@@ -146,6 +146,7 @@ export function ProjectItem({
                           >
                             <a
                               href={techItem.href}
+                              aria-label={`Visit ${displayName} website`}
                               target="_blank"
                               rel="noopener noreferrer"
                               className="inline-block"
@@ -213,6 +214,7 @@ export function ProjectItem({
                           >
                             <a
                               href={techItem.href}
+                              aria-label={`Visit ${displayName} website`}
                               target="_blank"
                               rel="noopener noreferrer"
                               className="inline-block"
