@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Privacy policy — Delivery Risk for Jira</title>
+<meta name="description" content="What the app reads, writes and stores. Which is very little.">
+<style>
+:root{--paper:#FBFAF8;--paper-2:#F3F1EC;--ink:#15171B;--ink-2:#4A4740;
+  --muted:#716B61;--rule:#DEDAD1;--rule-2:#EBE7DF;--signal:#BE3A11;
+  --mono:ui-monospace,SFMono-Regular,Menlo,monospace;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+@media (prefers-color-scheme:dark){:root{
+  --paper:#15161A;--paper-2:#1B1D22;--ink:#E9E5DC;--ink-2:#B5AFA3;
+  --muted:#8A847A;--rule:#2C2E35;--rule-2:#24262C;--signal:#FF7043}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font:400 16px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+.wrap{max-width:44rem;margin:0 auto;padding:56px 24px 96px}
+header{border-bottom:1px solid var(--rule);padding-bottom:20px;margin-bottom:36px}
+header .k{font:600 10px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted)}
+header h1{margin:10px 0 0;font:600 30px/1.2 var(--sans);letter-spacing:-.01em}
+header .sub{margin-top:8px;color:var(--muted);font-size:14px}
+h2{margin:44px 0 14px;font:600 20px/1.3 var(--sans);letter-spacing:-.01em}
+h3{margin:30px 0 10px;font:600 16px/1.35 var(--sans)}
+p,li{color:var(--ink-2)}
+p{margin:0 0 16px}
+ul,ol{margin:0 0 16px;padding-left:22px}
+li{margin:0 0 7px}
+strong{color:var(--ink);font-weight:600}
+code{font:400 .88em var(--mono);background:var(--paper-2);padding:2px 5px;
+  border-radius:3px;color:var(--ink)}
+pre{background:var(--paper-2);border:1px solid var(--rule);border-radius:4px;
+  padding:14px 16px;overflow-x:auto;margin:0 0 18px}
+pre code{background:none;padding:0;font-size:13px;line-height:1.6}
+blockquote{margin:0 0 18px;padding:2px 0 2px 18px;border-left:3px solid var(--signal);
+  color:var(--ink-2)}
+table{border-collapse:collapse;width:100%;margin:0 0 20px;font-size:14.5px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--rule-2);
+  vertical-align:top}
+th{font:600 10px/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);border-bottom:1px solid var(--rule)}
+hr{border:0;border-top:1px solid var(--rule);margin:36px 0}
+a{color:var(--signal)}
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--rule);
+  color:var(--muted);font-size:13px}
+footer nav{margin-bottom:10px}
+/* 24px tall, which is what WCAG 2.2 asks of a control, and the only link on
+   either page. */
+footer nav a{color:var(--signal);display:inline-flex;align-items:center;
+  min-height:24px;text-decoration:underline;text-underline-offset:2px}
+footer nav a:hover{text-decoration-thickness:2px}
+</style>
+</head><body><div class="wrap">
+<header>
+  <div class="k">Delivery Risk for Jira</div>
+  <h1>Privacy policy</h1>
+  <div class="sub">What the app reads, writes and stores. Which is very little.</div>
+</header>
+<p><strong>Delivery Risk for Jira</strong> Last updated: 7 September 2026</p>
+<h2>The short version</h2>
+<p>This app runs entirely inside Atlassian&#x27;s infrastructure. It has no servers, no database of its own, and no analytics. Nothing it reads about your Jira leaves Atlassian.</p>
+<h2>What the app reads</h2>
+<p>When you run a query, the app reads the following fields from the Jira issues your query returns, using your own Jira permissions:</p>
+<ul><li>Issue key, summary, issue type and status</li><li>Project key</li><li>Start date and due date</li><li>Assignee display name</li><li>Parent issue key</li><li>Issue links of the &quot;blocks&quot; and &quot;depends on&quot; kind</li></ul>
+<p>It reads nothing else. It does not read comments, attachments, worklogs, descriptions, or any issue your own Jira permissions would not already show you.</p>
+<h2>What the app writes</h2>
+<p>Two fields, on issues you explicitly choose to reschedule, and only when you press <strong>Publish</strong>:</p>
+<ul><li>Due date</li><li>The start-date field your Jira uses, when it has one</li></ul>
+<p>It never creates, deletes, transitions, assigns or comments on an issue. There is no delete path in the application at all.</p>
+<h2>What the app stores</h2>
+<p>Unpublished changes are held in Atlassian&#x27;s Forge storage, scoped to your own Atlassian account, so that a draft survives a page reload. Each record is an issue key with two dates. Pressing <strong>Publish</strong> or <strong>Discard</strong> removes it.</p>
+<p>Nothing else is stored. No profile, no history, no usage record.</p>
+<h2>Where your data goes</h2>
+<p>Nowhere. The app declares no external egress permissions and makes no requests to any host outside Atlassian. It is built on Atlassian Forge and qualifies for the <strong>Runs on Atlassian</strong> programme, which means Atlassian hosts the compute and the storage.</p>
+<h2>The AI feature</h2>
+<p>The optional <strong>Explain</strong> button sends a summary of the conflicts already shown on screen to a large language model. That model is hosted by Atlassian, runs inside Atlassian&#x27;s infrastructure, and the request does not leave it. No third-party AI service is used, and no data is sent to the app author.</p>
+<p>What is sent: issue keys, project keys, dates, statuses and the first 60 characters of issue summaries, for at-risk issues only, capped at 60 issues. The answer is cached in Forge storage against a hash of that summary so the same plan is not sent twice.</p>
+<p>The feature runs only when you press the button. It never runs automatically.</p>
+<h2>Cookies and tracking</h2>
+<p>None. The app sets no cookies, uses no analytics, and contains no third-party scripts or fonts. Its fonts are bundled with the app for this reason.</p>
+<h2>Data retention and deletion</h2>
+<p>Uninstalling the app removes its Forge storage, including any unpublished drafts. Dates already published to Jira are ordinary Jira data and remain under your control.</p>
+<h2>Your rights</h2>
+<p>The app processes your Jira data solely to display it back to you. The controller of that data is your own organisation, through its Atlassian subscription. Requests about data held in Jira should go to your Jira administrator and to Atlassian.</p>
+<h2>Contact</h2>
+<p>support@gauthamkrishna.dev</p>
+<h2>Changes</h2>
+<p>Material changes to this policy will be published here and noted in the app&#x27;s release notes.</p>
+<footer>
+<nav aria-label="Other pages"><a href="docs.html">Documentation</a></nav>
+Delivery Risk for Jira. Runs on Atlassian: no external servers, no data
+egress, no analytics, no cookies.</footer>
+</div></body></html>

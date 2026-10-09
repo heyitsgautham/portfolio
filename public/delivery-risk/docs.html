@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Documentation — Delivery Risk for Jira</title>
+<meta name="description" content="Reading the board, resolving a conflict, and what the app changes.">
+<style>
+:root{--paper:#FBFAF8;--paper-2:#F3F1EC;--ink:#15171B;--ink-2:#4A4740;
+  --muted:#716B61;--rule:#DEDAD1;--rule-2:#EBE7DF;--signal:#BE3A11;
+  --mono:ui-monospace,SFMono-Regular,Menlo,monospace;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+@media (prefers-color-scheme:dark){:root{
+  --paper:#15161A;--paper-2:#1B1D22;--ink:#E9E5DC;--ink-2:#B5AFA3;
+  --muted:#8A847A;--rule:#2C2E35;--rule-2:#24262C;--signal:#FF7043}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font:400 16px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+.wrap{max-width:44rem;margin:0 auto;padding:56px 24px 96px}
+header{border-bottom:1px solid var(--rule);padding-bottom:20px;margin-bottom:36px}
+header .k{font:600 10px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted)}
+header h1{margin:10px 0 0;font:600 30px/1.2 var(--sans);letter-spacing:-.01em}
+header .sub{margin-top:8px;color:var(--muted);font-size:14px}
+h2{margin:44px 0 14px;font:600 20px/1.3 var(--sans);letter-spacing:-.01em}
+h3{margin:30px 0 10px;font:600 16px/1.35 var(--sans)}
+p,li{color:var(--ink-2)}
+p{margin:0 0 16px}
+ul,ol{margin:0 0 16px;padding-left:22px}
+li{margin:0 0 7px}
+strong{color:var(--ink);font-weight:600}
+code{font:400 .88em var(--mono);background:var(--paper-2);padding:2px 5px;
+  border-radius:3px;color:var(--ink)}
+pre{background:var(--paper-2);border:1px solid var(--rule);border-radius:4px;
+  padding:14px 16px;overflow-x:auto;margin:0 0 18px}
+pre code{background:none;padding:0;font-size:13px;line-height:1.6}
+blockquote{margin:0 0 18px;padding:2px 0 2px 18px;border-left:3px solid var(--signal);
+  color:var(--ink-2)}
+table{border-collapse:collapse;width:100%;margin:0 0 20px;font-size:14.5px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--rule-2);
+  vertical-align:top}
+th{font:600 10px/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);border-bottom:1px solid var(--rule)}
+hr{border:0;border-top:1px solid var(--rule);margin:36px 0}
+a{color:var(--signal)}
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--rule);
+  color:var(--muted);font-size:13px}
+footer nav{margin-bottom:10px}
+/* 24px tall, which is what WCAG 2.2 asks of a control, and the only link on
+   either page. */
+footer nav a{color:var(--signal);display:inline-flex;align-items:center;
+  min-height:24px;text-decoration:underline;text-underline-offset:2px}
+footer nav a:hover{text-decoration-thickness:2px}
+</style>
+</head><body><div class="wrap">
+<header>
+  <div class="k">Delivery Risk for Jira</div>
+  <h1>Documentation</h1>
+  <div class="sub">Reading the board, resolving a conflict, and what the app changes.</div>
+</header>
+<p>Finds blocking dependencies whose dates cannot be satisfied, ranks them by what they take down with them, and reschedules the affected chain in one action.</p>
+<p>Nothing is written to Jira until you press <strong>Publish</strong>.</p>
+<hr>
+<h2>Getting started</h2>
+<p>There is no setup. Install the app and open it either way:</p>
+<ul><li><strong>Apps → Delivery Risk</strong> in the top navigation, for the cross-project view</li><li>The <strong>Delivery Risk</strong> tab inside a project, for that project&#x27;s work</li></ul>
+<p>On a project tab the query is scoped to that project to start with. Widen it. Cross-project conflicts are the ones nobody owns, and they are most of what this app is for.</p>
+<p>The default query looks only at issues that have a blocking link, since those are the only ones that can be in conflict. Edit it freely; it is ordinary JQL. If your Jira cannot filter by link type the app loads all open issues instead and tells you.</p>
+<p>The app finds your start-date field on its own. If your Jira has one, issues show as ranges. If it does not, every issue shows as a single day and the app says so.</p>
+<hr>
+<h2>Reading the board</h2>
+<p>The left rail is the product. The timeline to its right is the evidence.</p>
+<h3>The headline</h3>
+<table><thead><tr><th>Shows</th><th>Means</th></tr></thead><tbody><tr><td>A vermilion count</td><td>That many dependencies cannot be satisfied</td></tr><tr><td>A green <strong>OK</strong></td><td>Every blocking dependency was checked and has room</td></tr><tr><td>A grey <strong>—</strong></td><td>Nothing was checked, because no issue in this query blocks another</td></tr></tbody></table>
+<p>The third one matters. &quot;No conflicts&quot; and &quot;nothing to check&quot; are different answers, and the app will not pretend the first when it means the second.</p>
+<h3>Each conflict strip</h3>
+<pre><code>OPS-135 → WEB-108                    −47d
+WEB-108 starts 2026-08-18, but OPS-135
+does not finish until 2026-10-03.
+[OPS → WEB]  [9 DOWNSTREAM]  [NOT STARTED]</code></pre>
+<ul><li><strong>−47d</strong> is how many days the plan is impossible by</li><li><strong>OPS → WEB</strong> means the two issues belong to different projects</li><li><strong>9 DOWNSTREAM</strong> is how much work sits behind the blocked issue</li></ul>
+<p>Strips are ranked by blast radius, not by size of slip. A two-day conflict that holds up three teams outranks a fifty-day one that holds up nothing.</p>
+<p>Click a strip to light both issues on the timeline.</p>
+<h3>On the timeline</h3>
+<table><thead><tr><th>Mark</th><th>Means</th></tr></thead><tbody><tr><td>Diagonal hatching</td><td>The overlap: where blocked work sits on top of work that has not finished</td></tr><tr><td>A vermilion left edge</td><td>The blocked issue&#x27;s start</td></tr><tr><td>A faint elbowed line</td><td>A dependency that is satisfied</td></tr><tr><td>A dashed graphite line</td><td>Today</td></tr><tr><td>A dashed outline on a bar</td><td>Staged, not yet published</td></tr></tbody></table>
+<p>Vermilion means one thing in this app: this dependency is impossible. Status is shown by tone instead — grey for to do, slate for in progress, an outline for done.</p>
+<hr>
+<h2>Fixing a conflict</h2>
+<p>Press the button on a strip.</p>
+<p><strong>Move X → date</strong> means one issue moves and nothing downstream is affected.</p>
+<p><strong>Resolve — moves N issues</strong> means the fix cascades. Pushing one issue back usually breaks the next one down the chain, so the app computes every move the fix requires and tells you the cost first:</p>
+<blockquote><p>4 downstream issues move too, across 2 projects</p></blockquote>
+<p>Each issue keeps its duration. Work is only ever pushed later, never pulled earlier, because that is a scheduling decision the app should not make for you. The blocker never moves; only the blocked side gives way.</p>
+<p>Everything stages as a draft. <strong>Publish</strong> applies it to Jira; <strong>Discard</strong> drops it and Jira is never touched. A draft survives a page reload.</p>
+<h3>When the button is disabled</h3>
+<table><thead><tr><th>It says</th><th>Why</th></tr></thead><tbody><tr><td><strong>Blocked by loop: A → B → C…</strong></td><td>Those issues block each other in a circle. No set of dates satisfies that, so one of the links is wrong and only you can say which.</td></tr><tr><td><strong>Would push X out N days</strong></td><td>The chain compounds so far that the result would not be a schedule. Shorten the chain or drop a link.</td></tr><tr><td><strong>No edit access to PROJ</strong></td><td>You can see those issues but cannot edit them. Ask that project&#x27;s admin for Edit Issues, or move the other side of the dependency.</td></tr></tbody></table>
+<hr>
+<h2>When the app tells you the answer is incomplete</h2>
+<p>The app would rather say what it does not know than give you a confident wrong number. Three messages mean exactly that.</p>
+<p><strong>Incomplete — more than 1000 issues.</strong> A query returning more than 1000 issues is read only as far as the first 1000, so conflicts can exist among the rest. Narrow the query by project or date range for a complete answer.</p>
+<p><strong>Incomplete — linked issues could not be loaded.</strong> When many dependencies point outside your query, the app pulls the other ends in so the conflicts are visible. That pull is capped, and if it runs out it says how many it missed. Narrow the query so fewer dependencies cross its edge.</p>
+<p><strong>Showing the worst 60 of N.</strong> The board lists at most sixty conflicts. They are the worst sixty, and resolving them usually clears others downstream, because one upstream fix satisfies many links at once. Narrow the query to work through a team at a time.</p>
+<p><strong>More to publish.</strong> A large publish is written one issue at a time and has to finish inside a time limit Atlassian sets for apps. If it runs out, it stops rather than being cut off mid-way: whatever it wrote is saved, whatever it did not reach is still staged, and the count tells you how many are left. Press Publish again to finish. Nothing is lost either way.</p>
+<p><strong>Edit access.</strong> Before offering a fix, the app checks whether you can edit each project the fix would touch, so it does not propose something Jira will refuse. On a query spanning more than 40 projects it checks the first 40, because checking every one is slow, and says how many it skipped. A fix in one of the others may still be refused at publish, and it will say which issue and which project.</p>
+<p><strong>Trial.</strong> In the last week of a trial the app says how many days are left, once. When a trial ends the board keeps working exactly as it does now and Publish stops, so the worst that happens is you can still see every conflict and have to fix the dates in Jira yourself. Nothing is deleted and nothing is hidden.</p>
+<p>The same notice appears, worded differently, if your unpublished changes were staged by a newer version of this app than the one currently installed, which can happen after a rollback. Nothing is lost and nothing is overwritten: the app declines to stage or publish until that version is back, rather than writing the older format over work it cannot read.</p>
+<p><strong>Storage.</strong> Your unpublished changes live in Atlassian&#x27;s own storage rather than in the browser, which is why they survive a reload and follow you between machines. If that storage is briefly unavailable, the board still loads live from Jira, but the app will not stage or publish anything until it can read your staged work again. That is deliberate: writing a new change without being able to see the existing ones would overwrite them. Reload in a moment and carry on.</p>
+<p>There is also a neutral <strong>Note</strong> when your Jira cannot filter by link type, and a <strong>Setup</strong> note when it has no start-date field. Neither is a problem; both say what the app did instead.</p>
+<h2>Issues pulled in from outside your query</h2>
+<p>A row marked <strong>linked</strong> is not something your query asked for. It was pulled in because something in your results depends on it, which is the only way a cross-project conflict can be seen from a project-scoped query. Those rows are shown with a hatched background in the left column.</p>
+<h2>Unpublished changes you cannot see</h2>
+<p>The badge counts everything you have staged, including work on issues the current query does not return. When those differ it says so:</p>
+<pre><code>3 · 1 not in this view</code></pre>
+<p>Publish still applies all of it, which is what you staged. Discard drops all of it too. Widen the query if you want to see the rest first.</p>
+<h2>Circular dependencies</h2>
+<p>Jira lets you say A blocks B, B blocks C, and C blocks A. Nothing can satisfy that. The app lists each loop at the top of the board, in ink rather than vermilion, because it is a modelling error and not a date problem. Nothing below a loop can be resolved while it stands.</p>
+<hr>
+<h2>Explaining the plan</h2>
+<p><strong>Explain</strong> asks for a plain-language read of what is likely to slip and why.</p>
+<p>It runs only when you press it, never automatically. It sends the conflicts already on screen to a large language model hosted by Atlassian, so nothing leaves Atlassian&#x27;s infrastructure. The panel shows what the call cost in tokens.</p>
+<p>An explanation is cached against the exact plan that produced it, so opening the same one again is instant and costs nothing. A site can run 100 new explanations a day, which resets at midnight UTC. Past that the button says so and the board carries on working normally. Nobody has hit it in practice; the limit exists so a runaway loop cannot run up a bill.</p>
+<p>If the model is busy or slow, the panel says which of those it was and what to do about it. The board never depends on it, so nothing else stops working.</p>
+<hr>
+<h2>Keyboard</h2>
+<table><thead><tr><th>Key</th><th>Does</th></tr></thead><tbody><tr><td><code>Tab</code></td><td>Move between bars</td></tr><tr><td><code>←</code> <code>→</code></td><td>Move the focused issue by a day</td></tr><tr><td><code>Shift</code> + <code>←</code> <code>→</code></td><td>Move it by a week</td></tr><tr><td><code>Alt</code> + <code>←</code> <code>→</code></td><td>Change its end date by a day</td></tr><tr><td><code>Shift</code> + <code>Alt</code> + <code>←</code> <code>→</code></td><td>Change its end date by a week</td></tr><tr><td><code>Enter</code></td><td>Open the issue in Jira</td></tr><tr><td><code>Enter</code> on an undated issue</td><td>Schedule it from today, three days long</td></tr></tbody></table>
+<p>To change a start date without touching the end, move the whole bar first, then pull the end back with <code>Alt</code>. The end never crosses the start, so a bar cannot be inverted from the keyboard.</p>
+<p>Every bar and strip carries a screen-reader label with its dates.</p>
+<hr>
+<h2>Accessibility</h2>
+<p>What has been checked, and what has not. Everything below was measured rather than assumed, and the two checkers that measure it ship with the app&#x27;s source.</p>
+<p><strong>Colour and contrast.</strong> Every text and colour pair in both the light and dark themes meets WCAG AA, verified by a script that computes the ratios rather than by eye. The one signal colour, vermilion, is never the only thing carrying meaning: a conflict is also marked with a hatched overlap, a left rule, and a strip in the rail that says what is wrong in words.</p>
+<p><strong>Keyboard.</strong> The whole board works without a mouse. Tab moves between bars, arrows move an issue by a day, <code>Shift</code> by a week, <code>Alt</code> changes its end date, and <code>Enter</code> opens it in Jira. An issue with no dates at all is also reachable: Tab to it and press Enter to schedule it from today, then move it with the arrows. Every button, link and control is reachable and operable, and each one has a name a screen reader can read.</p>
+<p><strong>Structure.</strong> The page declares its language, has a heading outline with no skipped levels, and the conflict rail is a list of buttons rather than clickable divs.</p>
+<p><strong>Motion.</strong> The rail&#x27;s strips slide in when a query runs. If your system asks for reduced motion, they do not.</p>
+<p><strong>Target size.</strong> Every control is at least 24 by 24 pixels. Two things are deliberately not: a timeline bar, whose width *is* the duration and would lie about the dates if padded, and an issue key sitting inline in a row of text. Both have keyboard equivalents, and every conflict has a button in the rail, so nothing depends on hitting a small bar with a mouse.</p>
+<h3>What has not been checked</h3>
+<p>No screen reader has been driven through this app end to end. Accessible names, roles and states have been verified programmatically, which is not the same as confirming how VoiceOver or NVDA actually announce a board of thirty bars.</p>
+<p>Windows High Contrast and forced-colours modes have not been tested.</p>
+<p>If you hit an accessibility problem, it is a bug and worth reporting. Saying which assistive technology and which version helps more than anything else.</p>
+<hr>
+<h2>What the app changes</h2>
+<p>Two fields, on issues you choose, when you press Publish:</p>
+<ul><li>Due date</li><li>Your start-date field, if your Jira has one</li></ul>
+<h3>Choosing the start-date field</h3>
+<p>Most Jira sites have one date field that means &quot;start&quot;, and the app finds it without any setup. Sites with several (&quot;Start date&quot;, &quot;Target start&quot;, &quot;Baseline start&quot;, &quot;Actual start&quot;) get a picker in the toolbar, because writing planned dates into the field your team uses for actuals is not something an app should decide for you.</p>
+<p>The picker has three kinds of answer:</p>
+<table><thead><tr><th>Choice</th><th>What Publish writes</th></tr></thead><tbody><tr><td><code>Auto (name)</code></td><td>The field the app detected. The default.</td></tr><tr><td>A named field</td><td>That field, and only that one.</td></tr><tr><td><code>Due dates only</code></td><td>The due date. No start field is touched at all.</td></tr></tbody></table>
+<p>The choice belongs to the site, not to you, so everyone looking at the same board agrees on which field Publish writes.</p>
+<p>If the chosen field is later deleted, the app falls back to detection and turns the picker amber rather than carrying on quietly. If it cannot read the setting at all, it publishes due dates only. It never guesses which field you meant.</p>
+<p>It never creates, deletes, transitions, assigns or comments on an issue. There is no delete path in the application.</p>
+<hr>
+<h2>Troubleshooting</h2>
+<p><strong>&quot;No dependencies to check&quot;</strong> — nothing in your query blocks anything else in your query. Widen the JQL, or link issues with &quot;blocks&quot; in Jira.</p>
+<p><strong>A conflict I expected is missing</strong> — the app treats a same-day handoff as fine. Jira stores dates, not times, so an issue due Monday and one starting Monday is normal rather than broken. Only genuine overlaps are reported.</p>
+<p><strong>Issues show as single days</strong> — your Jira has no start-date field. Adding a date field named &quot;Start date&quot; (Advanced Roadmaps provides one) gives real durations.</p>
+<p><strong>Publish is slow on a large resolution</strong> — Jira rate-limits bursts of writes. The app waits and retries rather than failing, so a big cascade can take a few seconds. If Jira keeps refusing it says so and keeps your work staged.</p>
+<p><strong>Publish failed for some issues</strong> — the reason is shown. Anything that could work on a second attempt stays staged, so pressing Publish again retries it. Issues that no longer exist are dropped, since retrying those would never succeed.</p>
+<p><strong>A link type we renamed is not detected</strong> — the app recognises Blocks, Dependency, Depends and Requires, and their common renames. Get in touch if yours is not picked up.</p>
+<hr>
+<h2>Without a licence</h2>
+<p><strong>Not licensed</strong> appears when this site has no valid licence for the app.</p>
+<p>The whole board still works: conflicts, ranking, cascade plans, staging and discard. Only <strong>Publish</strong> is disabled, so nothing is written to Jira.</p>
+<p>The conflicts you see are real. Start a trial or buy a licence from the Marketplace listing to publish fixes.</p>
+<h2>Privacy and security</h2>
+<p>Runs on Atlassian: no external servers, no data egress, no analytics, no cookies, no third-party scripts or fonts. Full policy in the listing.</p>
+<h2>Support</h2>
+<p>support@gauthamkrishna.dev</p>
+<footer>
+<nav aria-label="Other pages"><a href="privacy.html">Privacy policy</a></nav>
+Delivery Risk for Jira. Runs on Atlassian: no external servers, no data
+egress, no analytics, no cookies.</footer>
+</div></body></html>
