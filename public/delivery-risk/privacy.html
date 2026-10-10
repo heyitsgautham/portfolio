@@ -69,8 +69,20 @@ footer nav a:hover{text-decoration-thickness:2px}
 <ul><li>Due date</li><li>The start-date field your Jira uses, when it has one</li></ul>
 <p>It never creates, deletes, transitions, assigns or comments on an issue. There is no delete path in the application at all.</p>
 <h2>What the app stores</h2>
-<p>Unpublished changes are held in Atlassian&#x27;s Forge storage, scoped to your own Atlassian account, so that a draft survives a page reload. Each record is an issue key with two dates. Pressing <strong>Publish</strong> or <strong>Discard</strong> removes it.</p>
-<p>Nothing else is stored. No profile, no history, no usage record.</p>
+<p>Everything below is held in Atlassian&#x27;s Forge storage, inside Atlassian&#x27;s infrastructure. The app has no database of its own.</p>
+<p>Per person, stored under your Atlassian account id:</p>
+<ul><li><strong>Your unpublished changes</strong>, so a draft survives a page reload. Each record</li></ul>
+<p>is an issue key with two dates. Pressing <strong>Publish</strong> or <strong>Discard</strong> removes it.</p>
+<ul><li><strong>Whether to ask you for a review.</strong> Two flags, whether you were asked and</li></ul>
+<p>whether you said no, and two counts: how many publishes you made and how many conflicts they cleared. This exists so the app asks once, ever, and never again.</p>
+<p>Per site, not tied to any person:</p>
+<ul><li><strong>The start-date field</strong>, if an admin chose one instead of the automatic</li></ul>
+<p>pick.</p>
+<ul><li><strong>How many explanations ran today</strong>, a single number per day, so the daily</li></ul>
+<p>limit can be enforced.</p>
+<ul><li><strong>Cached explanations.</strong> Each answer from the <strong>Explain</strong> button, stored</li></ul>
+<p>against a hash of the plan that produced it, so the same plan is not sent to the model twice. See the AI section below for what that contains.</p>
+<p>The app stores no name, email address, avatar or other profile detail, and no browsing history or analytics.</p>
 <h2>Where your data goes</h2>
 <p>Nowhere. The app declares no external egress permissions and makes no requests to any host outside Atlassian. It is built on Atlassian Forge and qualifies for the <strong>Runs on Atlassian</strong> programme, which means Atlassian hosts the compute and the storage.</p>
 <h2>The AI feature</h2>
@@ -81,6 +93,7 @@ footer nav a:hover{text-decoration-thickness:2px}
 <p>None. The app sets no cookies, uses no analytics, and contains no third-party scripts or fonts. Its fonts are bundled with the app for this reason.</p>
 <h2>Data retention and deletion</h2>
 <p>Uninstalling the app removes its Forge storage, including any unpublished drafts. Dates already published to Jira are ordinary Jira data and remain under your control.</p>
+<p>Once a day the app reports the account ids it holds to Atlassian&#x27;s Personal Data Reporting API, as Atlassian requires. When Atlassian says an account has been closed, the app erases that person&#x27;s unpublished changes and review state.</p>
 <h2>Your rights</h2>
 <p>The app processes your Jira data solely to display it back to you. The controller of that data is your own organisation, through its Atlassian subscription. Requests about data held in Jira should go to your Jira administrator and to Atlassian.</p>
 <h2>Contact</h2>
