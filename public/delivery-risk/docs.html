@@ -144,7 +144,7 @@ does not finish until 2026-10-03.
 <p>Most Jira sites have one date field that means &quot;start&quot;, and the app finds it without any setup. Sites with several (&quot;Start date&quot;, &quot;Target start&quot;, &quot;Baseline start&quot;, &quot;Actual start&quot;) get a picker in the toolbar, because writing planned dates into the field your team uses for actuals is not something an app should decide for you.</p>
 <p>The picker has three kinds of answer:</p>
 <table><thead><tr><th>Choice</th><th>What Publish writes</th></tr></thead><tbody><tr><td><code>Auto (name)</code></td><td>The field the app detected. The default.</td></tr><tr><td>A named field</td><td>That field, and only that one.</td></tr><tr><td><code>Due dates only</code></td><td>The due date. No start field is touched at all.</td></tr></tbody></table>
-<p>The choice belongs to the site, not to you, so everyone looking at the same board agrees on which field Publish writes.</p>
+<p>The choice belongs to the site, not to you, so everyone looking at the same board agrees on which field Publish writes. For the same reason only Jira admins (the &quot;Administer Jira&quot; global permission) can change it. Everyone else sees the picker read-only, with the note &quot;Only Jira admins can change this&quot;, so they can still tell which field Publish writes.</p>
 <p>If the chosen field is later deleted, the app falls back to detection and turns the picker amber rather than carrying on quietly. If it cannot read the setting at all, it publishes due dates only. It never guesses which field you meant.</p>
 <p>It never creates, deletes, transitions, assigns or comments on an issue. There is no delete path in the application.</p>
 <hr>
