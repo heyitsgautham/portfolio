@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Security policy — Delivery Risk for Jira</title>
+<meta name="description" content="How the app is secured, how to report a vulnerability, and how incidents are handled.">
+<style>
+:root{--paper:#FBFAF8;--paper-2:#F3F1EC;--ink:#15171B;--ink-2:#4A4740;
+  --muted:#716B61;--rule:#DEDAD1;--rule-2:#EBE7DF;--signal:#BE3A11;
+  --mono:ui-monospace,SFMono-Regular,Menlo,monospace;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+@media (prefers-color-scheme:dark){:root{
+  --paper:#15161A;--paper-2:#1B1D22;--ink:#E9E5DC;--ink-2:#B5AFA3;
+  --muted:#8A847A;--rule:#2C2E35;--rule-2:#24262C;--signal:#FF7043}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font:400 16px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+.wrap{max-width:44rem;margin:0 auto;padding:56px 24px 96px}
+header{border-bottom:1px solid var(--rule);padding-bottom:20px;margin-bottom:36px}
+header .k{font:600 10px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted)}
+header h1{margin:10px 0 0;font:600 30px/1.2 var(--sans);letter-spacing:-.01em}
+header .sub{margin-top:8px;color:var(--muted);font-size:14px}
+h2{margin:44px 0 14px;font:600 20px/1.3 var(--sans);letter-spacing:-.01em}
+h3{margin:30px 0 10px;font:600 16px/1.35 var(--sans)}
+p,li{color:var(--ink-2)}
+p{margin:0 0 16px}
+ul,ol{margin:0 0 16px;padding-left:22px}
+li{margin:0 0 7px}
+strong{color:var(--ink);font-weight:600}
+code{font:400 .88em var(--mono);background:var(--paper-2);padding:2px 5px;
+  border-radius:3px;color:var(--ink)}
+pre{background:var(--paper-2);border:1px solid var(--rule);border-radius:4px;
+  padding:14px 16px;overflow-x:auto;margin:0 0 18px}
+pre code{background:none;padding:0;font-size:13px;line-height:1.6}
+blockquote{margin:0 0 18px;padding:2px 0 2px 18px;border-left:3px solid var(--signal);
+  color:var(--ink-2)}
+table{border-collapse:collapse;width:100%;margin:0 0 20px;font-size:14.5px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--rule-2);
+  vertical-align:top}
+th{font:600 10px/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);border-bottom:1px solid var(--rule)}
+hr{border:0;border-top:1px solid var(--rule);margin:36px 0}
+a{color:var(--signal)}
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--rule);
+  color:var(--muted);font-size:13px}
+footer nav{margin-bottom:10px}
+/* 24px tall, which is what WCAG 2.2 asks of a control, and the only link on
+   either page. */
+footer nav a{color:var(--signal);display:inline-flex;align-items:center;
+  min-height:24px;text-decoration:underline;text-underline-offset:2px}
+footer nav a:hover{text-decoration-thickness:2px}
+</style>
+</head><body><div class="wrap">
+<header>
+  <div class="k">Delivery Risk for Jira</div>
+  <h1>Security policy</h1>
+  <div class="sub">How the app is secured, how to report a vulnerability, and how incidents are handled.</div>
+</header>
+<p>Last updated 22 October 2026.</p>
+<p>Delivery Risk for Jira is a Forge app published by Gautham Krishna, a sole developer in India. This page says how the app and the infrastructure behind it are secured, how to report a vulnerability, and what happens when one is found.</p>
+<h2>Where the app runs</h2>
+<p>The app has no servers of its own. Its code and its storage run on Atlassian&#x27;s Forge platform, inside Atlassian&#x27;s cloud. The manifest declares no <code>permissions.external</code> entries, so the app cannot send data to any outside host, and it loads no remote fonts, scripts or analytics.</p>
+<p>Atlassian runs and secures that infrastructure under the <a href="https://developer.atlassian.com/platform/forge/shared-responsibility-model/">Forge shared responsibility model</a>. That covers hosting, network security, encryption of data in transit and at rest, and the isolation of one app from another. Atlassian describes its own controls on its <a href="https://www.atlassian.com/trust/security">Trust Center</a>.</p>
+<h2>Access control and authentication</h2>
+<ul><li>There is no separate login. Jira authenticates the user, and the app only opens inside a signed-in Jira session.</li><li>Every Jira request the app makes is made as the signed-in user, never as the app. The app can only read and change what that user could already read and change in Jira.</li><li>Before it offers a fix, the app checks that the user may edit every project the fix touches.</li><li>Only Jira administrators can change which field the app treats as the start date.</li><li>Staged drafts are stored per user account. One user cannot see or publish another user&#x27;s draft.</li><li>Only the developer can deploy new versions, using Atlassian&#x27;s Forge CLI signed in with his Atlassian account.</li></ul>
+<h2>Data protection</h2>
+<p>The app asks for four scopes and no others.</p>
+<table><thead><tr><th>Scope</th><th>Why</th></tr></thead><tbody><tr><td><code>read:jira-work</code></td><td>Read the issues in your query, their links, and your edit permissions</td></tr><tr><td><code>write:jira-work</code></td><td>Write the new dates when you press Publish</td></tr><tr><td><code>storage:app</code></td><td>Keep staged drafts and settings in Forge storage</td></tr><tr><td><code>report:personal-data</code></td><td>Report stored account ids to Atlassian, as every app that stores them must</td></tr></tbody></table>
+<ul><li>The app reads only the issue fields it needs to draw the timeline: summary, status, due date, issue type, assignee, project, parent, issue links and the start-date field. It does not read descriptions, comments, attachments or worklogs.</li><li>The app writes to Jira only when the user presses <strong>Publish</strong>, and only two fields: the due date and the start date. There is no code path that deletes, creates or transitions an issue.</li><li>Drafts and settings live in Forge storage inside Atlassian, which Atlassian encrypts at rest. Traffic between the browser, Jira and the app uses HTTPS.</li><li>The app reports the account ids it stores to Atlassian&#x27;s Personal Data Reporting API and erases data for closed accounts.</li><li>What is stored, and when it is deleted, is in the <a href="privacy.html">privacy policy</a>.</li></ul>
+<h2>Monitoring and logging</h2>
+<ul><li>The app&#x27;s backend writes one log line, a count from the personal-data report job. It never logs issue content or account details.</li><li>Forge records each function call and error. The developer reviews those logs in the Atlassian developer console.</li><li>Atlassian monitors the Forge platform itself.</li></ul>
+<h2>Secure development</h2>
+<ul><li>The runtime dependencies are Atlassian&#x27;s own <code>@forge</code> packages and nothing else.</li><li>Before each release the developer runs <code>npm audit</code> on those dependencies and the app&#x27;s own test suite. A release with a known vulnerable dependency does not ship.</li><li>Forge API tokens used for deploys are personal, kept off shared machines and revoked when no longer needed.</li></ul>
+<h2>Reporting a vulnerability</h2>
+<p>Email <strong>support@gauthamkrishna.dev</strong> with &quot;Security&quot; in the subject line. Include the steps to reproduce and what an attacker could gain.</p>
+<ul><li>You will get a reply within 2 business days.</li><li>Please give us a reasonable time to fix the issue before you disclose it.</li><li>Atlassian&#x27;s Marketplace security programme can also report vulnerabilities in this app to us, and those follow the same process.</li></ul>
+<h2>How vulnerabilities are handled</h2>
+<ol><li><strong>Triage.</strong> We confirm the report and rate its severity with CVSS.</li><li><strong>Fix.</strong> We fix it within the deadlines of Atlassian&#x27;s <a href="https://developer.atlassian.com/platform/marketplace/security-bugfix-policy/">Security Bug Fix Policy</a> for cloud apps.</li><li><strong>Release.</strong> Forge apps update in place, so a fix reaches every customer as soon as it is deployed. Customers do not need to do anything.</li><li><strong>Tell the reporter.</strong> We confirm the fix with the person who reported it.</li></ol>
+<table><thead><tr><th>Severity</th><th>CVSS</th><th>Fixed within</th></tr></thead><tbody><tr><td>Critical</td><td>9.0 to 10.0</td><td>10 days</td></tr><tr><td>High</td><td>7.0 to 8.9</td><td>4 weeks</td></tr><tr><td>Medium</td><td>4.0 to 6.9</td><td>12 weeks</td></tr><tr><td>Low</td><td>0.1 to 3.9</td><td>25 weeks</td></tr></tbody></table>
+<h2>How security incidents are handled</h2>
+<p>A security incident is any event where customer data may have been exposed or changed without permission. We follow Atlassian&#x27;s <a href="https://developer.atlassian.com/platform/marketplace/app-security-incident-management-guidelines/">incident management guidelines for Marketplace partners</a>.</p>
+<ol><li><strong>Contain.</strong> Stop the damage first. If needed, that means disabling the affected feature or asking Atlassian to delist the app.</li><li><strong>Tell Atlassian.</strong> Within 24 hours, through a P1 ticket on Atlassian&#x27;s ecosystem support portal, with updates at least every 6 hours.</li><li><strong>Investigate.</strong> Find the cause, how long it lasted, which data it touched and which customers it affected.</li><li><strong>Fix.</strong> Remove the cause so it cannot happen again.</li><li><strong>Tell customers.</strong> Affected customers hear what happened and what we did, within 72 hours of the incident being identified where possible.</li><li><strong>Review.</strong> Write up what happened and what changed, and share it on the Atlassian ticket.</li></ol>
+<h2>Contact</h2>
+<p>Security reports and questions: <strong>support@gauthamkrishna.dev</strong>.</p>
+<footer>
+<nav aria-label="Other pages"><a href="docs.html">Documentation</a> · <a href="privacy.html">Privacy policy</a> · <a href="terms.html">Terms of use</a></nav>
+Delivery Risk for Jira. Runs on Atlassian: no external servers, no data
+egress, no analytics, no cookies.</footer>
+</div></body></html>
