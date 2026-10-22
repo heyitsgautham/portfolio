@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Support — Delivery Risk for Jira</title>
+<meta name="description" content="How to get help, what to include, and how fast you will hear back.">
+<style>
+:root{--paper:#FBFAF8;--paper-2:#F3F1EC;--ink:#15171B;--ink-2:#4A4740;
+  --muted:#716B61;--rule:#DEDAD1;--rule-2:#EBE7DF;--signal:#BE3A11;
+  --mono:ui-monospace,SFMono-Regular,Menlo,monospace;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+@media (prefers-color-scheme:dark){:root{
+  --paper:#15161A;--paper-2:#1B1D22;--ink:#E9E5DC;--ink-2:#B5AFA3;
+  --muted:#8A847A;--rule:#2C2E35;--rule-2:#24262C;--signal:#FF7043}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font:400 16px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+.wrap{max-width:44rem;margin:0 auto;padding:56px 24px 96px}
+header{border-bottom:1px solid var(--rule);padding-bottom:20px;margin-bottom:36px}
+header .k{font:600 10px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted)}
+header h1{margin:10px 0 0;font:600 30px/1.2 var(--sans);letter-spacing:-.01em}
+header .sub{margin-top:8px;color:var(--muted);font-size:14px}
+h2{margin:44px 0 14px;font:600 20px/1.3 var(--sans);letter-spacing:-.01em}
+h3{margin:30px 0 10px;font:600 16px/1.35 var(--sans)}
+p,li{color:var(--ink-2)}
+p{margin:0 0 16px}
+ul,ol{margin:0 0 16px;padding-left:22px}
+li{margin:0 0 7px}
+strong{color:var(--ink);font-weight:600}
+code{font:400 .88em var(--mono);background:var(--paper-2);padding:2px 5px;
+  border-radius:3px;color:var(--ink)}
+pre{background:var(--paper-2);border:1px solid var(--rule);border-radius:4px;
+  padding:14px 16px;overflow-x:auto;margin:0 0 18px}
+pre code{background:none;padding:0;font-size:13px;line-height:1.6}
+blockquote{margin:0 0 18px;padding:2px 0 2px 18px;border-left:3px solid var(--signal);
+  color:var(--ink-2)}
+table{border-collapse:collapse;width:100%;margin:0 0 20px;font-size:14.5px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--rule-2);
+  vertical-align:top}
+th{font:600 10px/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);border-bottom:1px solid var(--rule)}
+hr{border:0;border-top:1px solid var(--rule);margin:36px 0}
+a{color:var(--signal)}
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--rule);
+  color:var(--muted);font-size:13px}
+footer nav{margin-bottom:10px}
+/* 24px tall, which is what WCAG 2.2 asks of a control, and the only link on
+   either page. */
+footer nav a{color:var(--signal);display:inline-flex;align-items:center;
+  min-height:24px;text-decoration:underline;text-underline-offset:2px}
+footer nav a:hover{text-decoration-thickness:2px}
+</style>
+</head><body><div class="wrap">
+<header>
+  <div class="k">Delivery Risk for Jira</div>
+  <h1>Support</h1>
+  <div class="sub">How to get help, what to include, and how fast you will hear back.</div>
+</header>
+<h2>Contact</h2>
+<p>Email <a href="mailto:support@gauthamkrishna.dev">support@gauthamkrishna.dev</a>. Gautham Krishna, who built the app, reads and answers every message.</p>
+<p>Many questions are already answered in the <a href="docs.html">documentation</a>, including what each part of the board means and why the app sometimes says its answer is incomplete.</p>
+<h2>What to include</h2>
+<ul><li>Your Jira site, for example <code>yourcompany.atlassian.net</code>.</li><li>What you did, what you expected, and what happened instead.</li><li>The exact wording of any message the app showed, or a screenshot of the board.</li><li>The JQL query in the box at the top, if the board looks wrong.</li></ul>
+<p>Never send a password or an API token. The app does not need one, and we will never ask for one.</p>
+<h2>Response times</h2>
+<p>Business days are Monday to Friday, India Standard Time.</p>
+<table><thead><tr><th>Request</th><th>First reply</th></tr></thead><tbody><tr><td>Critical: the app stops working for everyone on your site, or writes a wrong date to Jira</td><td>Within 24 hours</td></tr><tr><td>Security vulnerability</td><td>Within 2 business days, as set out in the <a href="security.html">security policy</a></td></tr><tr><td>Everything else</td><td>Within 5 business days</td></tr></tbody></table>
+<h2>What support covers</h2>
+<ul><li>Questions about using the app.</li><li>Bugs, including wrong conflicts, wrong dates, and errors on the board.</li><li>Feature requests, which are read and answered but not promised.</li></ul>
+<p>The app is free. Fixes reach every site automatically, so you never need to update it yourself.</p>
+<footer>
+<nav aria-label="Other pages"><a href="docs.html">Documentation</a> · <a href="privacy.html">Privacy policy</a> · <a href="terms.html">Terms of use</a> · <a href="security.html">Security policy</a></nav>
+Delivery Risk for Jira. Runs on Atlassian: no external servers, no data
+egress, no analytics, no cookies.</footer>
+</div></body></html>
