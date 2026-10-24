@@ -69,6 +69,50 @@ describe("Contact", () => {
     expect(fetchMock).not.toHaveBeenCalled();
   });
 
+  it.each(["a..b@example.com", "recruiter@example", "recruiter@example.c"])(
+    "rejects the malformed address %s and sends nothing",
+    async (email) => {
+      const fetchMock = vi.fn();
+      vi.stubGlobal("fetch", fetchMock);
+      const user = userEvent.setup();
+      render(<Contact />);
+
+      await fillForm(user, { ...valid, email });
+      await user.click(screen.getByRole("button", { name: /send message/i }));
+
+      expect(
+        await screen.findByText("Please enter a valid email address")
+      ).toBeInTheDocument();
+      expect(
+        screen.queryByText("Name must be at least 2 characters")
+      ).not.toBeInTheDocument();
+      expect(fetchMock).not.toHaveBeenCalled();
+    }
+  );
+
+  it("accepts plus-addressed and apostrophe addresses", async () => {
+    for (const email of [
+      "first.last+jobs@sub.example.org",
+      "o'brien@example.ie",
+    ]) {
+      const fetchMock = vi.fn(async () => Response.json({ status: "success" }));
+      vi.stubGlobal("fetch", fetchMock);
+      const user = userEvent.setup();
+      const { unmount } = render(<Contact />);
+
+      await fillForm(user, { ...valid, email });
+      await user.click(screen.getByRole("button", { name: /send message/i }));
+
+      await waitFor(() =>
+        expect(fetchMock).toHaveBeenCalledWith(
+          SCRIPT_URL,
+          expect.objectContaining({ body: JSON.stringify({ ...valid, email }) })
+        )
+      );
+      unmount();
+    }
+  });
+
   it("posts the form as JSON text and clears it on success", async () => {
     const fetchMock = vi.fn(async () => Response.json({ status: "success" }));
     vi.stubGlobal("fetch", fetchMock);

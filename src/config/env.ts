@@ -4,7 +4,7 @@ import { z } from "zod";
 const urlWithDefault = (fallback: string) =>
   z.preprocess(
     (value) => (value === "" ? undefined : value),
-    z.string().url().default(fallback)
+    z.url().default(fallback)
   );
 
 const envSchema = z.object({
