@@ -1,0 +1,29 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5
+    groups:
+      next:
+        patterns:
+          - next
+          - "@next/*"
+          - eslint-config-next
+      testing:
+        patterns:
+          - vitest
+          - "@vitest/*"
+          - "@testing-library/*"
+          - jsdom
+    ignore:
+      # Major upgrades need a manual visual check of the live site.
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
