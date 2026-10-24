@@ -2,7 +2,8 @@
 
 /**
  * apply-project-colors — Extract dominant colours from project images and
- * write light-mode + dark-mode variants directly into the projects data file.
+ * write light-mode + dark-mode variants directly into the project data files
+ * in src/features/profile/data/projects/.
  *
  * Usage:
  *   node scripts/apply-project-colors.mjs all   — re-extract EVERY project image and update all accent values
@@ -20,10 +21,19 @@ import sharp from "sharp";
 
 // ── paths ──────────────────────────────────────────────────────────────────
 const ROOT = process.cwd();
-const DATA_FILE = path.join(
-  ROOT,
-  "src/features/profile/data/projects.ts"
-);
+const DATA_DIR = path.join(ROOT, "src/features/profile/data/projects");
+
+/** One data file per project; index.ts and tests hold no project entries. */
+function listDataFiles() {
+  return fs
+    .readdirSync(DATA_DIR)
+    .filter(
+      (name) =>
+        name.endsWith(".ts") && name !== "index.ts" && !name.endsWith(".test.ts")
+    )
+    .sort()
+    .map((name) => path.join(DATA_DIR, name));
+}
 
 // ── CLI arg parsing ────────────────────────────────────────────────────────
 const mode = process.argv[2]?.toLowerCase();
@@ -279,12 +289,14 @@ function findImageEntries(lines) {
 }
 
 async function main() {
-  const source = fs.readFileSync(DATA_FILE, "utf-8");
-  const lines = source.split("\n");
-  const entries = findImageEntries(lines);
+  const files = listDataFiles().map((file) => {
+    const lines = fs.readFileSync(file, "utf-8").split("\n");
+    return { file, lines, entries: findImageEntries(lines) };
+  });
+  const entries = files.flatMap((f) => f.entries.map((e) => ({ ...e, f })));
 
   if (entries.length === 0) {
-    console.log("No projects with images found in the data file.");
+    console.log("No projects with images found in the data files.");
     process.exit(0);
   }
 
@@ -329,10 +341,11 @@ async function main() {
     }
   }
 
-  // Apply edits bottom-up so earlier line indices stay valid
+  // Apply edits bottom-up within each file so earlier line indices stay valid
   results.sort((a, b) => b.lineIndex - a.lineIndex);
 
   for (const r of results) {
+    const lines = r.f.lines;
     const indent = lines[r.lineIndex].match(/^(\s*)/)[1];
 
     if (r.hasAccent && r.hasAccentDark) {
@@ -354,10 +367,13 @@ async function main() {
     }
   }
 
-  fs.writeFileSync(DATA_FILE, lines.join("\n"), "utf-8");
+  const changed = new Set(results.map((r) => r.f));
+  for (const { file, lines } of changed) {
+    fs.writeFileSync(file, lines.join("\n"), "utf-8");
+  }
 
   console.log(
-    `\n✓ Updated ${results.length} project accent colour(s) in projects.ts`
+    `\n✓ Updated ${results.length} project accent colour(s) in ${changed.size} file(s)`
   );
 }
 

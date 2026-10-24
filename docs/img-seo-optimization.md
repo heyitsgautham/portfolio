@@ -24,7 +24,7 @@ After conversion, update file extensions in:
 
 | File | What changes |
 |------|-------------|
-| `src/features/profile/data/projects.ts` | Project `image` fields (`.png` → `.webp`) |
+| `src/features/profile/data/projects/*.ts` | Project `image` fields (`.png` → `.webp`) |
 | `src/features/profile/data/certifications.ts` | Cert image paths |
 | `src/features/profile/data/education.ts` | School logo paths |
 | `src/features/profile/data/experiences.ts` | Verify (already `.webp`) |
