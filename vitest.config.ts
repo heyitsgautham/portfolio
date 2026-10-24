@@ -17,8 +17,21 @@ export default defineConfig({
     restoreMocks: true,
     coverage: {
       provider: "v8",
-      include: ["src/lib/**", "src/utils/**", "src/hooks/**"],
+      include: [
+        "src/lib/**",
+        "src/utils/**",
+        "src/hooks/**",
+        "src/components/ui/contribution-graph*.{ts,tsx}",
+        "src/features/profile/components/contact/**",
+        "src/features/profile/data/github-contributions.ts",
+      ],
       reporter: ["text", "lcov"],
+      thresholds: {
+        statements: 70,
+        branches: 60,
+        functions: 75,
+        lines: 70,
+      },
     },
   },
 });
