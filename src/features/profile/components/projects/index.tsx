@@ -24,9 +24,7 @@ export function Projects() {
         <div className="relative left-1/2 w-screen -translate-x-1/2 px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-7xl space-y-8">
             <div>
-              <h3 className="mb-4 text-sm font-medium text-muted-foreground">
-                
-              </h3>
+              <h3 className="mb-4 text-sm font-medium text-muted-foreground"></h3>
               <FeaturedProjectsGrid projects={featuredProjects} />
             </div>
 
