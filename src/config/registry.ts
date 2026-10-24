@@ -1,4 +1,6 @@
+import { env } from "./env";
+
 export const registryConfig = {
   /** Used to replace the <registryBaseUrl> placeholder in dependency paths */
-  baseUrl: process.env.REGISTRY_URL || "https://gauthamkrishna.dev/r",
+  baseUrl: env.REGISTRY_URL,
 };

@@ -1,9 +1,10 @@
+import { env } from "@/config/env";
 import { USER } from "@/features/profile/data/user";
 import type { NavItem } from "@/types/nav";
 
 export const SITE_INFO = {
   name: USER.displayName,
-  url: process.env.APP_URL || "https://gauthamkrishna.dev",
+  url: env.APP_URL,
   ogImage: USER.ogImage,
   description: USER.bio,
   keywords: USER.keywords,

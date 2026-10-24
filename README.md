@@ -51,10 +51,11 @@ No env vars are needed to run it.
 
 Copy `.env.example` to `.env.local` to override a default.
 Every variable is optional.
+`src/config/env.ts` validates `APP_URL` and `REGISTRY_URL` with Zod, so a value that is not an absolute URL stops the build with an error naming the variable.
 
 | Variable | Read by | Default |
 |---|---|---|
-| `APP_URL` | `src/config/site.ts`, for canonical URLs, Open Graph tags, the sitemap and robots.txt | `https://gauthamkrishna.dev` |
+| `APP_URL` | `src/config/site.ts`, through `src/config/env.ts`, for canonical URLs, Open Graph tags, the sitemap and robots.txt | `https://gauthamkrishna.dev` |
 | `NEXT_PUBLIC_CONTACT_FORM_URL` | The contact form, which POSTs submissions to this Google Apps Script URL | unset, so the form shows "Contact form is not configured" |
 | `REGISTRY_URL` | `pnpm registry:build`, which writes it into the registry JSON | `https://gauthamkrishna.dev/r` |
 | `URL` | `pnpm capture`, the screenshot script | `http://localhost:1408` |
