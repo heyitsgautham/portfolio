@@ -15,6 +15,9 @@ export default defineConfig({
     setupFiles: ["./vitest.setup.ts"],
     include: ["src/**/*.test.{ts,tsx}"],
     restoreMocks: true,
+    // The contact form tests type whole messages through userEvent, which
+    // can pass 5s on a loaded runner while every test file runs in parallel.
+    testTimeout: 15_000,
     coverage: {
       provider: "v8",
       include: [
