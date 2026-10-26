@@ -109,6 +109,7 @@ docker compose up --build
 ```
 
 The compose file builds the production image and serves it on http://localhost:3000.
+Its healthcheck polls `/api/health`, which answers `{"status":"ok"}` with the app version and, on Vercel, the deployed commit.
 Pass `APP_URL` or `NEXT_PUBLIC_CONTACT_FORM_URL` in the shell to bake them into the build.
 To run the image without compose, use `docker build -t portfolio .` and then `docker run --rm -p 3000:3000 portfolio`.
 
@@ -121,6 +122,7 @@ src/
 │   ├── (llms)/             plain-text routes such as llms.txt and projects.md
 │   ├── og/                 Open Graph image routes
 │   ├── vcard/              downloadable contact card
+│   ├── api/health/         liveness check for monitors and the Docker healthcheck
 │   └── sitemap.ts, robots.ts, manifest.ts
 ├── features/profile/       everything about me
 │   ├── data/               content as typed TypeScript: projects, experience, education, awards
