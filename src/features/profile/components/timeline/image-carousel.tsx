@@ -11,13 +11,7 @@ export function ImageCarousel({ images }: { images: string[] }) {
   const intervalRef = useRef<ReturnType<typeof setInterval>>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  if (images.length === 0) return null;
-
-  const prev = () => setCurrent((c) => (c === 0 ? images.length - 1 : c - 1));
-  const next = () => setCurrent((c) => (c === images.length - 1 ? 0 : c + 1));
-
   // Pause auto-slide when off-screen
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
@@ -31,7 +25,6 @@ export function ImageCarousel({ images }: { images: string[] }) {
   }, []);
 
   // Auto-slide when the carousel is visible and not hovered
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     if (images.length <= 1) return;
 
@@ -48,6 +41,13 @@ export function ImageCarousel({ images }: { images: string[] }) {
       }
     };
   }, [hovered, isVisible, images.length]);
+
+  // Every hook runs before this return, so the hook order stays the same
+  // when the image list empties.
+  if (images.length === 0) return null;
+
+  const prev = () => setCurrent((c) => (c === 0 ? images.length - 1 : c - 1));
+  const next = () => setCurrent((c) => (c === images.length - 1 ? 0 : c + 1));
 
   return (
     <div
