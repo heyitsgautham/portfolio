@@ -3,11 +3,12 @@ import { join } from "node:path";
 
 import { ImageResponse } from "next/og";
 
-export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url);
+import { domainOgParamsSchema, parseSearchParams } from "@/lib/og-params";
 
-  const domain = searchParams.get("domain");
-  const isForSale = searchParams.get("sale") === "true";
+export async function GET(request: Request) {
+  const parsed = parseSearchParams(request, domainOgParamsSchema);
+  if ("error" in parsed) return parsed.error;
+  const { domain, sale: isForSale } = parsed.data;
 
   const magistralMedium = await readFile(
     join(process.cwd(), "src/assets/fonts/Magistral-Medium.ttf")

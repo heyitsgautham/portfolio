@@ -3,10 +3,12 @@ import { join } from "node:path";
 
 import { ImageResponse } from "next/og";
 
-export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url);
+import { parseSearchParams, simpleOgParamsSchema } from "@/lib/og-params";
 
-  const title = searchParams.get("title");
+export async function GET(request: Request) {
+  const parsed = parseSearchParams(request, simpleOgParamsSchema);
+  if ("error" in parsed) return parsed.error;
+  const { title } = parsed.data;
 
   const robotoCondensedMedium = await readFile(
     join(process.cwd(), "src/assets/fonts/RobotoCondensed-Medium.ttf")

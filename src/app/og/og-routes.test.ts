@@ -28,4 +28,14 @@ describe("Open Graph image routes", () => {
     },
     30_000
   );
+
+  it.each([
+    ["/og/simple", getSimple],
+    ["/og/domain?sale=true", getDomain],
+  ])("%s answers 400 without its required parameter", async (url, get) => {
+    const res = await get(new Request(`https://example.com${url}`));
+
+    expect(res.status).toBe(400);
+    expect(res.headers.get("content-type")).toMatch(/application\/json/);
+  });
 });
