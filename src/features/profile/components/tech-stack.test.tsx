@@ -7,14 +7,15 @@ import { TechStack } from "./tech-stack";
 
 describe("TechStack", () => {
   it("links every technology to its site, labelled by name", () => {
-    render(<TechStack />);
+    const { container } = render(<TechStack />);
 
     for (const tech of TECH_STACK) {
-      const links = screen.getAllByRole("link", {
-        name: tech.displayName || tech.title,
-      });
-      expect(links.length, tech.key).toBeGreaterThan(0);
-      expect(links[0]).toHaveAttribute("href", tech.href);
+      // Query by attribute: the marquees repeat each row, and a role query
+      // over that many links is slow enough to time out on a busy runner.
+      const link = container.querySelector(
+        `a[aria-label="${tech.displayName || tech.title}"]`
+      );
+      expect(link, tech.key).toHaveAttribute("href", tech.href);
     }
   });
 
