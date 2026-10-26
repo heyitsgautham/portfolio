@@ -7,33 +7,11 @@ import React, { useCallback, useLayoutEffect, useRef, useState } from "react";
 import { getIcon } from "@/components/icons";
 import { Tag } from "@/components/ui/tag";
 import { SimpleTooltip } from "@/components/ui/tooltip";
+import { formatProjectDate } from "@/features/profile/lib/project-date";
 import { resolveSkill } from "@/features/profile/lib/skills";
 import { cn } from "@/lib/utils";
 
 import type { Project } from "../../types/projects";
-
-/**
- * Converts a "MM.YYYY" date string to a display format like "September 01, 2025".
- */
-function formatDate(dateStr: string): string {
-  const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-  const [month, year] = dateStr.split(".");
-  const monthIdx = parseInt(month, 10) - 1;
-  return `${months[monthIdx]} 01, ${year}`;
-}
 
 export function ProjectGalleryCard({
   project,
@@ -42,7 +20,7 @@ export function ProjectGalleryCard({
   project: Project;
   className?: string;
 }) {
-  const formattedDate = formatDate(project.period.start);
+  const formattedDate = formatProjectDate(project.period.start);
   const summaryText = project.summary;
 
   const containerRef = useRef<HTMLDivElement>(null);
