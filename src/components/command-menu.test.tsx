@@ -44,12 +44,7 @@ const posts: Post[] = [
 ];
 
 beforeAll(() => {
-  // cmdk measures and scrolls its list, which jsdom does not implement.
-  globalThis.ResizeObserver ??= class {
-    observe() {}
-    unobserve() {}
-    disconnect() {}
-  } as unknown as typeof ResizeObserver;
+  // cmdk scrolls the selected item into view, which jsdom does not implement.
   Element.prototype.scrollIntoView ??= () => {};
 });
 
