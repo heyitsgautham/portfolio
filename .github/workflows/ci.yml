@@ -44,10 +44,11 @@ jobs:
         run: pnpm registry:build
 
       - name: Typecheck
-        run: pnpm check-types
+        run: pnpm exec tsc --noEmit
 
-      - name: Test with coverage
-        run: pnpm test:coverage
+      # Runs vitest with coverage; fails below the thresholds in vitest.config.ts.
+      - name: Test
+        run: pnpm test --coverage
 
       - name: Upload coverage report
         if: always()
