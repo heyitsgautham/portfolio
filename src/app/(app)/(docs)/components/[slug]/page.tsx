@@ -7,6 +7,7 @@ import { notFound } from "next/navigation";
 import type { BlogPosting as PageSchema, WithContext } from "schema-dts";
 
 import { InlineTOC } from "@/components/inline-toc";
+import { JsonLd } from "@/components/json-ld";
 import { MDX } from "@/components/mdx";
 import { PostKeyboardShortcuts } from "@/components/post-keyboard-shortcuts";
 import { LLMCopyButtonWithViewOptions } from "@/components/post-page-actions";
@@ -118,12 +119,7 @@ export default async function Page({
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(getPageJsonLd(post)).replace(/</g, "\\u003c"),
-        }}
-      />
+      <JsonLd data={getPageJsonLd(post)} />
 
       <PostKeyboardShortcuts
         basePath="/components"

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { CollectionPage, WithContext } from "schema-dts";
 
+import { JsonLd } from "@/components/json-ld";
 import { SITE_INFO } from "@/config/site";
 import { ProjectGalleryCard } from "@/features/profile/components/projects/project-gallery-card";
 import { PROJECTS } from "@/features/profile/data/projects";
@@ -42,12 +43,7 @@ const jsonLd: WithContext<CollectionPage> = {
 export default function ProjectsPage() {
   return (
     <div className="container mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
-        }}
-      />
+      <JsonLd data={jsonLd} />
       <div className="mb-12">
         <h1 className="text-3xl font-bold tracking-tight">Projects</h1>
       </div>

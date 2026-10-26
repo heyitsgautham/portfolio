@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import type { CreativeWork, WithContext } from "schema-dts";
 
 import { getIcon } from "@/components/icons";
+import { JsonLd } from "@/components/json-ld";
 import { Tag } from "@/components/ui/tag";
 import { SimpleTooltip } from "@/components/ui/tooltip";
 import { SITE_INFO } from "@/config/site";
@@ -90,12 +91,7 @@ export default async function ProjectDetailPage({
           : undefined
       }
     >
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
-        }}
-      />
+      <JsonLd data={jsonLd} />
       {/* Cover image with back link overlaid */}
       {project.image ? (
         <div className="relative mb-8 h-[400px] w-full overflow-hidden rounded-xl border border-border/50">

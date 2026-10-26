@@ -1,6 +1,7 @@
 import dayjs from "dayjs";
 import type { ProfilePage as PageSchema, WithContext } from "schema-dts";
 
+import { JsonLd } from "@/components/json-ld";
 import { Certifications } from "@/features/profile/components/certifications";
 import { Contact } from "@/features/profile/components/contact";
 import { Education } from "@/features/profile/components/education";
@@ -17,12 +18,7 @@ import { cn } from "@/lib/utils";
 export default function Page() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(getPageJsonLd()).replace(/</g, "\\u003c"),
-        }}
-      />
+      <JsonLd data={getPageJsonLd()} />
 
       <ProfileCover />
 
