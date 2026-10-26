@@ -121,10 +121,11 @@ src/
 ├── features/profile/       everything about me
 │   ├── data/               content as typed TypeScript: projects, experience, education, awards
 │   ├── types/              the types those data files satisfy
+│   ├── lib/                builders that turn that data into the llms.txt markdown
 │   └── components/         the sections that render that data
 ├── components/             shared site components, with shadcn/ui primitives in ui/
 ├── registry/               source of the components published through the shadcn registry
-├── lib/                    MDX plugins, content loading, fonts, the cn() helper
+├── lib/                    MDX plugins, content loading, fonts, the logger, the cn() helper
 ├── hooks/                  client hooks such as useMediaQuery and useControllableState
 ├── config/                 site metadata, navigation, registry base URL
 └── scripts/                build-registry.mts and capture.mts
@@ -141,6 +142,36 @@ The homepage revalidates every hour so the GitHub contributions graph stays curr
 `pnpm registry:build` turns `src/registry/` into `src/__registry__/` for the docs pages and `public/r/*.json` for `shadcn add`.
 `src/__registry__/` is gitignored.
 `public/r/` is committed and rewritten by every build, so commit any change the build makes there.
+
+### Errors and logging
+
+`src/lib/logger.ts` writes one JSON line per entry, with a level, scope, message, timestamp, context and serialized error.
+Vercel's build and function logs keep those lines, so a search for a scope such as `"scope":"vcard"` finds every failure of that route.
+Debug entries are dropped when `NODE_ENV` is `production`.
+
+`src/app/(app)/error.tsx` catches a page that throws and keeps the header and footer around a retry screen.
+`src/app/global-error.tsx` does the same when the root layout itself fails.
+Both render `ErrorFallback`, which reports the error once through `reportError` in `src/lib/report-error.ts`.
+The contact form reports failed submissions the same way before it shows its error toast.
+
+### Why these dependencies
+
+Most runtime dependencies are the usual Next.js, React, Radix and Tailwind set.
+These are the less obvious ones and what each one backs.
+
+| Package | Used by |
+|---|---|
+| `fumadocs-core` | table of contents on the component docs pages |
+| `schema-dts` | types for the JSON-LD blocks on the home, project and docs pages |
+| `vcard-creator` | the `/vcard` contact card download |
+| `sharp` | converting the avatar to JPEG for the vCard photo |
+| `react-pdf` | the in-page resume viewer at `/resume` |
+| `libphonenumber-js` | formatting phone numbers in `src/utils/string.ts` |
+| `@ncdai/react-wheel-picker` | the published wheel picker registry component |
+| `jotai` | remembering the chosen package manager and install method across docs pages |
+| `cmdk` | the command menu |
+| `motion` | the hero, page transition and registry component animations |
+| `dayjs` and `date-fns` | dates in the pages and in the contribution graph |
 
 ## Deployment
 
