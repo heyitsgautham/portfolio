@@ -125,6 +125,7 @@ export function ResumePage() {
             size="icon"
             className="size-8 rounded-full text-white/80 hover:bg-white/10 hover:text-white"
             onClick={zoomOut}
+            aria-label="Zoom out"
           >
             <ZoomOutIcon className="size-3.5" />
           </Button>
@@ -136,6 +137,7 @@ export function ResumePage() {
             size="icon"
             className="size-8 rounded-full text-white/80 hover:bg-white/10 hover:text-white"
             onClick={zoomIn}
+            aria-label="Zoom in"
           >
             <ZoomInIcon className="size-3.5" />
           </Button>
