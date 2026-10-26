@@ -26,6 +26,7 @@ export default defineConfig({
         "src/features/profile/data/github-contributions.ts",
         "src/features/profile/lib/**",
         "src/app/(llms)/**",
+        "src/app/{sitemap,robots,manifest}.ts",
       ],
       reporter: ["text", "lcov"],
       thresholds: {
