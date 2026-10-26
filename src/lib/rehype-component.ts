@@ -5,7 +5,10 @@ import { u } from "unist-builder";
 import { visit } from "unist-util-visit";
 
 import { Index } from "@/__registry__/index";
+import { createLogger } from "@/lib/logger";
 import type { UnistNode, UnistTree } from "@/types/unist";
+
+const logger = createLogger("rehype-component");
 
 export function rehypeComponent() {
   // Thanks @shadcn/ui
@@ -93,7 +96,7 @@ export function rehypeComponent() {
             })
           );
         } catch (error) {
-          console.error(error);
+          logger.error("Could not inline the component source", { error });
         }
       }
 
@@ -144,7 +147,7 @@ export function rehypeComponent() {
             })
           );
         } catch (error) {
-          console.error(error);
+          logger.error("Could not inline the component source", { error });
         }
       }
     });

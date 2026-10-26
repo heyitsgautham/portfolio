@@ -48,7 +48,7 @@ describe("getGitHubContributions", () => {
     );
   });
 
-  it("falls back and warns outside production when fetch throws", async () => {
+  it("falls back and logs a structured warning when fetch throws", async () => {
     const warn = vi.spyOn(console, "warn").mockImplementation(() => {});
     mockFetch(async () => {
       throw new TypeError("network down");
@@ -57,9 +57,11 @@ describe("getGitHubContributions", () => {
     await expect(getGitHubContributions()).resolves.toEqual(
       fallback.contributions
     );
-    expect(warn).toHaveBeenCalledWith(
-      "Failed to load GitHub contributions",
-      expect.any(TypeError)
-    );
+    expect(warn).toHaveBeenCalledTimes(1);
+    expect(JSON.parse(warn.mock.calls[0][0] as string)).toMatchObject({
+      level: "warn",
+      scope: "github-contributions",
+      error: { name: "TypeError", message: "network down" },
+    });
   });
 });

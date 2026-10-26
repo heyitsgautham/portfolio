@@ -6,9 +6,12 @@ import sharp from "sharp";
 import VCard from "vcard-creator";
 
 import { USER } from "@/features/profile/data/user";
+import { createLogger } from "@/lib/logger";
 import { decodeEmail, decodePhoneNumber } from "@/utils/string";
 
 export const dynamic = "force-static";
+
+const logger = createLogger("vcard");
 
 export async function GET() {
   const card = new VCard();
@@ -72,7 +75,7 @@ async function convertImageToJpeg(imageBuffer: Buffer): Promise<Buffer> {
 
     return jpegBuffer;
   } catch (error) {
-    console.error("Error converting image to JPEG:", error);
+    logger.error("Could not convert the vCard photo to JPEG", { error });
     throw error;
   }
 }

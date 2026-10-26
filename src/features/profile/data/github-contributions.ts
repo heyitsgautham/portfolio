@@ -1,11 +1,14 @@
 import type { Activity } from "@/components/ui/contribution-graph";
 import { GITHUB_USERNAME } from "@/config/site";
+import { createLogger } from "@/lib/logger";
 
 import fallbackContributions from "./github-contributions.fallback.json";
 
 type GitHubContributionsResponse = {
   contributions: Activity[];
 };
+
+const logger = createLogger("github-contributions");
 
 const FALLBACK_CONTRIBUTIONS: Activity[] = Array.isArray(fallbackContributions)
   ? (fallbackContributions as Activity[])
@@ -44,9 +47,9 @@ export async function getGitHubContributions() {
 
     return data.contributions;
   } catch (error) {
-    if (process.env.NODE_ENV !== "production") {
-      console.warn("Failed to load GitHub contributions", error);
-    }
+    logger.warn("Failed to load GitHub contributions, using the fallback", {
+      error,
+    });
 
     return FALLBACK_CONTRIBUTIONS;
   }

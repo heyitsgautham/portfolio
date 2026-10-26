@@ -27,6 +27,7 @@ export default defineConfig({
         "src/features/profile/lib/**",
         "src/app/(llms)/**",
         "src/app/{sitemap,robots,manifest}.ts",
+        "src/app/vcard/**",
       ],
       reporter: ["text", "lcov"],
       thresholds: {
