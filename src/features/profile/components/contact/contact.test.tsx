@@ -153,6 +153,9 @@ describe("Contact", () => {
   });
 
   it("reports a network failure", async () => {
+    const consoleError = vi
+      .spyOn(console, "error")
+      .mockImplementation(() => {});
     vi.stubGlobal(
       "fetch",
       vi.fn(async () => {
@@ -170,6 +173,10 @@ describe("Contact", () => {
         "Failed to send message. Please try again later."
       )
     );
+    expect(JSON.parse(consoleError.mock.calls[0][0] as string)).toMatchObject({
+      context: { source: "contact-form" },
+      error: { name: "TypeError", message: "offline" },
+    });
   });
 
   it("refuses to send when the form endpoint is not configured", async () => {

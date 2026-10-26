@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/form";
 import { SOCIAL_LINKS } from "@/features/profile/data/social-links";
 import { USER } from "@/features/profile/data/user";
+import { reportError } from "@/lib/report-error";
 import { cn } from "@/lib/utils";
 
 import { Panel, PanelContent, PanelHeader, PanelTitle } from "../panel";
@@ -76,7 +77,8 @@ export function Contact() {
           result.message || "Something went wrong. Please try again."
         );
       }
-    } catch {
+    } catch (error) {
+      reportError(error, { source: "contact-form" });
       toast.error("Failed to send message. Please try again later.");
     }
   }

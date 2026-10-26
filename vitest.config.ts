@@ -28,6 +28,7 @@ export default defineConfig({
         "src/app/(llms)/**",
         "src/app/{sitemap,robots,manifest}.ts",
         "src/app/vcard/**",
+        "src/components/error-fallback.tsx",
       ],
       reporter: ["text", "lcov"],
       thresholds: {
