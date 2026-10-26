@@ -24,6 +24,8 @@ export default defineConfig({
         "src/components/ui/contribution-graph*.{ts,tsx}",
         "src/features/profile/components/contact/**",
         "src/features/profile/data/github-contributions.ts",
+        "src/features/profile/lib/**",
+        "src/app/(llms)/**",
       ],
       reporter: ["text", "lcov"],
       thresholds: {

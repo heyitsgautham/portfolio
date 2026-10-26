@@ -1,16 +1,11 @@
 import { CERTIFICATIONS } from "@/features/profile/data/certifications";
-
-const content = `# Certifications
-
-${CERTIFICATIONS.map((item) => `- [${item.title}](${item.credentialURL})`).join("\n")}
-`;
+import {
+  certificationsMarkdown,
+  markdownResponse,
+} from "@/features/profile/lib/llms-markdown";
 
 export const dynamic = "force-static";
 
 export async function GET() {
-  return new Response(content, {
-    headers: {
-      "Content-Type": "text/markdown;charset=utf-8",
-    },
-  });
+  return markdownResponse(certificationsMarkdown(CERTIFICATIONS));
 }

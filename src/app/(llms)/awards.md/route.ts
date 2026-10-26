@@ -1,16 +1,11 @@
 import { AWARDS } from "@/features/profile/data/awards";
-
-const content = `# Awards
-
-${AWARDS.map((item) => `## ${item.prize} | ${item.title}\n\n${item.description}`).join("\n\n")}
-`;
+import {
+  awardsMarkdown,
+  markdownResponse,
+} from "@/features/profile/lib/llms-markdown";
 
 export const dynamic = "force-static";
 
 export async function GET() {
-  return new Response(content, {
-    headers: {
-      "Content-Type": "text/markdown;charset=utf-8",
-    },
-  });
+  return markdownResponse(awardsMarkdown(AWARDS));
 }
