@@ -77,7 +77,7 @@ pnpm test:coverage   # run with a v8 coverage report in coverage/
 The suite uses Vitest with jsdom and React Testing Library.
 Tests sit next to the code they cover as `*.test.ts` or `*.test.tsx`.
 Coverage spans every module in `src/` except generated registry files, build scripts, type-only modules and the registry demo examples.
-`pnpm test:coverage` fails if statements or lines drop below 70%, branches below 65% or functions below 60%.
+`pnpm test:coverage` fails if statements or lines drop below 78%, branches below 75% or functions below 72%.
 `scripts/google-apps-script.test.ts` runs the contact form's Apps Script in a Node vm with stand-ins for the Google services.
 
 ## Checks
