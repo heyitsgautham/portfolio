@@ -11,6 +11,7 @@ import {
 import { Tag } from "@/components/ui/tag";
 import { SimpleTooltip } from "@/components/ui/tooltip";
 import { Prose } from "@/components/ui/typography";
+import { parseDescriptionBlocks } from "@/features/profile/lib/description-blocks";
 import { resolveSkill } from "@/features/profile/lib/skills";
 
 import type { ExperiencePosition } from "../../types/experiences";
@@ -78,46 +79,8 @@ export function ExperiencePositionItem({
           <div className="space-y-4 border-t border-border/50 bg-muted/20 p-4">
             {position.description && (
               <Prose>
-                {(() => {
-                  const lines = position.description
-                    .split("\n")
-                    .filter((line) => line.trim().length > 0);
-
-                  const blocks: Array<
-                    | { type: "heading"; text: string }
-                    | { type: "bullets"; items: string[][] }
-                  > = [];
-
-                  let currentBullets: string[][] = [];
-
-                  for (const line of lines) {
-                    const trimmed = line.trim();
-                    const headingMatch = trimmed.match(/^\*\*(.+?)\*\*$/);
-
-                    if (headingMatch) {
-                      // Flush any accumulated bullets
-                      if (currentBullets.length > 0) {
-                        blocks.push({ type: "bullets", items: currentBullets });
-                        currentBullets = [];
-                      }
-                      blocks.push({ type: "heading", text: headingMatch[1] });
-                    } else if (trimmed.startsWith("- ")) {
-                      // New bullet point
-                      currentBullets.push([trimmed.substring(2).trim()]);
-                    } else {
-                      // Continuation line (Shift+Enter): append to last bullet
-                      if (currentBullets.length > 0) {
-                        currentBullets[currentBullets.length - 1].push(trimmed);
-                      }
-                    }
-                  }
-
-                  // Flush remaining bullets
-                  if (currentBullets.length > 0) {
-                    blocks.push({ type: "bullets", items: currentBullets });
-                  }
-
-                  return blocks.map((block, i) => {
+                {parseDescriptionBlocks(position.description).map(
+                  (block, i) => {
                     if (block.type === "heading") {
                       return (
                         <p
@@ -143,8 +106,8 @@ export function ExperiencePositionItem({
                         ))}
                       </ul>
                     );
-                  });
-                })()}
+                  }
+                )}
               </Prose>
             )}
 
