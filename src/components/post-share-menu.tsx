@@ -31,6 +31,7 @@ export function PostShareMenu({ url }: { url: string }) {
           size="icon-sm"
         >
           <ShareIcon />
+          <span className="sr-only">Share</span>
         </Button>
       </DropdownMenuTrigger>
 

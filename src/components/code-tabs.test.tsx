@@ -78,4 +78,17 @@ describe("CodeCollapsibleWrapper", () => {
 
     expect(container.firstElementChild).toHaveAttribute("data-state", "open");
   });
+
+  it("names its icon toggle for screen readers", async () => {
+    const user = userEvent.setup();
+    const { container } = render(
+      <CodeCollapsibleWrapper>
+        <pre>long code</pre>
+      </CodeCollapsibleWrapper>
+    );
+
+    await user.click(screen.getByRole("button", { name: "Toggle code" }));
+
+    expect(container.firstElementChild).toHaveAttribute("data-state", "open");
+  });
 });

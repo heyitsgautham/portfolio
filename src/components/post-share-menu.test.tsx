@@ -12,7 +12,7 @@ import { PostShareMenu } from "./post-share-menu";
 async function openMenu(url: string) {
   const user = userEvent.setup();
   render(<PostShareMenu url={url} />);
-  await user.click(screen.getByRole("button"));
+  await user.click(screen.getByRole("button", { name: "Share" }));
   return user;
 }
 

@@ -62,10 +62,7 @@ describe("ComponentPreview", () => {
     await screen.findByRole("button", { name: "Demo button" });
     const before = mounts.count;
 
-    const replay = screen
-      .getAllByRole("button")
-      .find((b) => b.querySelector(".lucide-repeat"))!;
-    await user.click(replay);
+    await user.click(screen.getByRole("button", { name: "Replay" }));
 
     expect(mounts.count).toBe(before + 1);
   });

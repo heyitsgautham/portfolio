@@ -75,6 +75,7 @@ export function ComponentPreview({
                       onClick={() => setReplay((v) => v + 1)}
                     >
                       <RepeatIcon />
+                      <span className="sr-only">Replay</span>
                     </Button>
                   </SimpleTooltip>
                 )}
