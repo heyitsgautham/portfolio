@@ -25,49 +25,120 @@ var SPREADSHEET_NAME = "Portfolio Contact Submissions";
 
 // ——— DO NOT EDIT BELOW THIS LINE ———
 
+var FIELD_LIMITS = {
+  name: { min: 2, max: 200 },
+  email: { min: 3, max: 320 },
+  subject: { min: 3, max: 300 },
+  message: { min: 10, max: 10000 },
+};
+
+var EMAIL_PATTERN = /^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/;
+
+/**
+ * Checks a submission the same way the site's form does, since anyone can
+ * POST to this endpoint directly. Returns an error message, or null.
+ */
+function validateSubmission(data) {
+  if (!data || typeof data !== "object") {
+    return "Invalid submission.";
+  }
+
+  for (var field in FIELD_LIMITS) {
+    var value = data[field];
+    var limits = FIELD_LIMITS[field];
+    if (typeof value !== "string") {
+      return "Missing " + field + ".";
+    }
+    var length = value.trim().length;
+    if (length < limits.min || length > limits.max) {
+      return (
+        "The " + field + " must be " + limits.min + " to " + limits.max +
+        " characters."
+      );
+    }
+  }
+
+  if (!EMAIL_PATTERN.test(data.email.trim())) {
+    return "Please enter a valid email address.";
+  }
+
+  return null;
+}
+
+/** Escapes text for the HTML body of the notification email. */
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+/**
+ * Stops Google Sheets from reading a submitted value as a formula.
+ * appendRow treats text starting with =, +, - or @ as a formula.
+ */
+function sheetSafe(value) {
+  var text = String(value);
+  return /^[=+\-@\t\r]/.test(text) ? "'" + text : text;
+}
+
+function jsonResponse(body) {
+  return ContentService.createTextOutput(JSON.stringify(body)).setMimeType(
+    ContentService.MimeType.JSON
+  );
+}
+
 function doPost(e) {
   try {
     var postData = JSON.parse(e.postData.contents);
+
+    var problem = validateSubmission(postData);
+    if (problem) {
+      return jsonResponse({ status: "error", message: problem });
+    }
+
+    var name = postData.name.trim();
+    var email = postData.email.trim();
+    var subject = postData.subject.trim();
+    var message = postData.message.trim();
 
     // 1. Log to Google Sheet
     var sheet = getOrCreateSheet();
     sheet.appendRow([
       new Date(),
-      postData.name,
-      postData.email,
-      postData.subject,
-      postData.message,
+      sheetSafe(name),
+      sheetSafe(email),
+      sheetSafe(subject),
+      sheetSafe(message),
     ]);
 
     // 2. Send email notification
     MailApp.sendEmail({
       to: NOTIFICATION_EMAIL,
-      subject: "New Portfolio Contact: " + postData.subject,
+      subject: "New Portfolio Contact: " + subject.replace(/[\r\n]+/g, " "),
       htmlBody:
         "<h2>New Contact Form Submission</h2>" +
-        "<p><strong>Name:</strong> " + postData.name + "</p>" +
-        "<p><strong>Email:</strong> " + postData.email + "</p>" +
-        "<p><strong>Subject:</strong> " + postData.subject + "</p>" +
+        "<p><strong>Name:</strong> " + escapeHtml(name) + "</p>" +
+        "<p><strong>Email:</strong> " + escapeHtml(email) + "</p>" +
+        "<p><strong>Subject:</strong> " + escapeHtml(subject) + "</p>" +
         "<p><strong>Message:</strong></p>" +
-        "<p>" + postData.message.replace(/\n/g, "<br>") + "</p>",
-      replyTo: postData.email,
+        "<p>" + escapeHtml(message).replace(/\n/g, "<br>") + "</p>",
+      replyTo: email,
     });
 
-    return ContentService.createTextOutput(
-      JSON.stringify({ status: "success", message: "Message sent successfully" })
-    ).setMimeType(ContentService.MimeType.JSON);
-
+    return jsonResponse({
+      status: "success",
+      message: "Message sent successfully",
+    });
   } catch (error) {
-    return ContentService.createTextOutput(
-      JSON.stringify({ status: "error", message: error.toString() })
-    ).setMimeType(ContentService.MimeType.JSON);
+    return jsonResponse({ status: "error", message: error.toString() });
   }
 }
 
 function doGet() {
-  return ContentService.createTextOutput(
-    JSON.stringify({ status: "ok", message: "Contact form endpoint is live." })
-  ).setMimeType(ContentService.MimeType.JSON);
+  return jsonResponse({ status: "ok", message: "Contact form endpoint is live." });
 }
 
 function getOrCreateSheet() {

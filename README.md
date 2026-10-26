@@ -61,6 +61,8 @@ Every variable is optional.
 | `URL` | `pnpm capture`, the screenshot script | `http://localhost:1408` |
 
 To make the contact form send mail, deploy `scripts/google-apps-script.js` as a Google Apps Script web app and put its URL in `NEXT_PUBLIC_CONTACT_FORM_URL`.
+The script checks every field again, since anyone can POST to it directly, and escapes the values it writes to the sheet and the notification email.
+After changing the script, redeploy it from script.google.com, because the live endpoint runs the copy deployed there.
 The setup steps are in the comment at the top of that file.
 Next.js inlines `NEXT_PUBLIC_*` values at build time, so rebuild after changing it.
 

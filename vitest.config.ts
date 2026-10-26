@@ -13,7 +13,7 @@ export default defineConfig({
   test: {
     environment: "jsdom",
     setupFiles: ["./vitest.setup.ts"],
-    include: ["src/**/*.test.{ts,tsx}"],
+    include: ["src/**/*.test.{ts,tsx}", "scripts/**/*.test.ts"],
     restoreMocks: true,
     // The contact form tests type whole messages through userEvent, which
     // can pass 5s on a loaded runner while every test file runs in parallel.
