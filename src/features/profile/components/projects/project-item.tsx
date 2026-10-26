@@ -17,10 +17,10 @@ import { Tag } from "@/components/ui/tag";
 import { SimpleTooltip } from "@/components/ui/tooltip";
 import { Prose } from "@/components/ui/typography";
 import { UTM_PARAMS } from "@/config/site";
+import { resolveSkill } from "@/features/profile/lib/skills";
 import { cn } from "@/lib/utils";
 import { addQueryParams } from "@/utils/url";
 
-import { TECH_STACK } from "../../data/tech-stack";
 import type { Project } from "../../types/projects";
 
 export function ProjectItem({
@@ -126,15 +126,8 @@ export function ProjectItem({
             {project.skills.length > 0 && (
               <ul className="flex flex-wrap gap-1.5">
                 {project.skills.slice(0, 4).map((skill, index) => {
-                  const techItem = TECH_STACK.find(
-                    (item) =>
-                      item.title === skill ||
-                      item.displayName === skill ||
-                      item.key === skill.toLowerCase()
-                  );
-                  const iconKey = techItem?.key || skill.toLowerCase();
-                  const displayName =
-                    techItem?.displayName || techItem?.title || skill;
+                  const { techItem, iconKey, displayName } =
+                    resolveSkill(skill);
                   const icon = getIcon(iconKey);
 
                   return (
@@ -193,15 +186,8 @@ export function ProjectItem({
             {project.skills.length > 4 && (
               <ul className="flex flex-wrap gap-1.5">
                 {project.skills.slice(4).map((skill, index) => {
-                  const techItem = TECH_STACK.find(
-                    (item) =>
-                      item.title === skill ||
-                      item.displayName === skill ||
-                      item.key === skill.toLowerCase()
-                  );
-                  const iconKey = techItem?.key || skill.toLowerCase();
-                  const displayName =
-                    techItem?.displayName || techItem?.title || skill;
+                  const { techItem, iconKey, displayName } =
+                    resolveSkill(skill);
                   const icon = getIcon(iconKey);
 
                   return (

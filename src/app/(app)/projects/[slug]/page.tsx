@@ -10,7 +10,7 @@ import { Tag } from "@/components/ui/tag";
 import { SimpleTooltip } from "@/components/ui/tooltip";
 import { SITE_INFO } from "@/config/site";
 import { getProjectBySlug, PROJECTS } from "@/features/profile/data/projects";
-import { TECH_STACK } from "@/features/profile/data/tech-stack";
+import { resolveSkill } from "@/features/profile/lib/skills";
 import { cn } from "@/lib/utils";
 
 export function generateStaticParams() {
@@ -181,15 +181,7 @@ export default async function ProjectDetailPage({
         {/* Tech tags */}
         <div className="mt-4 flex flex-wrap gap-1.5">
           {project.skills.map((skill) => {
-            const techItem = TECH_STACK.find(
-              (item) =>
-                item.title === skill ||
-                item.displayName === skill ||
-                item.key === skill.toLowerCase()
-            );
-            const iconKey = techItem?.key || skill.toLowerCase();
-            const displayName =
-              techItem?.displayName || techItem?.title || skill;
+            const { iconKey, displayName } = resolveSkill(skill);
             const icon = getIcon(iconKey);
 
             return (

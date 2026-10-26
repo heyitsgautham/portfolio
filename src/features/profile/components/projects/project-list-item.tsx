@@ -13,9 +13,9 @@ import {
 import { Tag } from "@/components/ui/tag";
 import { SimpleTooltip } from "@/components/ui/tooltip";
 import { UTM_PARAMS } from "@/config/site";
+import { resolveSkill } from "@/features/profile/lib/skills";
 import { addQueryParams } from "@/utils/url";
 
-import { TECH_STACK } from "../../data/tech-stack";
 import type { Project } from "../../types/projects";
 
 export function ProjectListItem({
@@ -59,14 +59,7 @@ export function ProjectListItem({
                     <span>•</span>
                     <div className="flex flex-wrap items-center gap-1">
                       {displaySkills.map((skill, index) => {
-                        const techItem = TECH_STACK.find(
-                          (item) =>
-                            item.title === skill ||
-                            item.displayName === skill ||
-                            item.key === skill.toLowerCase()
-                        );
-                        const displayName =
-                          techItem?.displayName || techItem?.title || skill;
+                        const { displayName } = resolveSkill(skill);
 
                         return (
                           <React.Fragment key={index}>
@@ -124,15 +117,8 @@ export function ProjectListItem({
             {project.skills.length > 0 && (
               <ul className="flex flex-wrap gap-1.5">
                 {project.skills.map((skill, index) => {
-                  const techItem = TECH_STACK.find(
-                    (item) =>
-                      item.title === skill ||
-                      item.displayName === skill ||
-                      item.key === skill.toLowerCase()
-                  );
-                  const iconKey = techItem?.key || skill.toLowerCase();
-                  const displayName =
-                    techItem?.displayName || techItem?.title || skill;
+                  const { techItem, iconKey, displayName } =
+                    resolveSkill(skill);
                   const icon = getIcon(iconKey);
 
                   return (

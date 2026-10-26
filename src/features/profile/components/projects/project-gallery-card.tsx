@@ -7,9 +7,9 @@ import React, { useCallback, useLayoutEffect, useRef, useState } from "react";
 import { getIcon } from "@/components/icons";
 import { Tag } from "@/components/ui/tag";
 import { SimpleTooltip } from "@/components/ui/tooltip";
+import { resolveSkill } from "@/features/profile/lib/skills";
 import { cn } from "@/lib/utils";
 
-import { TECH_STACK } from "../../data/tech-stack";
 import type { Project } from "../../types/projects";
 
 /**
@@ -172,15 +172,7 @@ export function ProjectGalleryCard({
             )}
           >
             {project.skills.map((skill, index) => {
-              const techItem = TECH_STACK.find(
-                (item) =>
-                  item.title === skill ||
-                  item.displayName === skill ||
-                  item.key === skill.toLowerCase()
-              );
-              const iconKey = techItem?.key || skill.toLowerCase();
-              const displayName =
-                techItem?.displayName || techItem?.title || skill;
+              const { techItem, iconKey, displayName } = resolveSkill(skill);
               const icon = getIcon(iconKey);
 
               return (
